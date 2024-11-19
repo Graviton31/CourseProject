@@ -1,0 +1,14 @@
+# Visual Studio
+.vs/
+*.suo
+*.user
+
+# Build results
+bin/
+obj/
+
+# NuGet Packages
+packages/
+
+# ASP.NET specific
+appsettings*.json
