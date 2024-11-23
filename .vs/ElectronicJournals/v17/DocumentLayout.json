@@ -3,6 +3,22 @@
   "WorkspaceRootPath": "D:\\Files\\FilesARS\\\u041A\u041F\\CourseProject\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|d:\\files\\filesars\\\u043A\u043F\\courseproject\\electronicjournalsapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|solutionrelative:electronicjournalsapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|d:\\files\\filesars\\\u043A\u043F\\courseproject\\electronicjournalsapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|solutionrelative:electronicjournalsapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|d:\\files\\filesars\\\u043A\u043F\\courseproject\\electronicjournalsapi\\data\\electronicjournalcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|solutionrelative:electronicjournalsapi\\data\\electronicjournalcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\Files\\FilesARS\\\u041A\u041F\\CourseProject\\ElectronicJournalsApi\\Migrations\\20241123140110_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:ElectronicJournalsApi\\Migrations\\20241123140110_InitialCreate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\courseproject\\electronicjournalapp\\views\\shared\\_layout.cshtml.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
       "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\views\\shared\\_layout.cshtml.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
     },
@@ -66,15 +82,67 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": 9,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\CourseProject\\ElectronicJournalsApi\\appsettings.json",
+              "RelativeDocumentMoniker": "ElectronicJournalsApi\\appsettings.json",
+              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\CourseProject\\ElectronicJournalsApi\\appsettings.json",
+              "RelativeToolTip": "ElectronicJournalsApi\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-23T13:54:33.62Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ElectronicJournalContext.cs",
+              "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\CourseProject\\ElectronicJournalsApi\\Data\\ElectronicJournalContext.cs",
+              "RelativeDocumentMoniker": "ElectronicJournalsApi\\Data\\ElectronicJournalContext.cs",
+              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\CourseProject\\ElectronicJournalsApi\\Data\\ElectronicJournalContext.cs",
+              "RelativeToolTip": "ElectronicJournalsApi\\Data\\ElectronicJournalContext.cs",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAACUAAABWAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T14:02:39.43Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 3,
+              "Title": "20241123140110_InitialCreate.cs",
+              "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\CourseProject\\ElectronicJournalsApi\\Migrations\\20241123140110_InitialCreate.cs",
+              "RelativeDocumentMoniker": "ElectronicJournalsApi\\Migrations\\20241123140110_InitialCreate.cs",
+              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\CourseProject\\ElectronicJournalsApi\\Migrations\\20241123140110_InitialCreate.cs",
+              "RelativeToolTip": "ElectronicJournalsApi\\Migrations\\20241123140110_InitialCreate.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T14:01:10.371Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\CourseProject\\ElectronicJournalsApi\\Program.cs",
+              "RelativeDocumentMoniker": "ElectronicJournalsApi\\Program.cs",
+              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\CourseProject\\ElectronicJournalsApi\\Program.cs*",
+              "RelativeToolTip": "ElectronicJournalsApi\\Program.cs*",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABUAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-23T13:55:46.186Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "HomeController.cs",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\CourseProject\\ElectronicJournalApp\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "ElectronicJournalApp\\Controllers\\HomeController.cs",
@@ -82,12 +150,11 @@
               "RelativeToolTip": "ElectronicJournalApp\\Controllers\\HomeController.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAAB0AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-23T12:07:29.646Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-23T12:07:29.646Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 11,
               "Title": "launchSettings.json",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\CourseProject\\ElectronicJournalsApi\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "ElectronicJournalsApi\\Properties\\launchSettings.json",
@@ -99,7 +166,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 12,
               "Title": "launchSettings.json",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\CourseProject\\ElectronicJournalApp\\Properties\\launchSettings.json",
               "RelativeDocumentMoniker": "ElectronicJournalApp\\Properties\\launchSettings.json",
@@ -111,7 +178,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 13,
               "Title": "site.css",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\CourseProject\\ElectronicJournalApp\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "ElectronicJournalApp\\wwwroot\\css\\site.css",
@@ -123,7 +190,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "_ViewImports.cshtml",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\CourseProject\\ElectronicJournalApp\\Views\\_ViewImports.cshtml",
               "RelativeDocumentMoniker": "ElectronicJournalApp\\Views\\_ViewImports.cshtml",
@@ -135,7 +202,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\CourseProject\\ElectronicJournalApp\\Views\\Home\\Index.cshtml",
               "RelativeDocumentMoniker": "ElectronicJournalApp\\Views\\Home\\Index.cshtml",
@@ -147,7 +214,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 8,
               "Title": "Authorization.cshtml",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\CourseProject\\ElectronicJournalApp\\Views\\Users\\Authorization.cshtml",
               "RelativeDocumentMoniker": "ElectronicJournalApp\\Views\\Users\\Authorization.cshtml",
@@ -155,12 +222,11 @@
               "RelativeToolTip": "ElectronicJournalApp\\Views\\Users\\Authorization.cshtml",
               "ViewState": "AgIAAAYAAAAAAAAAAAAqwCAAAABOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-22T19:47:33.32Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-22T19:47:33.32Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 10,
               "Title": "ElectronicJournalApp.csproj",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\CourseProject\\ElectronicJournalApp\\ElectronicJournalApp.csproj",
               "RelativeDocumentMoniker": "ElectronicJournalApp\\ElectronicJournalApp.csproj",
@@ -172,12 +238,12 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 4,
               "Title": "_Layout.cshtml.css",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\CourseProject\\ElectronicJournalApp\\Views\\Shared\\_Layout.cshtml.css",
               "RelativeDocumentMoniker": "ElectronicJournalApp\\Views\\Shared\\_Layout.cshtml.css",
-              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\CourseProject\\ElectronicJournalApp\\Views\\Shared\\_Layout.cshtml.css*",
-              "RelativeToolTip": "ElectronicJournalApp\\Views\\Shared\\_Layout.cshtml.css*",
+              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\CourseProject\\ElectronicJournalApp\\Views\\Shared\\_Layout.cshtml.css",
+              "RelativeToolTip": "ElectronicJournalApp\\Views\\Shared\\_Layout.cshtml.css",
               "ViewState": "AgIAAAIAAAAAAAAAAAAkwCwAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
               "WhenOpened": "2024-11-22T19:39:21.265Z",
@@ -185,7 +251,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 5,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\CourseProject\\ElectronicJournalApp\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "ElectronicJournalApp\\Views\\Shared\\_Layout.cshtml",
@@ -193,12 +259,11 @@
               "RelativeToolTip": "ElectronicJournalApp\\Views\\Shared\\_Layout.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-22T19:34:22.601Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-22T19:34:22.601Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 9,
               "Title": "_ViewStart.cshtml",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\CourseProject\\ElectronicJournalApp\\Views\\_ViewStart.cshtml",
               "RelativeDocumentMoniker": "ElectronicJournalApp\\Views\\_ViewStart.cshtml",
@@ -206,12 +271,11 @@
               "RelativeToolTip": "ElectronicJournalApp\\Views\\_ViewStart.cshtml",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-11-22T19:30:51.04Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-22T19:30:51.04Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "Privacy.cshtml",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\CourseProject\\ElectronicJournalApp\\Views\\Home\\Privacy.cshtml",
               "RelativeDocumentMoniker": "ElectronicJournalApp\\Views\\Home\\Privacy.cshtml",
@@ -223,7 +287,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\CourseProject\\ElectronicJournalApp\\Program.cs",
               "RelativeDocumentMoniker": "ElectronicJournalApp\\Program.cs",
@@ -231,12 +295,11 @@
               "RelativeToolTip": "ElectronicJournalApp\\Program.cs",
               "ViewState": "AgIAAAkAAAAAAAAAAAAAAB8AAAA3AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-20T18:49:02.784Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-20T18:49:02.784Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "WeatherForecast.cs",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\CourseProject\\ElectronicJournalsApi\\WeatherForecast.cs",
               "RelativeDocumentMoniker": "ElectronicJournalsApi\\WeatherForecast.cs",
