@@ -1,8 +1,8 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using ElectronicJournalsApi.Models
+@model UserResponse
 @{
     ViewData["Title"] = "Авторизация";
+    Layout = null;
 }
 <html>
 <head>
@@ -11,30 +11,90 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/autorizationPage.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ElectronicJournalApp.styles.css" asp-append-version="true" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <style>
+
+    </style>
 </head>
 <body class="authorization-body">
     <div class="authorization-container">
-        <h2 class="text-center">Login</h2>
-        <form asp-action="Login" method="post">
-            <!-- Указываем действие и метод -->
+        <h2 class="text-center">Авторизация</h2>
+        <form id="Authorization">
             <div class="mb-3">
-                <label for="login" class="form-label">Login</label>
-                <input type="text" class="form-control" id="login" name="login" placeholder="Enter your login" required>
+                <label asp-for="Login" class="form-label"></label>
+                <input asp-for="Login" class="form-control" id="Login" placeholder="Введите ваш логин" />
+                <span asp-validation-for="Login" class="text-danger"></span>
             </div>
             <div class="mb-3">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="Enter your password" required>
+                <label asp-for="Password" class="form-label"></label>
+                <div class="input-group">
+                    <input asp-for="Password" class="form-control" id="Password" placeholder="Введите ваш пароль" type="password" />
+                    <button type="button" class="btn btn-outline-secondary" id="togglePassword">
+                        Показать
+                    </button>
+                </div>
+                <span asp-validation-for="Password" class="text-danger"></span>
             </div>
-            <div class="form-check mb-3">
+
+            <div class="mb-3 form-check">
                 <input type="checkbox" class="form-check-input" id="rememberMe" name="rememberMe">
-                <label class="form-check-label" for="rememberMe">Remember me</label>
+                <label class="form-check-label" for="rememberMe">Запомни меня</label>
             </div>
-            <button type="submit" class="btn btn-primary w-100">Login</button>
+            <button type="submit" class="btn btn-custom w-100">Войти</button>
         </form>
     </div>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $('#togglePassword').click(function () {
+                const passwordField = $('#Password');
+                const passwordFieldType = passwordField.attr('type');
+
+                if (passwordFieldType === 'password') {
+                    passwordField.attr('type', 'text');
+                    $(this).text('Скрыть');
+                } else {
+                    passwordField.attr('type', 'password');
+                    $(this).text('Показать');
+                }
+            });
+
+            $('#Authorization').submit(function (event) {
+                event.preventDefault(); // Предотвращаем стандартное поведение формы
+
+                var user = {
+                    Login: $('#Login').val(),
+                    Password: $('#Password').val()
+                };
+
+                $.ajax({
+                    url: 'https://localhost:7022/api/Users/Authorization', // URL вашего API
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(user),
+                    success: function (response) {
+                        alert(response.message); // Показываем сообщение об успешной авторизации
+
+                        // Создание cookie, если пользователь выбрал "Запомнить меня"
+                        if ($('#rememberMe').is(':checked')) {
+                            document.cookie = "UserLogin=" + encodeURIComponent(user.Login) + "; path=/; max-age=" + (30 * 24 * 60 * 60); // 30 дней
+                        } else {
+                            document.cookie = "UserLogin=" + encodeURIComponent(user.Login) + "; path=/"; // Временная кука
+                        }
+
+                        // Переход на страницу после успешной авторизации
+                        window.location.href = '/Home/Index';
+                    },
+                    error: function (xhr) {
+                        var message = xhr.responseJSON ? xhr.responseJSON.message : "Произошла ошибка на сервере";
+                        alert(message); // Показываем сообщение об ошибке
+                    }
+                });
+            });
+        });
+    </script>
 </body>
 </html>

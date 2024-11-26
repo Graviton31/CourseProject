@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ElectronicJournalApi.Migrations
 {
     [DbContext(typeof(ElectronicJournalContext))]
-    [Migration("20241123140110_InitialCreate")]
+    [Migration("20241126193433_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

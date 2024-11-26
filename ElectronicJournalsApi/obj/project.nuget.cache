@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "08cVck2jY3U=",
+  "dgSpecHash": "D7u0JA6MMYI=",
   "success": true,
-  "projectFilePath": "D:\\Files\\FilesARS\\КП\\CourseProject\\ElectronicJournalsApi\\ElectronicJournalApi.csproj",
+  "projectFilePath": "D:\\Files\\FilesARS\\КП\\Project\\CourseProject\\ElectronicJournalsApi\\ElectronicJournalApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Graviton\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\Graviton\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

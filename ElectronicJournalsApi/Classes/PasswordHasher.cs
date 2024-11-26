@@ -25,7 +25,7 @@ namespace ElectronicJournalApi.Classes
             return saltedPassword.ToString();
         }
 
-        public static string HashPassword(string password, string username)
+        public static byte[] HashPassword(string password, string username)
         {
             // Генерируем соль
             string saltedPassword = GenerateSaltedPassword(password, username);
@@ -33,20 +33,17 @@ namespace ElectronicJournalApi.Classes
             // Хешируем с помощью SHA256
             using (SHA256 sha256 = SHA256.Create())
             {
-                byte[] bytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(saltedPassword));
-                StringBuilder builder = new StringBuilder();
-
-                return builder.ToString();
+                return sha256.ComputeHash(Encoding.UTF8.GetBytes(saltedPassword));
             }
         }
 
-        public static bool VerifyPassword(string enteredPassword, string username, string storedHash)
+        public static bool VerifyPassword(string enteredPassword, string username, byte[] storedHash)
         {
             // Хешируем введенный пароль с использованием того же логина
-            string hashedEnteredPassword = HashPassword(enteredPassword, username);
+            byte[] hashedEnteredPassword = HashPassword(enteredPassword, username);
 
             // Сравниваем хеши
-            return hashedEnteredPassword.Equals(storedHash, StringComparison.OrdinalIgnoreCase);
+            return hashedEnteredPassword.SequenceEqual(storedHash);
         }
     }
 }
