@@ -297,6 +297,9 @@ namespace ElectronicJournalApi.Migrations
                         .HasColumnType("date")
                         .HasColumnName("birth_date");
 
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<string>("Login")
                         .IsRequired()
                         .HasMaxLength(20)

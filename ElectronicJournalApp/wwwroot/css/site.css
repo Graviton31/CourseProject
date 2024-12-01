@@ -20,4 +20,14 @@ html {
 body {
     background-color: #EDFCF5;
     color: #1A1D27;
+    font-family: 'Roboto', sans-serif;
 }
+
+.btn-custom {
+    background-color: #1B9AAA;
+    color: #fff;
+}
+
+    .btn-custom:hover {
+        background-color: #F7911D;
+    }

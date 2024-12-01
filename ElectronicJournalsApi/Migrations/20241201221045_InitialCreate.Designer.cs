@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ElectronicJournalApi.Migrations
 {
     [DbContext(typeof(ElectronicJournalContext))]
-    [Migration("20241126193433_InitialCreate")]
+    [Migration("20241201221045_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -299,6 +299,9 @@ namespace ElectronicJournalApi.Migrations
                     b.Property<DateOnly?>("BirthDate")
                         .HasColumnType("date")
                         .HasColumnName("birth_date");
+
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("tinyint(1)");
 
                     b.Property<string>("Login")
                         .IsRequired()

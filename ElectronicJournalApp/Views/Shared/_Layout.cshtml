@@ -1,57 +1,137 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"></link>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - ElectronicJournalApp</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/ElectronicJournalApp.styles.css" asp-append-version="true" />
+    <style>
+        .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+            box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+        }
+
+        html {
+            position: relative;
+            min-height: 100%;
+        }
+
+        body {
+            background-color: #EDFCF5;
+            color: #1A1D27;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .btn-custom {
+            background-color: #1B9AAA;
+            color: #fff;
+        }
+
+            .btn-custom:hover {
+                background-color: #F7911D;
+            }
+
+        .logo {
+            width: 40px; /* Ширина логотипа */
+            height: auto; /* Автоматическая высота */
+            margin-right: 10px; /* Отступ справа от логотипа */
+        }
+
+        .dropdown-menu-custom {
+            background-color: white;
+            color: #1A1D27;
+            right: 0;
+            left: auto;
+        }
+
+            .dropdown-menu-custom a {
+                color: #1A1D27; /* Цвет текста ссылок */
+                text-decoration: none; /* Убираем подчеркивание */
+            }
+
+                .dropdown-menu-custom a:hover {
+                    background-color: #F7911D; /* Цвет фона при наведении */
+                    color: white; /* Цвет текста при наведении */
+                }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            margin-left: auto; /* Сдвигаем контейнер вправо */
+        }
+    </style>
 </head>
 <body>
     <header>
-        <nav class="navbar">
-            <a class="navbar-brand" href="#">
-                Электронный журнал
-            </a>
-            <div class="d-flex">
-                <div class="nav-item">
-                    <a class="nav-link" href="#">
-                        Главная
-                    </a>
+        <nav class="navbar d-flex justify-content-between align-items-center">
+            <div class="d-flex align-items-center">
+                <img src="path/to/logo.png" alt="Логотип" class="logo"> <!-- Добавьте путь к вашему логотипу -->
+                <a class="navbar-brand" href="#">
+                    Электронный журнал
+                </a>
+            </div>
+            <div class="nav-container">
+                <div class="d-flex">
+                    <div class="nav-item">
+                        <a class="nav-link" href="#">
+                            Главная
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="nav-link" href="#">
+                            Журнал
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="nav-link" href="#">
+                            Ученики
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="nav-link" href="#">
+                            Расписание
+                        </a>
+                    </div>
                 </div>
-                <div class="nav-item">
-                    <a class="nav-link" href="#">
-                        Журнал
-                    </a>
-                </div>
-                <div class="nav-item">
-                    <a class="nav-link" href="#">
-                        Ученики
-                    </a>
-                </div>
-                <div class="nav-item">
-                    <a class="nav-link" href="#">
-                        Расписание
-                    </a>
+            </div>
+            <div class="align-item-center justify-item-center">
+                <div class="flex justify-end">
+                    <div class="relative inline-block text-left">
+                        <button class="btn-custom px-4 py-2 rounded-md flex items-center" id="dropdownMenuButton" aria-expanded="true" aria-haspopup="true">
+                            <i class="fas fa-user mr-2"></i> @Context.Request.Cookies["UserLogin"]
+                        </button>
+                        <div class="dropdown-menu-custom absolute mt-2 w-48 rounded-md shadow-lg z-10 hidden" role="menu" aria-orientation="vertical" aria-labelledby="dropdownMenuButton">
+                            <div class="py-1" role="none">
+                                <a href="#" class="block px-4 py-2 text-sm" role="menuitem">Роль: @Context.Request.Cookies["UserRole"]</a>
+                                <div class="border-t border-gray-700"></div>
+                                <a href="#" class="block px-4 py-2 text-sm" role="menuitem">Выйти</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
     </header>
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - ElectronicJournalApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+    <script>
+        document.getElementById('dropdownMenuButton').addEventListener('click', function () {
+            var dropdown = this.nextElementSibling;
+            dropdown.classList.toggle('hidden');
+        });
+    </script>
     @await RenderSectionAsync("Scripts", required: false)
+
 </body>
 </html>
+

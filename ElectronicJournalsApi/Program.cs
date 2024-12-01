@@ -28,7 +28,6 @@ builder.Services.AddDbContext<ElectronicJournalContext>(options =>
 
 var app = builder.Build();
 
-// Примените миграции и создайте стандартного пользователя
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -37,23 +36,8 @@ using (var scope = app.Services.CreateScope())
         var context = services.GetRequiredService<ElectronicJournalContext>();
         context.Database.Migrate(); // Применение миграций
 
-        var defaultUserConfig = builder.Configuration.GetSection("DefaultUser");
-        string login = defaultUserConfig["Login"];
-        string password = defaultUserConfig["Password"];
-
-        // Создание стандартного пользователя
-        if (!context.Users.Any(u => u.Login == login)) // Проверка на существование
-        {
-            var defaultUser = new User
-            {
-                Login = login,
-                Password = PasswordHasher.HashPassword(password, login), 
-                Role = "администратор"
-            };
-
-            context.Users.Add(defaultUser);
-            context.SaveChanges();
-        }
+        // Вызов метода для создания пользователей
+        UserSeeder.CreateDefaultUsers(context, builder.Configuration);
     }
     catch (Exception ex)
     {
@@ -79,3 +63,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+

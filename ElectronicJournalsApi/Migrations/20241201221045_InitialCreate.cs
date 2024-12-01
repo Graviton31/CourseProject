@@ -99,7 +99,8 @@ namespace ElectronicJournalApi.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     birth_date = table.Column<DateOnly>(type: "date", nullable: true),
                     role = table.Column<string>(type: "enum('администратор','руководитель','учитель')", nullable: false, collation: "utf8mb4_0900_ai_ci")
-                        .Annotation("MySql:CharSet", "utf8mb4")
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    IsDelete = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
                 {
