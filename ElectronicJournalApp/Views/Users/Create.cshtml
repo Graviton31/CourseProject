@@ -36,9 +36,6 @@
             background-color: #f8d7da;
             color: #721c24;
         }
-        .required {
-            color: red; /* Обозначение обязательности */
-        }
         .mb-2 {
             margin-bottom: 0.5rem; /* Уменьшение расстояния между полями */
         }
@@ -51,35 +48,35 @@
             <form id="createUserForm">
                 <div class="mb-2">
                     <label for="surname" class="block text-secondary font-semibold mb-1">Фамилия </label>
-                    <input type="text" id="surname" name="surname" class="shadow appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none focus:shadow-outline">
+                    <input type="text" id="surname" name="surname" class="appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none">
                 </div>
                 <div class="mb-2">
                     <label for="name" class="block text-secondary font-semibold mb-1">Имя </label>
-                    <input type="text" id="name" name="name" class="shadow appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none focus:shadow-outline">
+                    <input type="text" id="name" name="name" class="appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none">
                 </div>
                 <div class="mb-2">
                     <label for="patronymic" class="block text-secondary font-semibold mb-1">Отчество</label>
-                    <input type="text" id="patronymic" name="patronymic" class="shadow appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none focus:shadow-outline">
+                    <input type="text" id="patronymic" name="patronymic" class="appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none">
                 </div>
                 <div class="mb-2">
                     <label for="login" class="block text-secondary font-semibold mb-1">Логин <span class="required">*</span></label>
-                    <input type="text" id="login" name="login" class="shadow appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none focus:shadow-outline" required>
+                    <input type="text" id="login" name="login" class="appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none" required>
                 </div>
                 <div class="mb-2">
                     <label for="password" class="block text-secondary font-semibold mb-1">Пароль <span class="required">*</span></label>
-                    <input type="password" id="password" name="password" class="shadow appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none focus:shadow-outline" required>
+                    <input type="password" id="password" name="password" class="appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none" required>
                 </div>
                 <div class="mb-2">
                     <label for="phone" class="block text-secondary font-semibold mb-1">Телефон</label>
-                                        <input type="text" id="phone" name="phone" class="shadow appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none focus:shadow-outline">
+                                        <input type="text" id="phone" name="phone" class="appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none">
                 </div>
                 <div class="mb-2">
                     <label for="birthdate" class="block text-secondary font-semibold mb-1">Дата рождения</label>
-                    <input type="date" id="birthdate" name="birthdate" class="shadow appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none focus:shadow-outline">
+                    <input type="date" id="birthdate" name="birthdate" class="appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none ">
                 </div>
                 <div class="mb-4">
                     <label for="role" class="block text-secondary font-semibold mb-1">Роль <span class="required">*</span></label>
-                    <select id="role" name="role" class="shadow appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none focus:shadow-outline" required>
+                    <select id="role" name="role" class="appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none" required>
                         <option value="">Выберите роль</option>
                         <!-- Роли будут загружены сюда -->
                     </select>
@@ -149,12 +146,16 @@
             validationErrors.push('Неверный формат номера телефона.');
         }
 
-        // Проверка даты рождения (должна быть в прошлом)
-            if (formData.UserDto.BirthDate >= new Date()) {
-            validationErrors.push('Невверно указана дата рождения.');
+              // Проверка даты рождения (должна быть в прошлом)
+        const currentDate = new Date();
+        if (formData.UserDto.BirthDate) {
+          const birthDate = new Date(formData.UserDto.BirthDate);
+          if (birthDate > currentDate) {
+            validationErrors.push('Дата рождения не может быть в будущем.');
+          }
         }
 
-        // Проверка длины пароля (например, минимум 6 символов)
+              // Проверка длины пароля (например, минимум 6 символов)
             if (formData.UserDto.PasswordString && formData.UserDto.PasswordString.length < 6) {
             validationErrors.push('Пароль должен содержать минимум 6 символов.');
         }
@@ -185,10 +186,9 @@
                     document.getElementById('createUserForm').reset();
             } else {
                 const errorResponse = await response.json();
-                console.error('Ошибка от сервера:', errorResponse);
-                showAlert(errorResponse.Message || 'Ошибка при создании пользователя.', 'error');
+                    console.error('Ошибка от сервера:', errorResponse);
+                    showAlert(errorResponse.Message || errorResponse.message, 'error');
             }
-
         }
         catch (error) {
             console.error('Error:', error);

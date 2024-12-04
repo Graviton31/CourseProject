@@ -31,3 +31,7 @@ body {
     .btn-custom:hover {
         background-color: #F7911D;
     }
+
+.required {
+    color: red; /* Обозначение обязательности */
+}

@@ -68,7 +68,7 @@
     <header>
         <nav class="navbar d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center">
-                <img src="path/to/logo.png" alt="Логотип" class="logo"> <!-- Добавьте путь к вашему логотипу -->
+                <img src="path/to/logo.png" alt="Логотип" class="logo"> <!-- Добавьте путь к логотипу -->
                 <a class="navbar-brand" href="#">
                     Электронный журнал
                 </a>
@@ -128,6 +128,16 @@
         document.getElementById('dropdownMenuButton').addEventListener('click', function () {
             var dropdown = this.nextElementSibling;
             dropdown.classList.toggle('hidden');
+        });
+
+                document.querySelectorAll('.dropdown-menu-custom a[role="menuitem"]')[1].addEventListener('click', function() {
+            // Удаление cookie
+            document.cookie = "UserLogin=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "UserPassword=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            document.cookie = "UserRole=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+
+            // Переход на страницу авторизации
+            window.location.href = "/Users/Authorization";
         });
     </script>
     @await RenderSectionAsync("Scripts", required: false)
