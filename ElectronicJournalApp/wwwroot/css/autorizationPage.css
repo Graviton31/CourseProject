@@ -11,3 +11,7 @@
     background-color: #1B9AAA;
     border-color: #1B9AAA;
 }
+
+.btn-outline-secondary {
+    min-width: 100px; 
+}
