@@ -1,7 +1,9 @@
 ﻿using ElectronicJournalsApi.Data;
+using ElectronicJournalsApi.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json;
 
 namespace ElectronicJournalApi.Controllers
 {
@@ -16,35 +18,123 @@ namespace ElectronicJournalApi.Controllers
             _context = context;
         }
 
-        [HttpGet("teacher/{login}")]
-        public IActionResult GetSubjectsByTeacher(string login)
-        {
-            var teacher = _context.Users.FirstOrDefault(u => u.Login == login);
-            if (teacher == null)
+            [HttpGet("{id}/Groups")]
+            public async Task<ActionResult<IEnumerable<Group>>> GetGroupsBySubjectId(int id)
             {
-                return NotFound(); // Учитель не найден
+                var groups = await _context.Groups
+                    .Where(g => g.IdSubject == id)
+                    .ToListAsync();
+
+                if (groups == null || !groups.Any())
+                {
+                    return NotFound(new { Message = "Группы не найдены." });
+                }
+
+                return Ok(groups);
             }
 
-            var subjectsWithGroups = _context.Subjects
-                .Include(s => s.Groups)
-                .Where(s => s.IdUsers.Any(u => u.IdUsers == teacher.IdUsers))
-                .Select(s => new
+            [HttpPut("UpdateSubject")]
+            public async Task<ActionResult<Subject>> UpdateSubject([FromBody] SubjectUpdateDto subjectUpdateDto)
+            {
+                Console.WriteLine($"Received Subject Update: {JsonConvert.SerializeObject(subjectUpdateDto)}");
+
+                try
                 {
-                    s.Name,
-                    s.Description,
-                    Groups = s.Groups.Select(g => new
+                    // Находим предмет по Id
+                    var subject = await _context.Subjects
+                        .Include(s => s.Groups)
+                        .FirstOrDefaultAsync(s => s.IdSubject == subjectUpdateDto.IdSubject);
+
+                    if (subject == null)
                     {
-                        g.Name,
-                        g.IdGroup // Добавляем IdGroup в выборку
-                    })
+                        return NotFound(new { Message = "Предмет не найден." });
+                    }
+
+                    // Обновляем данные предмета
+                    subject.Name = subjectUpdateDto.Name;
+                    subject.FullName = subjectUpdateDto.FullName;
+                    subject.Description = subjectUpdateDto.Description;
+                    subject.Duration = subjectUpdateDto.Duration;
+                    subject.LessonLenght = subjectUpdateDto.LessonLenght;
+                    subject.LessonsCount = subjectUpdateDto.LessonsCount;
+
+                    // Обновляем группы
+                    subject.Groups.Clear(); // Удаляем старые группы
+                    foreach (var group in subjectUpdateDto.Groups)
+                    {
+                        var newGroup = new Group
+                        {
+                            Name = group.Name,
+                            IdUsers = group.UserId // Предполагается, что UserId - это Id учителя
+                        };
+                        subject.Groups.Add(newGroup);
+                    }
+
+                    await _context.SaveChangesAsync();
+
+                    return Ok(new { Subject = subject.Name, Message = "Предмет успешно обновлен." });
+                }
+                catch (DbUpdateException dbEx)
+                {
+                    Console.Error.WriteLine($"Database update error: {dbEx.Message}");
+                    return StatusCode(500, new { Message = "Ошибка при сохранении данных предмета. Пожалуйста, попробуйте еще раз.", InnerException = dbEx.InnerException?.Message });
+                }
+                catch (Exception ex)
+                {
+                    Console.Error.WriteLine($"An error occurred: {ex.Message}");
+                    return StatusCode(500, new { Message = "Произошла непредвиденная ошибка. Пожалуйста, попробуйте еще раз." });
+                }
+            }
+
+        // GET: api/Subjects
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<Subject>>> GetSubjects()
+        {
+            return await _context.Subjects.Where(j => !j.IsDelete).ToListAsync();
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<Subject>> GetSubjectById(int id)
+        {
+            var subject = await _context.Subjects.FindAsync(id);
+
+            if (subject == null)
+            {
+                return NotFound(new { Message = "Предмет не найден." });
+            }
+
+            return Ok(subject);
+        }
+
+        [HttpGet("teacher/{login}")]
+        public async Task<IActionResult> GetSubjectsByTeacher(string login)
+        {
+            // Получаем предметы, связанные с учителем по логину
+            var subjectsWithGroups = await _context.Subjects
+                .Include(s => s.Groups)
+                .Where(s => s.IdUsers.Any(u => u.Login == login))
+                .Select(s => new SubjectDto
+                {
+                    Name = s.Name,
+                    Description = s.Description,
+                    Groups = s.Groups.Select(g => new GroupDto
+                    {
+                        Name = g.Name,
+                        IdGroup = g.IdGroup
+                    }).ToList()
                 })
-                .ToList();
+                .ToListAsync();
+
+            if (!subjectsWithGroups.Any())
+            {
+                return NotFound(); // Если предметы не найдены
+            }
 
             return Ok(subjectsWithGroups);
         }
 
-		[HttpGet("group/{id}")]
-		public IActionResult GetStudentsByGroup(int id, int pageNumber = 1, int pageSize = 10)
+        [HttpGet("group/{id}")]
+		public IActionResult GetStudentsByGroup(int id)
 		{
 			var group = _context.Groups
 				.Include(g => g.IdStudents)
@@ -74,22 +164,71 @@ namespace ElectronicJournalApi.Controllers
 					.ToList()
 			}).ToList();
 
-			// Пагинация студентов
-			var totalCount = students.Count(); // Общее количество студентов
-			var paginatedStudents = students.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList(); // Пагинация
-
 			// Получаем уникальные даты уроков
-			var lessonDates = paginatedStudents.SelectMany(s => s.Journals.Select(j => j.LessonDate)).Distinct().ToList();
+			var lessonDates = students.SelectMany(s => s.Journals.Select(j => j.LessonDate)).Distinct().ToList();
 
 			return Ok(new
 			{
-				Students = paginatedStudents,
+				Students = students,
 				LessonDates = lessonDates,
-				TotalCount = totalCount,
-				PageNumber = pageNumber,
-				PageSize = pageSize,
-				TotalPages = (int)Math.Ceiling(totalCount / (double)pageSize) // Общее количество страниц
 			});
 		}
-	}
+
+        [HttpPost("PostSubject")]
+        public async Task<ActionResult<Subject>> PostSubject([FromBody] Subject subject)
+        {
+            Console.WriteLine($"Received Subject: {JsonConvert.SerializeObject(subject)}");
+
+            try
+            {
+                // Добавляем предмет в контекст
+                _context.Subjects.Add(subject);
+                await _context.SaveChangesAsync();
+
+                return Ok(new { Subject = subject.Name, Message = "Предмет успешно создан." });
+            }
+            catch (DbUpdateException dbEx)
+            {
+                Console.Error.WriteLine($"Database update error: {dbEx.Message}");
+                return StatusCode(500, new { Message = "Ошибка при сохранении данных предмета. Пожалуйста, попробуйте еще раз.", InnerException = dbEx.InnerException?.Message });
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine($"An error occurred: {ex.Message}");
+                return StatusCode(500, new { Message = "Произошла непредвиденная ошибка. Пожалуйста, попробуйте еще раз." });
+            }
+        }
+
+        // DTO классы
+        public class SubjectDto
+        {
+            public string Name { get; set; }
+            public string? Description { get; set; }
+            public List<GroupDto> Groups { get; set; }
+        }
+
+        public class GroupDto
+        {
+            public string Name { get; set; }
+            public int IdGroup { get; set; }
+        }
+
+        public class SubjectUpdateDto
+        {
+            public int IdSubject { get; set; }
+            public string Name { get; set; }
+            public string FullName { get; set; }
+            public string? Description { get; set; }
+            public sbyte Duration { get; set; }
+            public sbyte LessonLenght { get; set; }
+            public sbyte LessonsCount { get; set; }
+            public List<GroupUpdateDto> Groups { get; set; } = new List<GroupUpdateDto>();
+        }
+
+        public class GroupUpdateDto
+        {
+            public string Name { get; set; }
+            public int UserId { get; set; } // Идентификатор учителя
+        }
+    }
 }

@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/autorizationPage.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/ElectronicJournalApp.styles.css" asp-append-version="true" />
+   @*  <link rel="stylesheet" href="~/ElectronicJournalApp.styles.css" asp-append-version="true" /> *@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/site.js"></script>
 </head>
@@ -54,7 +54,7 @@
                 if (role === "администратор") {
                     window.location.href = '/Users/Index';
                 } else if (role === "руководитель") {
-                    window.location.href = 'Home/Index';
+                    window.location.href = 'Subjects/Index';
                 } else {
                     window.location.href = 'AttendanceJournal/Index';
                 }
@@ -99,7 +99,7 @@
                         if (response.role === "администратор") {
                             window.location.href = '/Users/Index'; // Переход для администраторов
                         } else if (response.role === "руководитель") {
-                            window.location.href = 'Home/Index'; // Переход для обычных пользователей
+                            window.location.href = 'Subjects/Index'; // Переход для обычных пользователей
                         } else {
                             window.location.href = 'AttendanceJournal/Index'; // Переход по умолчанию
                         }

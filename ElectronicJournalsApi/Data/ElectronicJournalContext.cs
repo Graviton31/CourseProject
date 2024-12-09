@@ -226,7 +226,7 @@ public partial class ElectronicJournalContext : DbContext
             entity.Property(e => e.Name)
                 .HasMaxLength(20)
                 .HasColumnName("name");
-
+            entity.Property(e => e.IsDelete).HasColumnName("is_delete");
             entity.HasMany(d => d.IdUsers).WithMany(p => p.IdSubjects)
                 .UsingEntity<Dictionary<string, object>>(
                     "SubjectsHasUser",
