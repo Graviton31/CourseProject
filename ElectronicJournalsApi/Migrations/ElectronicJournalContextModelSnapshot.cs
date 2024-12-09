@@ -88,6 +88,10 @@ namespace ElectronicJournalApi.Migrations
                         .HasColumnType("int")
                         .HasColumnName("id_unvisited_status");
 
+                    b.Property<DateOnly?>("LessonDate")
+                        .HasColumnType("date")
+                        .HasColumnName("lesson_date");
+
                     b.HasKey("IdJournal")
                         .HasName("PRIMARY");
 
@@ -298,7 +302,8 @@ namespace ElectronicJournalApi.Migrations
                         .HasColumnName("birth_date");
 
                     b.Property<bool>("IsDelete")
-                        .HasColumnType("tinyint(1)");
+                        .HasColumnType("tinyint(1)")
+                        .HasColumnName("is_delete");
 
                     b.Property<string>("Login")
                         .IsRequired()

@@ -56,7 +56,7 @@
                 } else if (role === "руководитель") {
                     window.location.href = 'Home/Index';
                 } else {
-                    window.location.href = 'Home/Privacy';
+                    window.location.href = 'AttendanceJournal/Index';
                 }
             }
 
@@ -101,7 +101,7 @@
                         } else if (response.role === "руководитель") {
                             window.location.href = 'Home/Index'; // Переход для обычных пользователей
                         } else {
-                            window.location.href = 'Home/Privacy'; // Переход по умолчанию
+                            window.location.href = 'AttendanceJournal/Index'; // Переход по умолчанию
                         }
 
                         // Создание cookie, если пользователь выбрал "Запомнить меня"

@@ -1,0 +1,52 @@
+﻿.highlight {
+    background-color: #F7911D; /* Цвет выделения */
+}
+
+.group-list {
+    display: none; /* Скрываем группы по умолчанию */
+}
+
+    .group-list.active {
+        display: block; /* Показываем группы, когда они активны */
+    }
+
+.btn-cancel {
+    background-color: #1A1D27;
+    color: white;
+}
+
+    .btn-cancel:hover {
+        background-color: #1B9AAA;
+    }
+
+.btn-save {
+    background-color: #F7911D;
+    color: white;
+}
+
+    .btn-save:hover {
+        background-color: #1B9AAA;
+    }
+
+/* Стили для модального окна */
+.modal {
+    display: block;
+    position: fixed;
+    z-index: 50;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+}

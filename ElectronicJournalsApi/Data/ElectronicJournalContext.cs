@@ -88,6 +88,7 @@ public partial class ElectronicJournalContext : DbContext
             entity.HasIndex(e => e.IdUnvisitedStatus, "fk_journals_unvisited_statuses1_idx");
 
             entity.Property(e => e.IdJournal).HasColumnName("id_journal");
+            entity.Property(e => e.LessonDate).HasColumnName("lesson_date");
             entity.Property(e => e.IdGroup).HasColumnName("id_group");
             entity.Property(e => e.IdStudent).HasColumnName("id_student");
             entity.Property(e => e.IdUnvisitedStatus).HasColumnName("id_unvisited_status");
@@ -294,6 +295,7 @@ public partial class ElectronicJournalContext : DbContext
             entity.Property(e => e.Surname)
                 .HasMaxLength(20)
                 .HasColumnName("surname");
+            entity.Property(e => e.IsDelete).HasColumnName("is_delete");
         });
 
         OnModelCreatingPartial(modelBuilder);

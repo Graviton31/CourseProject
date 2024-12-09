@@ -100,7 +100,7 @@ namespace ElectronicJournalApi.Migrations
                     birth_date = table.Column<DateOnly>(type: "date", nullable: true),
                     role = table.Column<string>(type: "enum('администратор','руководитель','учитель')", nullable: false, collation: "utf8mb4_0900_ai_ci")
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    IsDelete = table.Column<bool>(type: "tinyint(1)", nullable: false)
+                    is_delete = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -171,6 +171,7 @@ namespace ElectronicJournalApi.Migrations
                 {
                     id_journal = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    lesson_date = table.Column<DateOnly>(type: "date", nullable: true),
                     id_group = table.Column<int>(type: "int", nullable: false),
                     id_student = table.Column<int>(type: "int", nullable: false),
                     id_unvisited_status = table.Column<int>(type: "int", nullable: false)
