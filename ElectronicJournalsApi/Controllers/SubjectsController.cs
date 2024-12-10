@@ -33,58 +33,90 @@ namespace ElectronicJournalApi.Controllers
                 return Ok(groups);
             }
 
-            [HttpPut("UpdateSubject")]
-            public async Task<ActionResult<Subject>> UpdateSubject([FromBody] SubjectUpdateDto subjectUpdateDto)
+        [HttpPut("UpdateSubject")]
+        public async Task<ActionResult<Subject>> UpdateSubject([FromBody] SubjectUpdateDto subjectUpdateDto)
+        {
+            Console.WriteLine($"Received Subject Update: {JsonConvert.SerializeObject(subjectUpdateDto)}");
+
+            if (!ModelState.IsValid)
             {
-                Console.WriteLine($"Received Subject Update: {JsonConvert.SerializeObject(subjectUpdateDto)}");
-
-                try
-                {
-                    // Находим предмет по Id
-                    var subject = await _context.Subjects
-                        .Include(s => s.Groups)
-                        .FirstOrDefaultAsync(s => s.IdSubject == subjectUpdateDto.IdSubject);
-
-                    if (subject == null)
-                    {
-                        return NotFound(new { Message = "Предмет не найден." });
-                    }
-
-                    // Обновляем данные предмета
-                    subject.Name = subjectUpdateDto.Name;
-                    subject.FullName = subjectUpdateDto.FullName;
-                    subject.Description = subjectUpdateDto.Description;
-                    subject.Duration = subjectUpdateDto.Duration;
-                    subject.LessonLenght = subjectUpdateDto.LessonLenght;
-                    subject.LessonsCount = subjectUpdateDto.LessonsCount;
-
-                    // Обновляем группы
-                    subject.Groups.Clear(); // Удаляем старые группы
-                    foreach (var group in subjectUpdateDto.Groups)
-                    {
-                        var newGroup = new Group
-                        {
-                            Name = group.Name,
-                            IdUsers = group.UserId // Предполагается, что UserId - это Id учителя
-                        };
-                        subject.Groups.Add(newGroup);
-                    }
-
-                    await _context.SaveChangesAsync();
-
-                    return Ok(new { Subject = subject.Name, Message = "Предмет успешно обновлен." });
-                }
-                catch (DbUpdateException dbEx)
-                {
-                    Console.Error.WriteLine($"Database update error: {dbEx.Message}");
-                    return StatusCode(500, new { Message = "Ошибка при сохранении данных предмета. Пожалуйста, попробуйте еще раз.", InnerException = dbEx.InnerException?.Message });
-                }
-                catch (Exception ex)
-                {
-                    Console.Error.WriteLine($"An error occurred: {ex.Message}");
-                    return StatusCode(500, new { Message = "Произошла непредвиденная ошибка. Пожалуйста, попробуйте еще раз." });
-                }
+                var errorMessages = string.Join(", ", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage));
+                Console.Error.WriteLine($"Validation errors: {errorMessages}");
+                return BadRequest(new { Message = "Ошибка в данных запроса.", Errors = errorMessages });
             }
+
+            try
+            {
+                // Находим предмет по Id
+                var subject = await _context.Subjects
+                    .Include(s => s.Groups)
+                    .FirstOrDefaultAsync(s => s.IdSubject == subjectUpdateDto.IdSubject);
+
+                if (subject == null)
+                {
+                    return NotFound(new { Message = "Предмет не найден." });
+                }
+
+                // Обновляем данные предмета
+                subject.Name = subjectUpdateDto.Name;
+                subject.FullName = subjectUpdateDto.FullName;
+                subject.Description = subjectUpdateDto.Description ?? string.Empty; // Устанавливаем пустую строку, если Description равен null
+                subject.Duration = subjectUpdateDto.Duration;
+                subject.LessonLenght = subjectUpdateDto.LessonLenght;
+                subject.LessonsCount = subjectUpdateDto.LessonsCount;
+
+                // Обновляем группы
+                var existingGroupIds = subject.Groups.Select(g => g.IdGroup).ToList();
+                var groupsToAdd = subjectUpdateDto.Groups.Where(g => !existingGroupIds.Contains(int.Parse(g.IdGroup))).ToList();
+                var groupsToUpdate = subject.Groups.Where(g => subjectUpdateDto.Groups.Any(dto => int.Parse(dto.IdGroup) == g.IdGroup)).ToList();
+                var groupsToDelete = subject.Groups.Where(g => !subjectUpdateDto.Groups.Any(dto => int.Parse(dto.IdGroup) == g.IdGroup)).ToList();
+
+                // Добавляем новые группы
+                foreach (var group in groupsToAdd)
+                {
+                    var newGroup = new Group
+                    {
+                        Name = group.Name,
+                        StudentCount = group.StudentCount,
+                        Classroom = group.Classroom,
+                        IdUsers = group.IdUsers,
+                        IdSubject = subject.IdSubject
+                    };
+                    subject.Groups.Add(newGroup);
+                }
+
+                // Обновляем существующие группы
+                foreach (var group in groupsToUpdate)
+                {
+                    var updatedGroup = subjectUpdateDto.Groups.First(g => int.Parse(g.IdGroup) == group.IdGroup);
+                    group.Name = updatedGroup.Name;
+                    group.StudentCount = updatedGroup.StudentCount;
+                    group.Classroom = updatedGroup.Classroom;
+                    group.IdUsers = updatedGroup.IdUsers;
+                }
+
+                // Удаляем группы, которые больше не присутствуют
+                foreach (var group in groupsToDelete)
+                {
+                    subject.Groups.Remove(group);
+                }
+
+                await _context.SaveChangesAsync();
+
+                return Ok(new { Subject = subject.Name, Message = "Предмет успешно обновлен." });
+            }
+            catch (DbUpdateException dbEx)
+            {
+                Console.Error.WriteLine($"Database update error: {dbEx.Message}");
+                return StatusCode(500, new { Message = "Ошибка при сохранении данных предмета. Пожалуйста, попробуйте еще раз.", InnerException = dbEx.InnerException?.Message });
+            }
+            catch (Exception ex)
+            {
+                Console.Error.WriteLine($"An error occurred: {ex.Message}");
+                return StatusCode(500, new { Message = "Произошла непредвиденная ошибка. Пожалуйста, попробуйте еще раз." });
+            }
+        }
+
 
         // GET: api/Subjects
         [HttpGet]
@@ -227,8 +259,14 @@ namespace ElectronicJournalApi.Controllers
 
         public class GroupUpdateDto
         {
-            public string Name { get; set; }
-            public int UserId { get; set; } // Идентификатор учителя
+            public string IdGroup { get; set; } = null!;
+            public string Name { get; set; } = null!;
+
+            public sbyte? StudentCount { get; set; }
+
+            public string Classroom { get; set; } = null!;
+
+            public int IdUsers { get; set; }
         }
     }
 }

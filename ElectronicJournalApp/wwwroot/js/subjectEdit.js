@@ -35,7 +35,7 @@
             showAlert(validationErrors.join(' '), 'error');
             return;
         }
-
+        console.log(formData)
         try {
             const response = await fetch(`https://localhost:7022/api/Subjects/UpdateSubject`, {
                 method: 'PUT',
@@ -64,7 +64,7 @@
 });
 
 // Функция для добавления поля группы
-function addGroupField(groupName = '', studentCount = '', classroom = '', userId = '') {
+function addGroupField(groupName = '', studentCount = 0, classroom = '', userId = '') {
     const groupsContainer = document.getElementById('groupsContainer');
     const groupDiv = document.createElement('div');
     groupDiv.className = 'group mb-2';
@@ -98,12 +98,16 @@ function addGroupField(groupName = '', studentCount = '', classroom = '', userId
 // Функция для загрузки пользователей
 async function loadUsers(selectElement, selectedUserId = '') {
     try {
-        const response = await fetch('https://localhost:7022/api/Users'); // Предполагается, что у вас есть API для получения пользователей
+        const response = await fetch('https://localhost:7022/api/Users/teachers'); // Предполагается, что у вас есть API для получения пользователей
         const users = await response.json();
         users.forEach(user => {
             const option = document.createElement('option');
-            option.value = user.IdUsers;
-            option.textContent = `${user.Surname} ${user.Name}`;
+            option.value = user.idUsers;
+            if (user.surname === null && user.name === null) {
+                option.textContent = user.login; // Выводим логин пользователя, если имя и фамилия равны null
+            } else {
+                option.textContent = `${user.surname} ${user.name} ${user.patronymic}`;
+            }
             if (user.IdUsers === selectedUserId) {
                 option.selected = true; // Устанавливаем выбранного пользователя
             }
@@ -178,7 +182,7 @@ async function loadGroups(subjectId) {
         // Проверяем, есть ли группы
         if (groups.length > 0) {
             groups.forEach(group => {
-                addGroupField(group.Name, group.StudentCount, group.Classroom, group.IdUsers);
+                addGroupField(group.name, group.studentCount, group.classroom, group.idUsers);
             });
         } else {
             // Если групп нет, можно добавить одно поле для добавления новой группы
@@ -188,3 +192,4 @@ async function loadGroups(subjectId) {
         console.error('Ошибка при загрузке групп:', error);
     }
 }
+

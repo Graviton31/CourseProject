@@ -26,6 +26,13 @@ namespace ElectronicJournalApi.Controllers
             return await _context.Users.Where(u => !u.IsDelete).ToListAsync();
         }
 
+        // GET: api/teacher
+        [HttpGet("teachers")]
+        public async Task<ActionResult<IEnumerable<User>>> GetTeachers()
+        {
+            return await _context.Users.Where(u => !u.IsDelete && u.Role == "учитель").ToListAsync();
+        }
+
         // GET: api/Users/5
         [HttpGet("{id}")]
         public async Task<ActionResult<User>> GetUser(int id)

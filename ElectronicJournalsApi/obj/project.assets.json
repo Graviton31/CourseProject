@@ -6690,23 +6690,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Graviton\\.nuget\\packages\\": {},
+    "C:\\Users\\0109-01\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Files\\FilesARS\\КП\\test\\CourseProject\\ElectronicJournalsApi\\ElectronicJournalApi.csproj",
+      "projectUniqueName": "V:\\ispp11\\КП\\CourseProject\\ElectronicJournalsApi\\ElectronicJournalApi.csproj",
       "projectName": "ElectronicJournalApi",
-      "projectPath": "D:\\Files\\FilesARS\\КП\\test\\CourseProject\\ElectronicJournalsApi\\ElectronicJournalApi.csproj",
-      "packagesPath": "C:\\Users\\Graviton\\.nuget\\packages\\",
-      "outputPath": "D:\\Files\\FilesARS\\КП\\test\\CourseProject\\ElectronicJournalsApi\\obj\\",
+      "projectPath": "V:\\ispp11\\КП\\CourseProject\\ElectronicJournalsApi\\ElectronicJournalApi.csproj",
+      "packagesPath": "C:\\Users\\0109-01\\.nuget\\packages\\",
+      "outputPath": "V:\\ispp11\\КП\\CourseProject\\ElectronicJournalsApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Graviton\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\0109-01\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -6732,8 +6732,9 @@
       "restoreAuditProperties": {
         "enableAudit": "true",
         "auditLevel": "low",
-        "auditMode": "direct"
-      }
+        "auditMode": "all"
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -6781,8 +6782,20 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.404/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.100/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1903",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "У пакета \"System.Text.Json\" 7.0.3 есть известная уязвимость https://github.com/advisories/GHSA-hh2w-p6rv-4g7w (уровень серьезности: высокий)",
+      "libraryId": "System.Text.Json",
+      "targetGraphs": [
+        "net8.0"
+      ]
+    }
+  ]
 }
