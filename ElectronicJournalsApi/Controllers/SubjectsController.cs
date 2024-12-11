@@ -19,20 +19,20 @@ namespace ElectronicJournalApi.Controllers
             _context = context;
         }
 
-            [HttpGet("{id}/Groups")]
-            public async Task<ActionResult<IEnumerable<Group>>> GetGroupsBySubjectId(int id)
+        [HttpGet("{id}/Groups")]
+        public async Task<ActionResult<IEnumerable<Group>>> GetGroupsBySubjectId(int id)
+        {
+            var groups = await _context.Groups
+                .Where(g => g.IdSubject == id)
+                .ToListAsync();
+
+            if (groups == null || !groups.Any())
             {
-                var groups = await _context.Groups
-                    .Where(g => g.IdSubject == id)
-                    .ToListAsync();
-
-                if (groups == null || !groups.Any())
-                {
-                    return NotFound(new { Message = "Группы не найдены." });
-                }
-
-                return Ok(groups);
+                return NotFound(new { Message = "Группы не найдены." });
             }
+
+            return Ok(groups);
+        }
 
         [HttpPut("UpdateSubject")]
         public async Task<ActionResult<Subject>> UpdateSubject([FromBody] SubjectUpdateDto subjectUpdateDto)
@@ -68,9 +68,21 @@ namespace ElectronicJournalApi.Controllers
 
                 // Обновляем группы
                 var existingGroupIds = subject.Groups.Select(g => g.IdGroup).ToList();
-                var groupsToAdd = subjectUpdateDto.Groups.Where(g => !g.IdGroup.HasValue).ToList(); // Новые группы без IdGroup
-                var groupsToUpdate = subject.Groups.Where(g => subjectUpdateDto.Groups.Any(dto => dto.IdGroup == g.IdGroup)).ToList();
-                var groupsToDelete = subject.Groups.Where(g => !subjectUpdateDto.Groups.Any(dto => dto.IdGroup == g.IdGroup)).ToList();
+                var groupsToUpdate = subjectUpdateDto.Groups.Where(g => g.IdGroup > 0).ToList(); // Группы для обновления
+                var groupsToAdd = subjectUpdateDto.Groups.Where(g => g.IdGroup <= 0).ToList(); // Группы для добавления
+
+                // Обновляем существующие группы
+                foreach (var updatedGroup in groupsToUpdate)
+                {
+                    var existingGroup = subject.Groups.FirstOrDefault(g => g.IdGroup == updatedGroup.IdGroup);
+                    if (existingGroup != null)
+                    {
+                        existingGroup.Name = updatedGroup.Name;
+                        existingGroup.StudentCount = updatedGroup.StudentCount;
+                        existingGroup.Classroom = updatedGroup.Classroom;
+                        existingGroup.IdUsers = updatedGroup.IdUsers;
+                    }
+                }
 
                 // Добавляем новые группы
                 foreach (var group in groupsToAdd)
@@ -86,21 +98,6 @@ namespace ElectronicJournalApi.Controllers
                     subject.Groups.Add(newGroup);
                 }
 
-                // Обновляем существующие группы
-                foreach (var group in groupsToUpdate)
-                {
-                    var updatedGroup = subjectUpdateDto.Groups.First(g => g.IdGroup == group.IdGroup);
-                    group.Name = updatedGroup.Name;
-                    group.StudentCount = updatedGroup.StudentCount;
-                    group.Classroom = updatedGroup.Classroom;
-                    group.IdUsers = updatedGroup.IdUsers;
-                }
-
-                // Удаляем группы, которые больше не присутствуют
-                foreach (var group in groupsToDelete)
-                {
-                    subject.Groups.Remove(group);
-                }
 
                 await _context.SaveChangesAsync();
 

@@ -25,18 +25,30 @@
             const studentCount = parseInt(groupElement.querySelector('.studentCount').value);
             const classroom = groupElement.querySelector('.classroom').value;
             const userId = groupElement.querySelector('.userSelect').value;
-
-            // Убираем IdGroup из объекта группы
-            formData.Groups.push({ Name: groupName, StudentCount: studentCount, Classroom: classroom, IdUsers: userId });
+            console.log("сбор 1", groupElement.querySelector('.idGroup').value)
+            const idGroup = groupElement.querySelector('.idGroup').value; // Получаем IdGroup
+            console.log("сбор 2", groupElement.querySelector('.idGroup').value)
+            // Создаем объект группы
+            const groupData = {
+                Name: groupName,
+                StudentCount: studentCount,
+                Classroom: classroom,
+                IdUsers: userId,
+                IdGroup: idGroup !== 0 ? idGroup : null // Устанавливаем IdGroup в null, если оно равно 0
+            };
+            console.log(groupData)
+            formData.Groups.push(groupData);
         });
 
+
+        console.log(formData)
         // Дополнительные проверки данных
         const validationErrors = validateForm(formData);
         if (validationErrors.length > 0) {
             showAlert(validationErrors.join(' '), 'error');
             return;
         }
-        console.log(formData.Groups);
+
         try {
             const response = await fetch(`https://localhost:7022/api/Subjects/UpdateSubject`, {
                 method: 'PUT',
@@ -49,8 +61,6 @@
             if (response.ok) {
                 const result = await response.json();
                 showAlert(result.Message || 'Предмет успешно обновлен.', 'success');
-                document.getElementById('editSubjectForm').reset();
-                location.reload();
             } else {
                 const errorResponse = await response.json();
                 showAlert(errorResponse.Message || errorResponse.message, 'error');
@@ -61,23 +71,22 @@
     });
 
     document.getElementById('addGroupButton').addEventListener('click', function () {
-        addGroupField(); // Убираем передачу idGroup, так как оно будет автоинкрементным
+        addGroupField();
     });
 });
 
-// Функция для добавления поля группы
-function addGroupField(groupName = '', studentCount = 0, classroom = '', userId = '') {
+function addGroupField(groupName = '', studentCount = '', classroom = '', userId = '', idGroup = 0) {
+    console.log(idGroup)
     const groupsContainer = document.getElementById('groupsContainer');
     const groupDiv = document.createElement('div');
     groupDiv.className = 'group mb-2';
-
     groupDiv.innerHTML = `
         <div class="mb-2">
             <label class="block text-secondary font-semibold mb-1">Название группы <span class="required">*</span></label>
             <input type="text" class="groupName appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none" value="${groupName}" required>
         </div>
         <div class="mb-2">
-            <label class="block text-secondary font-semibold mb-1">Количество студентов<span class="required">*</span></label>
+                        <label class="block text-secondary font-semibold mb-1">Количество студентов<span class="required">*</span></label>
             <input type="number" class="studentCount appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none" value="${studentCount}" required>
         </div>
         <div class="mb-2">
@@ -86,11 +95,12 @@ function addGroupField(groupName = '', studentCount = 0, classroom = '', userId 
         </div>
         <div class="mb-2">
             <label class="block text-secondary font-semibold mb-1">Учитель<span class="required">*</span></label>
-                        <select class="userSelect appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none">
+            <select class="userSelect appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none">
                 <option value="">Выберите учителя</option>
                 <!-- Здесь будут динамически загружены пользователи -->
             </select>
         </div>
+        <input type="hidden" class="idGroup" value="${idGroup}"> <!-- Скрытое поле для IdGroup -->
     `;
 
     groupsContainer.appendChild(groupDiv);
@@ -141,7 +151,9 @@ function validateForm(formData) {
     }
 
     // Проверка на наличие группы
-    if (formData.Groups.length !== 0) {
+    if (formData.Groups.length === 0) {
+        errors.push('Необходимо добавить хотя бы одну группу.');
+    } else {
         formData.Groups.forEach((group, index) => {
             if (!group.Name) {
                 errors.push(`Название группы ${index + 1} обязательно для заполнения.`);
@@ -183,13 +195,16 @@ async function loadGroups(subjectId) {
         if (groups.length > 0) {
             document.getElementById('groupsHeader').style.display = 'block'; // Показываем заголовок
             groups.forEach(group => {
-                addGroupField(group.name, group.studentCount, group.classroom, group.idUsers); // Убираем idGroup, так как оно не передается
+                addGroupField(group.name, group.studentCount, group.classroom, group.idUsers, group.idGroup);
+                console.log(group.idGroup)
             });
         } else {
             document.getElementById('groupsHeader').style.display = 'none'; // Скрываем заголовок, если групп нет
         }
     } catch (error) {
         console.error('Ошибка при загрузке групп:', error);
+        showAlert('Не удалось загрузить группы. Пожалуйста, попробуйте позже.', 'error');
     }
 }
+
 

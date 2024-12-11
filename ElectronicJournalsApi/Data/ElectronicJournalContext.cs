@@ -125,9 +125,7 @@ public partial class ElectronicJournalContext : DbContext
             entity.Property(e => e.StartTime)
                 .HasColumnType("time")
                 .HasColumnName("start_time");
-            entity.Property(e => e.WeekDay)
-                .HasColumnType("enum('Пн','Вт','Ср','Чт','Пт','Сб')")
-                .HasColumnName("week_day");
+            entity.Property(e => e.WeekDay).HasColumnName("week_day");
 
             entity.HasOne(d => d.IdGroupNavigation).WithMany(p => p.Schedules)
                 .HasForeignKey(d => d.IdGroup)
