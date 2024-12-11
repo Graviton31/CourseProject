@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Edit Subject</title>
+    <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/Create.css" asp-append-version="true" />
@@ -46,21 +46,50 @@
                     <input type="number" id="lessonsCount" name="lessonsCount" class="appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none" value="@Model.LessonsCount" required>
                 </div>
 
-                <h3 id="groupsHeader" class="text-3xl font-bold mb-6 text-center text-secondary" style="display: none;">Группы</h3>
-                <div id="groupsContainer"></div>
-                <button type="button" id="addGroupButton" class="btn btn-custom mb-4">Добавить группу</button>
+                <h3 id="groupsHeader" class="text-3xl font-bold mb-6 text-center text-secondary">Группы</h3>
+                <div id="groupsContainer">
+                    @if (Model.Groups != null && Model.Groups.Any())
+                    {
+                        foreach (var group in Model.Groups)
+                        {
+                            <div class="group mb-2">
+                                <div class="mb-2">
+                                    <label class="block text-secondary font-semibold mb-1">Название группы</label>
+                                    <input type="text" class="groupName appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none" value="@group.Name" readonly>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="block text-secondary font-semibold mb-1">Количество студентов</label>
+                                    <input type="number" class="studentCount appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none" value="@group.StudentCount" readonly>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="block text-secondary font-semibold mb-1">Класс</label>
+                                    <input type="text" class="classroom appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none" value="@group.Classroom" readonly>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="block text-secondary font-semibold mb-1">Учитель</label>
+                                    <input type="text" class="teacher appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none"
+                                           value="@(!string.IsNullOrEmpty(group.IdUsersNavigation.Surname) && !string.IsNullOrEmpty(group.IdUsersNavigation.Name)
+                                                    ? $"{group.IdUsersNavigation.Surname} {group.IdUsersNavigation.Name} {group.IdUsersNavigation.Patronymic}"
+                                                    : group.IdUsersNavigation.Login)"
+                                           readonly>
+                                </div>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <p class="text-center text-secondary">Нет групп для отображения.</p>
+                    }
+                </div>
 
-                <div id="alert" class="alert mt-4"></div>
+                <div id="alert" class="alert mt-4" style="display: none;"></div>
                 <div class="flex items-center justify-between">
-                    <button type="submit" class="tn btn-custom text-white px-4 py-2 rounded">
-                        Сохранить
-                    </button>
                     <a href="/Subjects/Index" class="inline-block align-baseline font-bold text-sm text-accent hover:text-primary">
                         Вернуться к списку
                     </a>
-                </div
+                </div>
             </form>
         </div>
     </div>
     <script src="~/js/subjectEdit.js"></script>
-</body>
+</body>                   

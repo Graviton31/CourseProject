@@ -36,12 +36,12 @@ namespace ElectronicJournalApi.Controllers
         [HttpPut("UpdateSubject")]
         public async Task<ActionResult<Subject>> UpdateSubject([FromBody] SubjectUpdateDto subjectUpdateDto)
         {
-            Console.WriteLine($"Received Subject Update: {JsonConvert.SerializeObject(subjectUpdateDto)}");
+            Console.WriteLine($"\n\n\n\nReceived Subject Update: {JsonConvert.SerializeObject(subjectUpdateDto)}");
 
             if (!ModelState.IsValid)
             {
                 var errorMessages = string.Join(", ", ModelState.Values.SelectMany(v => v.Errors).Select(e => e.ErrorMessage));
-                Console.Error.WriteLine($"Validation errors: {errorMessages}");
+                Console.Error.WriteLine($"\n\n\n\n\nValidation errors: {errorMessages}");
                 return BadRequest(new { Message = "Ошибка в данных запроса.", Errors = errorMessages });
             }
 
@@ -60,16 +60,16 @@ namespace ElectronicJournalApi.Controllers
                 // Обновляем данные предмета
                 subject.Name = subjectUpdateDto.Name;
                 subject.FullName = subjectUpdateDto.FullName;
-                subject.Description = subjectUpdateDto.Description ?? string.Empty; // Устанавливаем пустую строку, если Description равен null
+                subject.Description = subjectUpdateDto.Description;
                 subject.Duration = subjectUpdateDto.Duration;
                 subject.LessonLenght = subjectUpdateDto.LessonLenght;
                 subject.LessonsCount = subjectUpdateDto.LessonsCount;
 
                 // Обновляем группы
                 var existingGroupIds = subject.Groups.Select(g => g.IdGroup).ToList();
-                var groupsToAdd = subjectUpdateDto.Groups.Where(g => !existingGroupIds.Contains(int.Parse(g.IdGroup))).ToList();
-                var groupsToUpdate = subject.Groups.Where(g => subjectUpdateDto.Groups.Any(dto => int.Parse(dto.IdGroup) == g.IdGroup)).ToList();
-                var groupsToDelete = subject.Groups.Where(g => !subjectUpdateDto.Groups.Any(dto => int.Parse(dto.IdGroup) == g.IdGroup)).ToList();
+                var groupsToAdd = subjectUpdateDto.Groups.Where(g => !g.IdGroup.HasValue).ToList(); // Новые группы без IdGroup
+                var groupsToUpdate = subject.Groups.Where(g => subjectUpdateDto.Groups.Any(dto => dto.IdGroup == g.IdGroup)).ToList();
+                var groupsToDelete = subject.Groups.Where(g => !subjectUpdateDto.Groups.Any(dto => dto.IdGroup == g.IdGroup)).ToList();
 
                 // Добавляем новые группы
                 foreach (var group in groupsToAdd)
@@ -88,7 +88,7 @@ namespace ElectronicJournalApi.Controllers
                 // Обновляем существующие группы
                 foreach (var group in groupsToUpdate)
                 {
-                    var updatedGroup = subjectUpdateDto.Groups.First(g => int.Parse(g.IdGroup) == group.IdGroup);
+                    var updatedGroup = subjectUpdateDto.Groups.First(g => g.IdGroup == group.IdGroup);
                     group.Name = updatedGroup.Name;
                     group.StudentCount = updatedGroup.StudentCount;
                     group.Classroom = updatedGroup.Classroom;
@@ -116,7 +116,6 @@ namespace ElectronicJournalApi.Controllers
                 return StatusCode(500, new { Message = "Произошла непредвиденная ошибка. Пожалуйста, попробуйте еще раз." });
             }
         }
-
 
         // GET: api/Subjects
         [HttpGet]
@@ -254,12 +253,13 @@ namespace ElectronicJournalApi.Controllers
             public sbyte Duration { get; set; }
             public sbyte LessonLenght { get; set; }
             public sbyte LessonsCount { get; set; }
-            public List<GroupUpdateDto> Groups { get; set; } = new List<GroupUpdateDto>();
+            public List<GroupUpdateDto>? Groups { get; set; } = new List<GroupUpdateDto>();
         }
 
         public class GroupUpdateDto
         {
-            public string IdGroup { get; set; } = null!;
+            public int? IdGroup { get; set; } 
+
             public string Name { get; set; } = null!;
 
             public sbyte? StudentCount { get; set; }

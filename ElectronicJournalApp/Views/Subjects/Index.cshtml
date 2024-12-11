@@ -49,6 +49,9 @@
                                     <td class="text-center">@Html.DisplayFor(modelItem => item.LessonLenght)</td>
                                     <td class="text-center">@Html.DisplayFor(modelItem => item.LessonsCount)</td>
                                     <td class="text-center">
+                                                <button title="Информация" class="btn btn-info btn-sm mx-1 btn-icon" onclick="window.location.href='/Subjects/Details/@item.IdSubject'">
+                                            <i class="fas fa-info-circle"></i>
+                                        </button>
                                         <button title="Редактировать" class="btn btn-edit btn-sm mx-1 btn-icon" onclick="window.location.href='/Subjects/Edit/@item.IdSubject'">
                                             <i class="fas fa-edit"></i>
                                         </button>

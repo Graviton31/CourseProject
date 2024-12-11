@@ -15,7 +15,6 @@
             Duration: parseInt(document.getElementById('duration').value),
             LessonLenght: parseInt(document.getElementById('lessonLength').value),
             LessonsCount: parseInt(document.getElementById('lessonsCount').value),
-            IsDelete: false,
             Groups: [] // Массив для групп
         };
 
@@ -26,7 +25,9 @@
             const studentCount = parseInt(groupElement.querySelector('.studentCount').value);
             const classroom = groupElement.querySelector('.classroom').value;
             const userId = groupElement.querySelector('.userSelect').value;
-            formData.Groups.push({ Name: groupName, StudentCount: studentCount, Classroom: classroom, UserId: userId });
+
+            // Убираем IdGroup из объекта группы
+            formData.Groups.push({ Name: groupName, StudentCount: studentCount, Classroom: classroom, IdUsers: userId });
         });
 
         // Дополнительные проверки данных
@@ -35,7 +36,7 @@
             showAlert(validationErrors.join(' '), 'error');
             return;
         }
-        console.log(formData)
+        console.log(formData.Groups);
         try {
             const response = await fetch(`https://localhost:7022/api/Subjects/UpdateSubject`, {
                 method: 'PUT',
@@ -49,6 +50,7 @@
                 const result = await response.json();
                 showAlert(result.Message || 'Предмет успешно обновлен.', 'success');
                 document.getElementById('editSubjectForm').reset();
+                location.reload();
             } else {
                 const errorResponse = await response.json();
                 showAlert(errorResponse.Message || errorResponse.message, 'error');
@@ -59,7 +61,7 @@
     });
 
     document.getElementById('addGroupButton').addEventListener('click', function () {
-        addGroupField();
+        addGroupField(); // Убираем передачу idGroup, так как оно будет автоинкрементным
     });
 });
 
@@ -75,16 +77,16 @@ function addGroupField(groupName = '', studentCount = 0, classroom = '', userId 
             <input type="text" class="groupName appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none" value="${groupName}" required>
         </div>
         <div class="mb-2">
-            <label class="block text-secondary font-semibold mb-1">Количество студентов</label>
-            <input type="number" class="studentCount appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none" value="${studentCount}">
+            <label class="block text-secondary font-semibold mb-1">Количество студентов<span class="required">*</span></label>
+            <input type="number" class="studentCount appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none" value="${studentCount}" required>
         </div>
         <div class="mb-2">
-            <label class="block text-secondary font-semibold mb-1">Класс</label>
-            <input type="text" class="classroom appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none" value="${classroom}">
+            <label class="block text-secondary font-semibold mb-1">Класс<span class="required">*</span></label>
+            <input type="text" class="classroom appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none" value="${classroom}" required>
         </div>
         <div class="mb-2">
-            <label class="block text-secondary font-semibold mb-1">Учитель</label>
-            <select class="userSelect appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none">
+            <label class="block text-secondary font-semibold mb-1">Учитель<span class="required">*</span></label>
+                        <select class="userSelect appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none">
                 <option value="">Выберите учителя</option>
                 <!-- Здесь будут динамически загружены пользователи -->
             </select>
@@ -93,6 +95,11 @@ function addGroupField(groupName = '', studentCount = 0, classroom = '', userId 
 
     groupsContainer.appendChild(groupDiv);
     loadUsers(groupDiv.querySelector('.userSelect'), userId);
+
+    // Показываем заголовок, если он скрыт
+    if (document.getElementById('groupsHeader').style.display === 'none') {
+        document.getElementById('groupsHeader').style.display = 'block';
+    }
 }
 
 // Функция для загрузки пользователей
@@ -103,12 +110,12 @@ async function loadUsers(selectElement, selectedUserId = '') {
         users.forEach(user => {
             const option = document.createElement('option');
             option.value = user.idUsers;
-            if (user.surname === null && user.name === null) {
-                option.textContent = user.login; // Выводим логин пользователя, если имя и фамилия равны null
+            if ((user.surname === null && user.name === null) || (user.name === "" && user.surname === "")) {
+                option.textContent = user.login; // Выводим логин пользователя, если имя и фамилия равны null или ""
             } else {
                 option.textContent = `${user.surname} ${user.name} ${user.patronymic}`;
             }
-            if (user.IdUsers === selectedUserId) {
+            if (user.idUsers === selectedUserId) {
                 option.selected = true; // Устанавливаем выбранного пользователя
             }
             selectElement.appendChild(option);
@@ -122,11 +129,6 @@ async function loadUsers(selectElement, selectedUserId = '') {
 function validateForm(formData) {
     const errors = [];
 
-    // Проверка на наличие названия предмета
-    if (!formData.Name) {
-        errors.push('Название предмета обязательно для заполнения.');
-    }
-
     // Проверка на положительные значения для длительности, академических часов и количества уроков
     if (formData.Duration <= 0) {
         errors.push('Длительность должна быть положительным числом.');
@@ -138,10 +140,8 @@ function validateForm(formData) {
         errors.push('Количество уроков должно быть положительным числом.');
     }
 
-    // Проверка на наличие хотя бы одной группы
-    if (formData.Groups.length === 0) {
-        errors.push('Необходимо добавить хотя бы одну группу.');
-    } else {
+    // Проверка на наличие группы
+    if (formData.Groups.length !== 0) {
         formData.Groups.forEach((group, index) => {
             if (!group.Name) {
                 errors.push(`Название группы ${index + 1} обязательно для заполнения.`);
@@ -152,7 +152,7 @@ function validateForm(formData) {
             if (!group.Classroom) {
                 errors.push(`Класс для группы ${index + 1} обязателен для заполнения.`);
             }
-            if (!group.UserId) {
+            if (!group.IdUsers) {
                 errors.push(`Учитель для группы ${index + 1} не выбран.`);
             }
         });
@@ -176,17 +176,17 @@ function showAlert(message, type) {
 // Функция для загрузки групп при загрузке страницы
 async function loadGroups(subjectId) {
     try {
-        const response = await fetch(`https://localhost:7022/api/Subjects/${subjectId}/Groups`); // Предполагается, что у вас есть API для получения групп
+        const response = await fetch(`https://localhost:7022/api/Subjects/${subjectId}/Groups`);
         const groups = await response.json();
 
         // Проверяем, есть ли группы
         if (groups.length > 0) {
+            document.getElementById('groupsHeader').style.display = 'block'; // Показываем заголовок
             groups.forEach(group => {
-                addGroupField(group.name, group.studentCount, group.classroom, group.idUsers);
+                addGroupField(group.name, group.studentCount, group.classroom, group.idUsers); // Убираем idGroup, так как оно не передается
             });
         } else {
-            // Если групп нет, можно добавить одно поле для добавления новой группы
-            addGroupField();
+            document.getElementById('groupsHeader').style.display = 'none'; // Скрываем заголовок, если групп нет
         }
     } catch (error) {
         console.error('Ошибка при загрузке групп:', error);

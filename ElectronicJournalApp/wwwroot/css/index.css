@@ -10,3 +10,7 @@
 .btn-icon {
     color: white;
 }
+
+.btn-info:hover {
+    color: white;
+}
