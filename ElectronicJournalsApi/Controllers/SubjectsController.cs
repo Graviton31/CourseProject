@@ -3,6 +3,7 @@ using ElectronicJournalsApi.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.BlazorIdentity.Pages;
 using Newtonsoft.Json;
 
 namespace ElectronicJournalApi.Controllers
@@ -124,6 +125,32 @@ namespace ElectronicJournalApi.Controllers
             return await _context.Subjects.Where(j => !j.IsDelete).ToListAsync();
         }
 
+        // GET: api/Subjects/subjectsGrops
+        [HttpGet("subjectsGrops")]
+        public async Task<ActionResult<IEnumerable<Subject>>> GetSubjectsGrops()
+        {
+            // Получаем предметы, связанные с учителем по логину
+            var subjectsWithGroups = await _context.Subjects
+                .Include(s => s.Groups)
+                .Select(s => new SubjectDto
+                {
+                    Name = s.Name,
+                    Groups = s.Groups.Select(g => new GroupDto
+                    {
+                        Name = g.Name,
+                        IdGroup = g.IdGroup
+                    }).ToList()
+                })
+                .ToListAsync();
+
+            if (!subjectsWithGroups.Any())
+            {
+                return NotFound(); // Если предметы не найдены
+            }
+
+            return Ok(subjectsWithGroups);
+        }
+
         [HttpGet("{id}")]
         public async Task<ActionResult<Subject>> GetSubjectById(int id)
         {
@@ -147,7 +174,6 @@ namespace ElectronicJournalApi.Controllers
                 .Select(s => new SubjectDto
                 {
                     Name = s.Name,
-                    Description = s.Description,
                     Groups = s.Groups.Select(g => new GroupDto
                     {
                         Name = g.Name,
