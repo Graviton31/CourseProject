@@ -3,22 +3,21 @@ const userLogin = document.cookie.split('; ').find(row => row.startsWith('UserLo
 if (!userLogin) console.error('UserLogin cookie not found'); // Если cookie не найден, выводим ошибку
 
 // Получаем роль пользователя
-const userRole = document.cookie.split('; ').find(row => row.startsWith('UserRole='))?.split('=')[1];
+const userRole = getCookie("UserRole");
 if (!userRole) {
     console.error('UserRole cookie not found'); // Если cookie не найден, выводим ошибку
 } else {
     console.log('User Role:', userRole); // Проверяем значение роли
 }
-
+console.log('User Login:', userLogin);
 // Запрашиваем данные предметов в зависимости от роли пользователя
 let fetchUrl;
 if (userRole === 'руководитель') {
-    fetchUrl = `https://localhost:7022/api/subjects`; // Запрос всех предметов
+    fetchUrl = `https://localhost:7022/api/subjects/subjectsGrops`; // Запрос всех предметов
 } else if (userRole === 'учитель') {
     fetchUrl = `https://localhost:7022/api/subjects/teacher/${userLogin}`; // Запрос предметов для учителя
 } else {
-    console.error('Неизвестная роль пользователя');
-    return; // Завершаем выполнение, если роль неизвестна
+    console.error('Неизвестная роль пользователя'); 
 }
 
 console.log('Fetch URL:', fetchUrl); // Проверяем сформированный URL
@@ -191,7 +190,8 @@ function addClickEventToCells() {
                 });
             });
         });
-    }
+    });
+}
 
 // Обработчик для добавления столбцов с датами
 document.getElementById('submitDate').addEventListener('click', function () {

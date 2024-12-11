@@ -1,0 +1,59 @@
+﻿@model IEnumerable<ElectronicJournalsApi.Models.Student>
+
+@{
+    ViewData["Title"] = "Список учеников";
+}
+
+@{
+    Layout = "_Layout";
+}
+
+<head>
+    <title>@ViewData["Title"]</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+</head>
+
+<body>
+    <div class="container mx-auto p-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="h2">Список учеников</h1>
+        </div>
+        <div class="bg-white p-4 rounded shadow-md">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="thead-light">
+                        <tr>
+                            <th class="text-center">@Html.DisplayName("ФИО")</th>
+                            <th class="text-center">@Html.DisplayNameFor(model => model.First().Phone)</th>
+                            <th class="text-center">@Html.DisplayNameFor(model => model.First().ParentPhone)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Any())
+                        {
+                            foreach (var item in Model)
+                            {
+                                <tr id="student-row-@item.IdStudent">
+                                    <td class="text-center">@($"{item.Surname} {item.Name} {item.Patronymic}")</td>
+                                    <td class="text-center">@Html.DisplayFor(modelItem => item.Phone)</td>
+                                    <td class="text-center">@Html.DisplayFor(modelItem => item.ParentPhone)</td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="3" class="text-center">Нет учеников для отображения</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
