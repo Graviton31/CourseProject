@@ -21,26 +21,32 @@
             </div>
             <div class="nav-container">
                 <div class="d-flex">
-                    <div class="nav-item">
-                        <a class="nav-link" href="#">
-                            Главная
-                        </a>
-                    </div>
-                    <div class="nav-item">
-                        <a class="nav-link" href="#">
-                            Журнал
-                        </a>
-                    </div>
-                    <div class="nav-item">
-                        <a class="nav-link" href="#">
-                            Ученики
-                        </a>
-                    </div>
-                    <div class="nav-item">
-                        <a class="nav-link" href="#">
-                            Расписание
-                        </a>
-                    </div>
+                    @if (Context.Request.Cookies["UserRole"] != "администратор")
+                    {
+                        <div class="nav-item">
+                            <a class="btn btn-custom text-white @(Context.Request.Path.Value.Contains("AttendanceJournal") ? "active" : "")" href="@Url.Action("Index", "AttendanceJournal")">
+                                Журнал
+                            </a>
+                        </div>
+                        <div class="nav-item">
+                            <a class="btn btn-custom text-white @(Context.Request.Path.Value.Contains("Students") ? "active" : "")" href="#">
+                                Ученики
+                            </a>
+                        </div>
+                        <div class="nav-item">
+                            <a class="btn btn-custom text-white @(Context.Request.Path.Value.Contains("Schedule") ? "active" : "")" href="#">
+                                Расписание
+                            </a>
+                        </div>
+                        @if (Context.Request.Cookies["UserRole"] == "руководитель")
+                        {
+                            <div class="nav-item">
+                                <a class="btn btn-custom text-white @(Context.Request.Path.Value.Contains("Subjects") ? "active" : "")" href="@Url.Action("Index", "Subjects")">
+                                    Предметы
+                                </a>
+                            </div>
+                        }
+                    }
                 </div>
             </div>
             <div class="align-item-center justify-item-center">
@@ -76,18 +82,17 @@
             dropdown.classList.toggle('hidden');
         });
 
-                document.querySelectorAll('.dropdown-menu-custom a[role="menuitem"]')[1].addEventListener('click', function() {
+        document.querySelectorAll('.dropdown-menu-custom a[role="menuitem"]')[1].addEventListener('click', function () {
             // Удаление cookie
             document.cookie = "UserLogin=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
             document.cookie = "UserPassword=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
             document.cookie = "UserRole=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
 
             // Переход на страницу авторизации
-            window.location.href = "";
+            window.location.href = '@Url.Action("Authorization", "Users")'; // Укажите правильный путь к странице авторизации
         });
     </script>
     @await RenderSectionAsync("Scripts", required: false)
-
 </body>
 </html>
 

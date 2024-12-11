@@ -108,9 +108,9 @@
                         if ($('#rememberMe').is(':checked')) {
                             // Устанавливаем Cookie на 7 дней
                                     // Кодирование значений cookie
-                        document.cookie = "UserLogin=" + encodeURIComponent(user.Login) + "; path=/; max-age=" + (7 * 24 * 60 * 60) + "; HttpOnly; Secure"; // 7 дней
-                        document.cookie = "UserPassword=" + encodeURIComponent(user.Password) + "; path=/; max-age=" + (7 * 24 * 60 * 60) + "; HttpOnly; Secure";
-                        document.cookie = "UserRole=" + encodeURIComponent(response.role) + "; path=/; max-age=" + (7 * 24 * 60 * 60) + "; HttpOnly; Secure";
+                        document.cookie = "UserLogin=" + encodeURIComponent(user.Login) + "; path=/; max-age=" + (7 * 24 * 60 * 60); // 7 дней
+                        document.cookie = "UserPassword=" + encodeURIComponent(user.Password) + "; path=/; max-age=" + (7 * 24 * 60 * 60);
+                        document.cookie = "UserRole=" + encodeURIComponent(response.role) + "; path=/; max-age=" + (7 * 24 * 60 * 60);
 
                         } else {
                             // Устанавливаем сессионные Cookie (удаляются при закрытии браузера)
@@ -123,6 +123,7 @@
                         alert(message); // Показываем сообщение об ошибке
                     }
                 });
+                console.log(getCookie("UserRole"))
             });
         });
     </script>

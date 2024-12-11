@@ -34,6 +34,11 @@ body {
         background-color: #F7911D;
     }
 
+    .btn-custom.active {
+        background-color: #F7911D;
+    }
+
+
 .required {
     color: red; /* Обозначение обязательности */
 }
