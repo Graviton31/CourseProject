@@ -3,24 +3,132 @@
   "WorkspaceRootPath": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\wwwroot\\js\\subjectedit.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\wwwroot\\js\\subjectedit.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\wwwroot\\js\\schedulecreate.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\wwwroot\\js\\schedulecreate.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalsapi\\models\\schedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|solutionrelative:electronicjournalsapi\\models\\schedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalsapi\\controllers\\schedulescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|solutionrelative:electronicjournalsapi\\controllers\\schedulescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\wwwroot\\js\\attendancejournal.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\wwwroot\\js\\attendancejournal.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\wwwroot\\js\\authorization.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\wwwroot\\js\\authorization.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\views\\schedules\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\views\\schedules\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\views\\subjects\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\views\\subjects\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\views\\subjects\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\views\\subjects\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\views\\attendancejournal\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\views\\attendancejournal\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\wwwroot\\css\\attendancejournal.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\wwwroot\\css\\attendancejournal.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\wwwroot\\css\\autorizationpage.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\wwwroot\\css\\autorizationpage.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\controllers\\attendancejournalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\controllers\\attendancejournalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalsapi\\controllers\\unvisitedstatusescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|solutionrelative:electronicjournalsapi\\controllers\\unvisitedstatusescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalsapi\\models\\unvisitedstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|solutionrelative:electronicjournalsapi\\models\\unvisitedstatus.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\wwwroot\\js\\subjectindex.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\wwwroot\\js\\subjectindex.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalsapi\\controllers\\journalscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|solutionrelative:electronicjournalsapi\\controllers\\journalscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalsapi\\controllers\\subjectscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|solutionrelative:electronicjournalsapi\\controllers\\subjectscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalsapi\\models\\schedulechange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|solutionrelative:electronicjournalsapi\\models\\schedulechange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalsapi\\models\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|solutionrelative:electronicjournalsapi\\models\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\controllers\\schedulescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\controllers\\schedulescontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalsapi\\data\\electronicjournalcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|solutionrelative:electronicjournalsapi\\data\\electronicjournalcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\wwwroot\\js\\subjectcreate.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\wwwroot\\js\\subjectcreate.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\wwwroot\\js\\attendancejournal.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\wwwroot\\js\\attendancejournal.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\wwwroot\\js\\subjectedit.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\wwwroot\\js\\subjectedit.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
+      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\wwwroot\\js\\usercreate.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\wwwroot\\js\\usercreate.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\wwwroot\\js\\schedulecreate.js||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\wwwroot\\js\\schedulecreate.js||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\views\\subjects\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\views\\subjects\\create.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\views\\subjects\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\views\\subjects\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\wwwroot\\js\\userindex.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
+      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\wwwroot\\js\\userindex.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalsapi\\models\\schedulechange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|solutionrelative:electronicjournalsapi\\models\\schedulechange.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalsapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -31,14 +139,6 @@
       "RelativeMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|solutionrelative:electronicjournalsapi\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\views\\subjects\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\views\\subjects\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\views\\subjects\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\views\\subjects\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\views\\users\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\views\\users\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -47,52 +147,12 @@
       "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\controllers\\subjectscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalsapi\\models\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|solutionrelative:electronicjournalsapi\\models\\group.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalsapi\\models\\schedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|solutionrelative:electronicjournalsapi\\models\\schedule.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\views\\subjects\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\views\\subjects\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\views\\attendancejournal\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\views\\attendancejournal\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalsapi\\data\\electronicjournalcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|solutionrelative:electronicjournalsapi\\data\\electronicjournalcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\controllers\\attendancejournalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\controllers\\attendancejournalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\views\\users\\authorization.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\views\\users\\authorization.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\wwwroot\\js\\site.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\controllers\\students.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\controllers\\students.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\views\\students\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\views\\students\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\wwwroot\\js\\userindex.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
-      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\wwwroot\\js\\userindex.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalsapi\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -111,24 +171,12 @@
       "RelativeMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|solutionrelative:electronicjournalsapi\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
-      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\wwwroot\\css\\site.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{45BDFC9E-98CD-4D76-80E8-3C04CCB4A57A}|\u042D\u043B\u0435\u043C\u0435\u043D\u0442\u044B \u0440\u0435\u0448\u0435\u043D\u0438\u044F{45BDFC9E-98CD-4D76-80E8-3C04CCB4A57A}|D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}",
       "RelativeMoniker": "D:0:0:{45BDFC9E-98CD-4D76-80E8-3C04CCB4A57A}|\u042D\u043B\u0435\u043C\u0435\u043D\u0442\u044B \u0440\u0435\u0448\u0435\u043D\u0438\u044F{45BDFC9E-98CD-4D76-80E8-3C04CCB4A57A}|solutionrelative:.gitignore||{3B902123-F8A7-4915-9F01-361F908088D0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalsapi\\controllers\\journalscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{6EA9F56D-71B1-4FF5-84D1-9C0BA97126F0}|ElectronicJournalsApi\\ElectronicJournalApi.csproj|solutionrelative:electronicjournalsapi\\controllers\\journalscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\wwwroot\\css\\index.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
@@ -142,7 +190,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 221,
-          "SelectedChildIndex": 32,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -150,7 +198,251 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Views\\Schedules\\Create.cshtml",
+              "RelativeDocumentMoniker": "ElectronicJournalApp\\Views\\Schedules\\Create.cshtml",
+              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Views\\Schedules\\Create.cshtml*",
+              "RelativeToolTip": "ElectronicJournalApp\\Views\\Schedules\\Create.cshtml*",
+              "ViewState": "AgIAAD0AAAAAAAAAAAAiwFkAAABzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-13T07:38:08.595Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "attendanceJournal.js",
+              "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\wwwroot\\js\\attendanceJournal.js",
+              "RelativeDocumentMoniker": "ElectronicJournalApp\\wwwroot\\js\\attendanceJournal.js",
+              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\wwwroot\\js\\attendanceJournal.js",
+              "RelativeToolTip": "ElectronicJournalApp\\wwwroot\\js\\attendanceJournal.js",
+              "ViewState": "AgIAAKAAAAAAAAAAAAAiwOkAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-12-10T22:56:28.225Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "AttendanceJournalController.cs",
+              "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Controllers\\AttendanceJournalController.cs",
+              "RelativeDocumentMoniker": "ElectronicJournalApp\\Controllers\\AttendanceJournalController.cs",
+              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Controllers\\AttendanceJournalController.cs",
+              "RelativeToolTip": "ElectronicJournalApp\\Controllers\\AttendanceJournalController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-10T23:27:48.16Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "scheduleCreate.js",
+              "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\wwwroot\\js\\scheduleCreate.js",
+              "RelativeDocumentMoniker": "ElectronicJournalApp\\wwwroot\\js\\scheduleCreate.js",
+              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\wwwroot\\js\\scheduleCreate.js",
+              "RelativeToolTip": "ElectronicJournalApp\\wwwroot\\js\\scheduleCreate.js",
+              "ViewState": "AgIAAHQAAAAAAAAAAAAiwI0AAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-12-13T07:59:18.405Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Details.cshtml",
+              "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Views\\Subjects\\Details.cshtml",
+              "RelativeDocumentMoniker": "ElectronicJournalApp\\Views\\Subjects\\Details.cshtml",
+              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Views\\Subjects\\Details.cshtml",
+              "RelativeToolTip": "ElectronicJournalApp\\Views\\Subjects\\Details.cshtml",
+              "ViewState": "AgIAABcAAAAAAAAAAADwv1wAAAAKAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-10T21:57:53.177Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Views\\Subjects\\Index.cshtml",
+              "RelativeDocumentMoniker": "ElectronicJournalApp\\Views\\Subjects\\Index.cshtml",
+              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Views\\Subjects\\Index.cshtml",
+              "RelativeToolTip": "ElectronicJournalApp\\Views\\Subjects\\Index.cshtml",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAD8AAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-10T22:12:09.97Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "authorization.js",
+              "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\wwwroot\\js\\authorization.js",
+              "RelativeDocumentMoniker": "ElectronicJournalApp\\wwwroot\\js\\authorization.js",
+              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\wwwroot\\js\\authorization.js",
+              "RelativeToolTip": "ElectronicJournalApp\\wwwroot\\js\\authorization.js",
+              "ViewState": "AgIAADYAAAAAAAAAAAAAAE8AAAADAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-12-13T08:13:12.909Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "SchedulesController.cs",
+              "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalsApi\\Controllers\\SchedulesController.cs",
+              "RelativeDocumentMoniker": "ElectronicJournalsApi\\Controllers\\SchedulesController.cs",
+              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalsApi\\Controllers\\SchedulesController.cs*",
+              "RelativeToolTip": "ElectronicJournalsApi\\Controllers\\SchedulesController.cs*",
+              "ViewState": "AgIAAEEAAAAAAAAAAAAcwFYAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T08:11:50.391Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Schedule.cs",
+              "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalsApi\\Models\\Schedule.cs",
+              "RelativeDocumentMoniker": "ElectronicJournalsApi\\Models\\Schedule.cs",
+              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalsApi\\Models\\Schedule.cs",
+              "RelativeToolTip": "ElectronicJournalsApi\\Models\\Schedule.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-11T09:37:49.628Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "attendanceJournal.css",
+              "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\wwwroot\\css\\attendanceJournal.css",
+              "RelativeDocumentMoniker": "ElectronicJournalApp\\wwwroot\\css\\attendanceJournal.css",
+              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\wwwroot\\css\\attendanceJournal.css",
+              "RelativeToolTip": "ElectronicJournalApp\\wwwroot\\css\\attendanceJournal.css",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAAD0AAAAPAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-12-13T07:32:29.736Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "autorizationPage.css",
+              "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\wwwroot\\css\\autorizationPage.css",
+              "RelativeDocumentMoniker": "ElectronicJournalApp\\wwwroot\\css\\autorizationPage.css",
+              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\wwwroot\\css\\autorizationPage.css",
+              "RelativeToolTip": "ElectronicJournalApp\\wwwroot\\css\\autorizationPage.css",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003000|",
+              "WhenOpened": "2024-12-13T21:34:40.044Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Views\\AttendanceJournal\\Index.cshtml",
+              "RelativeDocumentMoniker": "ElectronicJournalApp\\Views\\AttendanceJournal\\Index.cshtml",
+              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Views\\AttendanceJournal\\Index.cshtml",
+              "RelativeToolTip": "ElectronicJournalApp\\Views\\AttendanceJournal\\Index.cshtml",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACgAAAA6AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-10T22:36:34.545Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "UnvisitedStatusesController.cs",
+              "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalsApi\\Controllers\\UnvisitedStatusesController.cs",
+              "RelativeDocumentMoniker": "ElectronicJournalsApi\\Controllers\\UnvisitedStatusesController.cs",
+              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalsApi\\Controllers\\UnvisitedStatusesController.cs",
+              "RelativeToolTip": "ElectronicJournalsApi\\Controllers\\UnvisitedStatusesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-14T15:58:19.385Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "scheduleCreate.js",
+              "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\wwwroot\\js\\scheduleCreate.js",
+              "RelativeDocumentMoniker": "ElectronicJournalApp\\wwwroot\\js\\scheduleCreate.js",
+              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\wwwroot\\js\\scheduleCreate.js",
+              "RelativeToolTip": "ElectronicJournalApp\\wwwroot\\js\\scheduleCreate.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAJcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-12-13T07:38:55.638Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "UnvisitedStatus.cs",
+              "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalsApi\\Models\\UnvisitedStatus.cs",
+              "RelativeDocumentMoniker": "ElectronicJournalsApi\\Models\\UnvisitedStatus.cs",
+              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalsApi\\Models\\UnvisitedStatus.cs",
+              "RelativeToolTip": "ElectronicJournalsApi\\Models\\UnvisitedStatus.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-14T21:36:31.573Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "SchedulesController.cs",
+              "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Controllers\\SchedulesController.cs",
+              "RelativeDocumentMoniker": "ElectronicJournalApp\\Controllers\\SchedulesController.cs",
+              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Controllers\\SchedulesController.cs",
+              "RelativeToolTip": "ElectronicJournalApp\\Controllers\\SchedulesController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-13T08:19:17.13Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "Create.cshtml",
+              "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Views\\Subjects\\Create.cshtml",
+              "RelativeDocumentMoniker": "ElectronicJournalApp\\Views\\Subjects\\Create.cshtml",
+              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Views\\Subjects\\Create.cshtml",
+              "RelativeToolTip": "ElectronicJournalApp\\Views\\Subjects\\Create.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-13T07:33:55.506Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "userCreate.js",
+              "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\wwwroot\\js\\userCreate.js",
+              "RelativeDocumentMoniker": "ElectronicJournalApp\\wwwroot\\js\\userCreate.js",
+              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\wwwroot\\js\\userCreate.js",
+              "RelativeToolTip": "ElectronicJournalApp\\wwwroot\\js\\userCreate.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-12-13T07:33:05.597Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "subjectIndex.js",
+              "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\wwwroot\\js\\subjectIndex.js",
+              "RelativeDocumentMoniker": "ElectronicJournalApp\\wwwroot\\js\\subjectIndex.js",
+              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\wwwroot\\js\\subjectIndex.js",
+              "RelativeToolTip": "ElectronicJournalApp\\wwwroot\\js\\subjectIndex.js",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
+              "WhenOpened": "2024-12-13T07:32:57.669Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 31,
               "Title": "ScheduleChange.cs",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalsApi\\Models\\ScheduleChange.cs",
               "RelativeDocumentMoniker": "ElectronicJournalsApi\\Models\\ScheduleChange.cs",
@@ -158,36 +450,11 @@
               "RelativeToolTip": "ElectronicJournalsApi\\Models\\ScheduleChange.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T21:14:40.803Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-11T21:14:40.803Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Schedule.cs",
-              "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalsApi\\Models\\Schedule.cs",
-              "RelativeDocumentMoniker": "ElectronicJournalsApi\\Models\\Schedule.cs",
-              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalsApi\\Models\\Schedule.cs",
-              "RelativeToolTip": "ElectronicJournalsApi\\Models\\Schedule.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T09:37:49.628Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "Students.cs",
-              "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Controllers\\Students.cs",
-              "RelativeDocumentMoniker": "ElectronicJournalApp\\Controllers\\Students.cs",
-              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Controllers\\Students.cs",
-              "RelativeToolTip": "ElectronicJournalApp\\Controllers\\Students.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-11T09:33:01.828Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 38,
               "Title": "User.cs",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalsApi\\Models\\User.cs",
               "RelativeDocumentMoniker": "ElectronicJournalsApi\\Models\\User.cs",
@@ -199,7 +466,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 37,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Views\\Students\\Index.cshtml",
               "RelativeDocumentMoniker": "ElectronicJournalApp\\Views\\Students\\Index.cshtml",
@@ -211,7 +478,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 39,
               "Title": "Student.cs",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalsApi\\Models\\Student.cs",
               "RelativeDocumentMoniker": "ElectronicJournalsApi\\Models\\Student.cs",
@@ -223,7 +490,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 41,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalsApi\\Program.cs",
               "RelativeDocumentMoniker": "ElectronicJournalsApi\\Program.cs",
@@ -235,7 +502,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 42,
               "Title": ".gitignore",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\.gitignore",
               "RelativeDocumentMoniker": ".gitignore",
@@ -247,7 +514,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 32,
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalsApi\\appsettings.json",
               "RelativeDocumentMoniker": "ElectronicJournalsApi\\appsettings.json",
@@ -255,12 +522,11 @@
               "RelativeToolTip": "ElectronicJournalsApi\\appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-12-11T09:19:10.47Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-11T09:19:10.47Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 43,
               "Title": "UsersController.cs",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Controllers\\UsersController.cs",
               "RelativeDocumentMoniker": "ElectronicJournalApp\\Controllers\\UsersController.cs",
@@ -272,32 +538,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 25,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Program.cs",
               "RelativeDocumentMoniker": "ElectronicJournalApp\\Program.cs",
               "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Program.cs",
               "RelativeToolTip": "ElectronicJournalApp\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABYAAAAAAAAAAADwvyYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-11T00:03:24.655Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 20,
               "Title": "subjectCreate.js",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\wwwroot\\js\\subjectCreate.js",
               "RelativeDocumentMoniker": "ElectronicJournalApp\\wwwroot\\js\\subjectCreate.js",
               "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\wwwroot\\js\\subjectCreate.js",
               "RelativeToolTip": "ElectronicJournalApp\\wwwroot\\js\\subjectCreate.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAADwAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2024-12-10T23:49:14.471Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 33,
               "Title": "UsersController.cs",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalsApi\\Controllers\\UsersController.cs",
               "RelativeDocumentMoniker": "ElectronicJournalsApi\\Controllers\\UsersController.cs",
@@ -305,24 +571,11 @@
               "RelativeToolTip": "ElectronicJournalsApi\\Controllers\\UsersController.cs",
               "ViewState": "AgIAAJkAAAAAAAAAAAAcwKoAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T23:47:16.802Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-10T23:47:16.802Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "AttendanceJournalController.cs",
-              "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Controllers\\AttendanceJournalController.cs",
-              "RelativeDocumentMoniker": "ElectronicJournalApp\\Controllers\\AttendanceJournalController.cs",
-              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Controllers\\AttendanceJournalController.cs",
-              "RelativeToolTip": "ElectronicJournalApp\\Controllers\\AttendanceJournalController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T23:27:48.16Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 15,
               "Title": "JournalsController.cs",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalsApi\\Controllers\\JournalsController.cs",
               "RelativeDocumentMoniker": "ElectronicJournalsApi\\Controllers\\JournalsController.cs",
@@ -330,24 +583,12 @@
               "RelativeToolTip": "ElectronicJournalsApi\\Controllers\\JournalsController.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T23:22:19.452Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "attendanceJournal.js",
-              "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\wwwroot\\js\\attendanceJournal.js",
-              "RelativeDocumentMoniker": "ElectronicJournalApp\\wwwroot\\js\\attendanceJournal.js",
-              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\wwwroot\\js\\attendanceJournal.js",
-              "RelativeToolTip": "ElectronicJournalApp\\wwwroot\\js\\attendanceJournal.js",
-              "ViewState": "AgIAAMMAAAAAAAAAAAAAAKAAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
-              "WhenOpened": "2024-12-10T22:56:28.225Z",
+              "WhenOpened": "2024-12-10T23:22:19.452Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 36,
               "Title": "Authorization.cshtml",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Views\\Users\\Authorization.cshtml",
               "RelativeDocumentMoniker": "ElectronicJournalApp\\Views\\Users\\Authorization.cshtml",
@@ -359,43 +600,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 23,
               "Title": "site.js",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\wwwroot\\js\\site.js",
               "RelativeDocumentMoniker": "ElectronicJournalApp\\wwwroot\\js\\site.js",
               "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\wwwroot\\js\\site.js",
               "RelativeToolTip": "ElectronicJournalApp\\wwwroot\\js\\site.js",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2024-12-10T22:45:19.473Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 22,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "ElectronicJournalApp\\Views\\Shared\\_Layout.cshtml",
               "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "ElectronicJournalApp\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAACoAAAAAAAAAAAAgwDsAAACEAAAAAAAAAA==",
+              "ViewState": "AgIAABUAAAAAAAAAAAAAADMAAAA/AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-10T22:36:50.896Z"
+              "WhenOpened": "2024-12-10T22:36:50.896Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Views\\AttendanceJournal\\Index.cshtml",
-              "RelativeDocumentMoniker": "ElectronicJournalApp\\Views\\AttendanceJournal\\Index.cshtml",
-              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Views\\AttendanceJournal\\Index.cshtml",
-              "RelativeToolTip": "ElectronicJournalApp\\Views\\AttendanceJournal\\Index.cshtml",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAACkAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-10T22:36:34.545Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 24,
               "Title": "site.css",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\wwwroot\\css\\site.css",
               "RelativeDocumentMoniker": "ElectronicJournalApp\\wwwroot\\css\\site.css",
@@ -407,7 +637,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 44,
               "Title": "index.css",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\wwwroot\\css\\index.css",
               "RelativeDocumentMoniker": "ElectronicJournalApp\\wwwroot\\css\\index.css",
@@ -419,31 +649,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 17,
               "Title": "Group.cs",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalsApi\\Models\\Group.cs",
               "RelativeDocumentMoniker": "ElectronicJournalsApi\\Models\\Group.cs",
               "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalsApi\\Models\\Group.cs",
               "RelativeToolTip": "ElectronicJournalsApi\\Models\\Group.cs",
-              "ViewState": "AgIAAAsAAAAAAAAAAAA9wA0AAAAyAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T22:23:39.273Z"
+              "WhenOpened": "2024-12-10T22:23:39.273Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Views\\Subjects\\Index.cshtml",
-              "RelativeDocumentMoniker": "ElectronicJournalApp\\Views\\Subjects\\Index.cshtml",
-              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Views\\Subjects\\Index.cshtml",
-              "RelativeToolTip": "ElectronicJournalApp\\Views\\Subjects\\Index.cshtml",
-              "ViewState": "AgIAACcAAAAAAAAAAAAAADwAAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-10T22:12:09.97Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 30,
               "Title": "userIndex.js",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\wwwroot\\js\\userIndex.js",
               "RelativeDocumentMoniker": "ElectronicJournalApp\\wwwroot\\js\\userIndex.js",
@@ -455,7 +674,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 40,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Views\\Users\\Index.cshtml",
               "RelativeDocumentMoniker": "ElectronicJournalApp\\Views\\Users\\Index.cshtml",
@@ -467,7 +686,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 34,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Views\\Users\\Edit.cshtml",
               "RelativeDocumentMoniker": "ElectronicJournalApp\\Views\\Users\\Edit.cshtml",
@@ -479,7 +698,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 35,
               "Title": "SubjectsController.cs",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Controllers\\SubjectsController.cs",
               "RelativeDocumentMoniker": "ElectronicJournalApp\\Controllers\\SubjectsController.cs",
@@ -491,31 +710,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Views\\Subjects\\Details.cshtml",
-              "RelativeDocumentMoniker": "ElectronicJournalApp\\Views\\Subjects\\Details.cshtml",
-              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Views\\Subjects\\Details.cshtml",
-              "RelativeToolTip": "ElectronicJournalApp\\Views\\Subjects\\Details.cshtml",
-              "ViewState": "AgIAAE0AAAAAAAAAAADwv1wAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-12-10T21:57:53.177Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 19,
               "Title": "ElectronicJournalContext.cs",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalsApi\\Data\\ElectronicJournalContext.cs",
               "RelativeDocumentMoniker": "ElectronicJournalsApi\\Data\\ElectronicJournalContext.cs",
               "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalsApi\\Data\\ElectronicJournalContext.cs",
               "RelativeToolTip": "ElectronicJournalsApi\\Data\\ElectronicJournalContext.cs",
-              "ViewState": "AgIAADkAAAAAAAAAAAAkwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAF0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-10T20:39:13.134Z"
+              "WhenOpened": "2024-12-10T20:39:13.134Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 29,
               "Title": "Edit.cshtml",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Views\\Subjects\\Edit.cshtml",
               "RelativeDocumentMoniker": "ElectronicJournalApp\\Views\\Subjects\\Edit.cshtml",
@@ -527,26 +735,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 21,
               "Title": "subjectEdit.js",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\wwwroot\\js\\subjectEdit.js",
               "RelativeDocumentMoniker": "ElectronicJournalApp\\wwwroot\\js\\subjectEdit.js",
-              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\wwwroot\\js\\subjectEdit.js*",
-              "RelativeToolTip": "ElectronicJournalApp\\wwwroot\\js\\subjectEdit.js*",
-              "ViewState": "AgIAADAAAAAAAAAAAAAAAD8AAAAiAAAAAAAAAA==",
+              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\wwwroot\\js\\subjectEdit.js",
+              "RelativeToolTip": "ElectronicJournalApp\\wwwroot\\js\\subjectEdit.js",
+              "ViewState": "AgIAADMAAAAAAAAAAAAAAD4AAABUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001646|",
               "WhenOpened": "2024-12-10T19:34:25.482Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 16,
               "Title": "SubjectsController.cs",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalsApi\\Controllers\\SubjectsController.cs",
               "RelativeDocumentMoniker": "ElectronicJournalsApi\\Controllers\\SubjectsController.cs",
               "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalsApi\\Controllers\\SubjectsController.cs",
               "RelativeToolTip": "ElectronicJournalsApi\\Controllers\\SubjectsController.cs",
-              "ViewState": "AgIAAD4AAAAAAAAAAAAswFgAAAARAAAAAAAAAA==",
+              "ViewState": "AgIAAAsBAAAAAAAAAAAAABwBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-12-09T17:42:09.287Z",
               "EditorCaption": ""

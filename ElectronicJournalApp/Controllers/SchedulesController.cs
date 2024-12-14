@@ -2,9 +2,9 @@
 
 namespace ElectronicJournalApp.Controllers
 {
-    public class Students : Controller
+    public class SchedulesController : Controller
     {
-        public IActionResult Index()
+        public IActionResult Create()
         {
             return View();
         }

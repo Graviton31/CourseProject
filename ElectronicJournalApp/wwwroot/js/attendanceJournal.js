@@ -80,25 +80,36 @@ fetch(fetchUrl)
                         // Очищаем текущее содержимое
                         tbody.innerHTML = '';
 
+                        var dateObj;
+                        var day;
+                        var month;
+
                         // Создаем заголовки для уникальных дат
                         const tableHeader = document.querySelector('thead tr');
                         lessonDates.forEach(date => {
                             const newHeaderCell = document.createElement('th'); // Создаем новый заголовок
-                            newHeaderCell.className = 'py-2 px-4 border-b'; // Добавляем классы для стилей
-                            newHeaderCell.textContent = date; // Устанавливаем текст заголовка
+                            newHeaderCell.className = 'border-b dynamic-column'; // Добавляем классы для стилей
+
+                            // Извлекаем день и месяц из даты
+                            dateObj = new Date(date);
+                            day = dateObj.getDate();
+                            month = dateObj.getMonth() + 1;
+
+                            newHeaderCell.textContent = `${day}/${month}`; // Устанавливаем текст заголовка
+                            newHeaderCell.value = date;
                             tableHeader.appendChild(newHeaderCell); // Добавляем новый заголовок в таблицу
                         });
 
                         // Создаем строки для студентов
                         students.forEach((student, index) => {
                             const row = document.createElement('tr');
-                            row.innerHTML = `<td class="py-2 px-2 border-b">${index + 1}</td><td class="py-2 px-4 border-b student-name" data-student-id="${student.idStudent}">${student.name} ${student.surname}</td>`;
+                            row.innerHTML = `<td class="border-b number-column">${index + 1}</td><td class="py-2 px-4 border-b student-name student-column" data-student-id="${student.idStudent}">${student.name} ${student.surname}</td>`;
 
                             // Добавляем ячейки для статусов по датам
                             lessonDates.forEach(date => {
                                 const journalEntry = student.journals.find(j => j.lessonDate === date);
                                 const statusCell = document.createElement('td');
-                                statusCell.className = 'py-2 px-4 border-b';
+                                statusCell.className = 'border-b dynamic-column';
 
                                 // Проверяем, есть ли запись для данной даты
                                 if (journalEntry) {
@@ -133,12 +144,18 @@ function clearDateColumns() {
 // Обработчик для кнопки "Добавить запись"
 document.getElementById('add-entry').addEventListener('click', function () {
     // Показываем модальное окно для добавления даты
-    document.getElementById('dateModal').style.display = 'block';
+    $('#dateModal').modal('show');;
+});
+
+// Обработчик для кнопки "Добавить запись"
+document.getElementById('closeModal').addEventListener('click', function () {
+    // Показываем модальное окно для добавления даты
+    $('#dateModal').modal('hide');;
 });
 
 // Функция для получения статусов посещаемости
 function fetchUnvisitedStatuses() {
-    return fetch('https://localhost:7022/api/unvisitedstatus')
+    return fetch('https://localhost:7022/api/unvisitedstatuses')
         .then(response => {
             if (!response.ok) throw new Error('Network response was not ok'); // Проверяем успешность ответа
             return response.json(); // Преобразуем ответ в JSON
@@ -194,34 +211,41 @@ function addClickEventToCells() {
 }
 
 // Обработчик для добавления столбцов с датами
-document.getElementById('submitDate').addEventListener('click', function () {
-        const date = document.getElementById('entryDate').value; // Получаем значение даты
-        if (date) {
-            const tableHeader = document.querySelector('thead tr');
-            const newHeaderCell = document.createElement('th'); // Создаем новый заголовок
-            newHeaderCell.className = 'py-2 px-4 border-b'; // Добавляем классы для стилей
-            newHeaderCell.textContent = date; // Устанавливаем текст заголовка
-            tableHeader.appendChild(newHeaderCell); // Добавляем новый заголовок в таблицу
+document.getElementById('addDateButton').addEventListener('click', function () {
+    const date = document.getElementById('dateInput').value; // Получаем значение даты
+    // Извлекаем день и месяц из даты
+    const dateObj = new Date(date);
+    const day = dateObj.getDate();
+    const month = dateObj.getMonth() + 1; 
 
-            // Добавляем новый столбец в каждую строку таблицы
-            const rows = document.querySelectorAll('tbody tr');
-            rows.forEach(row => {
-                const newCell = document.createElement('td'); // Создаем новую ячейку
-                newCell.className = 'py-2 px-4 border-b'; // Добавляем классы для стилей
-                newCell.textContent = ''; // Здесь можно установить значение по умолчанию, если нужно
-                row.appendChild(newCell); // Добавляем новую ячейку в строку
-            });
+    if (date) {
+        const tableHeader = document.querySelector('thead tr');
+        const newHeaderCell = document.createElement('th'); // Создаем новый заголовок
+        newHeaderCell.className = 'border-b dynamic-column'; // Добавляем класс для динамических столбцов
+        newHeaderCell.textContent = `${day}/${month}`;
+        newHeaderCell.value = date;
+        // Устанавливаем текст заголовка
+        tableHeader.appendChild(newHeaderCell); // Добавляем новый заголовок в таблицу
 
-            // Закрываем модальное окно после добавления столбца
-            document.getElementById('dateModal').style.display = 'none';
-            document.getElementById('entryDate').value = ''; // Очищаем поле ввода даты
+        // Добавляем новый столбец в каждую строку таблицы
+        const rows = document.querySelectorAll('tbody tr');
+        rows.forEach(row => {
+            const newCell = document.createElement('td'); // Создаем новую ячейку
+            newCell.className = 'border-b dynamic-column'; // Добавляем класс для динамических ячеек
 
-            // Добавляем обработчики клика на новые ячейки
-            addClickEventToCells();
-        } else {
-            alert("Пожалуйста, выберите дату."); // Предупреждение, если дата не выбрана
-        }
-    });
+            row.appendChild(newCell); // Добавляем новую ячейку в строку
+        });
+
+        // Закрываем модальное окно после добавления столбца
+        $('#dateModal').modal('hide');
+        document.getElementById('dateInput').value = ''; // Очищаем поле ввода даты
+
+        // Добавляем обработчики клика на новые ячейки
+        addClickEventToCells();
+    } else {
+        alert("Пожалуйста, выберите дату."); // Предупреждение, если дата не выбрана
+    }
+});
 
     // Обработчик для сохранения записей
     document.getElementById('saveEntries').addEventListener('click', function () {
@@ -235,7 +259,7 @@ document.getElementById('submitDate').addEventListener('click', function () {
             row.querySelectorAll('td:not(:nth-child(1)):not(:nth-child(2))').forEach((cell, index) => {
                 // Получаем idUnvisitedStatus из атрибута data-status-id ячейки
                 const idUnvisitedStatus = cell.getAttribute('data-status-id'); // Получаем значение id из атрибута
-                const lessonDate = document.querySelector(`thead tr th:nth-child(${index + 3})`).textContent; // Получаем дату из заголовка
+                const lessonDate = document.querySelector(`thead tr th:nth-child(${index + 3})`).value; // Получаем дату из заголовка
 
                 // Проверяем, заполнены ли все необходимые поля
                 if (idStudent) {
@@ -275,6 +299,7 @@ document.getElementById('submitDate').addEventListener('click', function () {
             .then(data => {
                 console.log('Записи успешно сохранены:', data);
                 alert('Записи успешно сохранены!');
+                document.querySelector('.group-name.highlight').click();
             })
             .catch(error => {
                 console.error('Ошибка при сохранении записей:', error);

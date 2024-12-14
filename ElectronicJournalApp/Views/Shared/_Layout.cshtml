@@ -33,16 +33,16 @@
                                 Ученики
                             </a>
                         </div>
-                        <div class="nav-item">
-                            <a class="btn btn-custom text-white @(Context.Request.Path.Value.Contains("Schedule") ? "active" : "")" href="#">
-                                Расписание
-                            </a>
-                        </div>
                         @if (Context.Request.Cookies["UserRole"] == "руководитель")
                         {
                             <div class="nav-item">
                                 <a class="btn btn-custom text-white @(Context.Request.Path.Value.Contains("Subjects") ? "active" : "")" href="@Url.Action("Index", "Subjects")">
                                     Предметы
+                                </a>
+                            </div>
+                            <div class="nav-item">
+                                <a class="btn btn-custom text-white @(Context.Request.Path.Value.Contains("Schedule") ? "active" : "")" href="@Url.Action("Create", "Schedules")">
+                                    Расписание
                                 </a>
                             </div>
                         }
@@ -68,8 +68,8 @@
         </nav>
     </header>
 
-    <div class="container">
-        <main role="main" class="pb-3">
+    <div class="container-fluid">
+        <main role="main">
             @RenderBody()
         </main>
     </div>

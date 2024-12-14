@@ -1,0 +1,102 @@
+﻿@{
+    ViewData["Title"] = "Расписание";
+}
+@{
+    Layout = "_Layout";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/attendanceJournal.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="flex flex-col md:flex-row min-h-screen">
+        <!-- Sidebar -->
+        <div class="w-full md:w-1/4 bg-[#1A1D27] text-white p-4" id="subjects-sidebar">
+            <h2 class="text-2xl font-bold mb-4">Предметы</h2>
+            <ul id="subjects-list">
+                <!-- Динамически заполняем список предметов -->
+            </ul>
+        </div>
+        <div class="w-full md:w-3/4 p-4">
+            <h2 class="text-4xl font-bold mb-4">Расписание</h2>
+            <div class="flex justify-between mb-2">
+                <div class="flex space-x-1">
+                    <button id="add-entry" class="btn btn-custom rounded p-2" style="display: none;">Добавить запись</button>
+                </div>
+                <div class="flex space-x-2">
+                    @* <button class="btn btn-cancel rounded p-2">Отмена</button> *@
+                    <button id="saveEntries" class="btn btn-save rounded p-2">Сохранить</button>
+                </div>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="bg-white mb-4 table table-bordered">
+                    <thead class="thead-light">
+                        <tr>
+                            <th class="border-b">#</th>
+                            <th class="border-b">День недели</th>
+                            <th class="border-b">Начало</th>
+                            <th class="border-b">Конец</th>
+                            <th class="border-b"></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Модальное окно для ввода даты -->
+    <div class="modal fade" id="scheduleModal" tabindex="-1" aria-labelledby="scheduleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <!-- Modal Header -->
+                <div class="modal-header">
+                    <h5 class="modal-title">Расписание</h5>
+                    <button id="closeModal" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <!-- Modal Body -->
+                <div class="modal-body">
+                    <form>
+                        <div class="mb-3">
+                            <label for="dayOfWeek" class="form-label">День недели</label>
+                            <select class="form-select" id="dayOfWeek" required>
+                                <option value="" disabled selected>Выбрать день недели</option>
+                                <option value="1">Понедельник</option>
+                                <option value="2">Вторник</option>
+                                <option value="3">Среда</option>
+                                <option value="4">Четверг</option>
+                                <option value="5">Пятница</option>
+                                <option value="6">Суббота</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="startTime" class="form-label">Время начала</label>
+                            <input type="time" class="form-control" id="startTime" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="endTime" class="form-label">Время окончания</label>
+                            <input type="time" class="form-control" id="endTime" required>
+                        </div>
+                        <button type="button" class="btn btn-custom float-end" id="addDateButton">Добавить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js"></script>
+    <script src="~/js/scheduleCreate.js"></script>
+</body>
+</html>
