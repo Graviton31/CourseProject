@@ -1,7 +1,7 @@
-﻿const userRole = getCookie("UserRole");
+﻿const userRole = getCookie("role");
 console.log("userRole", userRole);
 
-if (userRole === 'руководитель') {
+if (userRole === 'руководитель' || userRole === 'администратор') {
     document.getElementById('SchedulesEditButton').style.display = 'block';
 } else {
     document.getElementById('SchedulesEditButton').style.display = 'none';

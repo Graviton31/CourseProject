@@ -1,9 +1,9 @@
 ﻿// Получаем значение cookie UserLogin
-const userLogin = document.cookie.split('; ').find(row => row.startsWith('UserLogin='))?.split('=')[1];
+const userLogin = document.cookie.split('; ').find(row => row.startsWith('login='))?.split('=')[1];
 if (!userLogin) console.error('UserLogin cookie not found'); // Если cookie не найден, выводим ошибку
 
 // Получаем роль пользователя
-const userRole = getCookie("UserRole");
+const userRole = getCookie("role");
 if (!userRole) {
     console.error('UserRole cookie not found'); // Если cookie не найден, выводим ошибку
 } else {
@@ -13,7 +13,7 @@ console.log('User Login:', userLogin);
 
 // Запрашиваем данные предметов в зависимости от роли пользователя
 let fetchUrl;
-if (userRole === 'руководитель') {
+if (userRole === 'руководитель' || userRole === 'администратор') {
     fetchUrl = `https://localhost:7022/api/subjects/subjectsGrops`; // Запрос всех предметов
 } else if (userRole === 'учитель') {
     fetchUrl = `https://localhost:7022/api/subjects/teacher/${userLogin}`; // Запрос предметов для учителя

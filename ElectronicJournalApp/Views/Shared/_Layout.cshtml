@@ -21,31 +21,36 @@
             </div>
             <div class="nav-container">
                 <div class="d-flex">
-                    @if (Context.Request.Cookies["UserRole"] != "администратор")
+                    <div class="nav-item">
+                        <a class="btn btn-custom text-white @(ViewData["ActiveMenu"]?.ToString() == "Index" ? "active" : "")" href="@Url.Action("Index", "Schedules")">
+                            Расписание
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="btn btn-custom text-white @(Context.Request.Path.Value.Contains("AttendanceJournal") ? "active" : "")" href="@Url.Action("Index", "AttendanceJournal")">
+                            Журнал
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="btn btn-custom text-white @(Context.Request.Path.Value.Contains("Students") ? "active" : "")" href="#">
+                            Ученики
+                        </a>
+                    </div>
+                    @if (Context.Request.Cookies["role"] != "учитель")
                     {
                         <div class="nav-item">
-                            <a class="btn btn-custom text-white @(ViewData["ActiveMenu"]?.ToString() == "Index" ? "active" : "")" href="@Url.Action("Index", "Schedules")">
-                                Расписание
+                            <a class="btn btn-custom text-white @(Context.Request.Path.Value.Contains("Subjects") || ViewData["ActiveMenu"]?.ToString() == "ScheduleEdit" ? "active" : "")" href="@Url.Action("Index", "Subjects")">
+                                Предметы
                             </a>
                         </div>
+                    }
+                    @if (Context.Request.Cookies["role"] == "администратор")
+                    {
                         <div class="nav-item">
-                            <a class="btn btn-custom text-white @(Context.Request.Path.Value.Contains("AttendanceJournal") ? "active" : "")" href="@Url.Action("Index", "AttendanceJournal")">
-                                Журнал
+                            <a class="btn btn-custom text-white @(Context.Request.Path.Value.Contains("Users") ? "active" : "")" href="@Url.Action("Index", "Users")">
+                                Пользователи
                             </a>
                         </div>
-                        <div class="nav-item">
-                            <a class="btn btn-custom text-white @(Context.Request.Path.Value.Contains("Students") ? "active" : "")" href="#">
-                                Ученики
-                            </a>
-                        </div>
-                        @if (Context.Request.Cookies["UserRole"] == "руководитель")
-                        {
-                            <div class="nav-item">
-                                <a class="btn btn-custom text-white @(Context.Request.Path.Value.Contains("Subjects") || ViewData["ActiveMenu"]?.ToString() == "ScheduleEdit" ? "active" : "")" href="@Url.Action("Index", "Subjects")">
-                                    Предметы
-                                </a>
-                            </div>
-                        }
                     }
                 </div>
             </div>
@@ -53,11 +58,11 @@
                 <div class="flex justify-end">
                     <div class="relative inline-block text-left">
                         <button class="btn-custom px-4 py-2 rounded-md flex items-center" id="dropdownMenuButton" aria-expanded="true" aria-haspopup="true">
-                            <i class="fas fa-user mr-2"></i> @Context.Request.Cookies["UserLogin"]
+                            <i class="fas fa-user mr-2"></i> @Context.Request.Cookies["login"]
                         </button>
                         <div class="dropdown-menu-custom absolute mt-2 w-48 rounded-md shadow-lg z-10 hidden" role="menu" aria-orientation="vertical" aria-labelledby="dropdownMenuButton">
                             <div class="py-1" role="none">
-                                <a href="#" class="block px-4 py-2 text-sm" role="menuitem">Роль: @Context.Request.Cookies["UserRole"]</a>
+                                <a href="#" class="block px-4 py-2 text-sm" role="menuitem">Роль: @Context.Request.Cookies["role"]</a>
                                 <div class="border-t border-gray-700"></div>
                                 <a href="#" class="block px-4 py-2 text-sm" role="menuitem">Выйти</a>
                             </div>
@@ -83,11 +88,26 @@
         });
 
         document.querySelectorAll('.dropdown-menu-custom a[role="menuitem"]')[1].addEventListener('click', function () {
-            // Удаление cookie
-            document.cookie = "UserLogin=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-            document.cookie = "UserPassword=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-            document.cookie = "UserRole=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            logout();
         });
+
+        function logout() {
+            // Удаляем токен из localStorage
+            localStorage.removeItem('token');
+
+            // Удаляем куки
+            deleteCookie('token');
+            deleteCookie('login');
+            deleteCookie('role');
+
+            // Перенаправляем на страницу входа
+            window.location.href = '/Users/Authorization';
+        }
+
+        function deleteCookie(name) {
+            // Устанавливаем куку с истекшим сроком действия
+            document.cookie = name + '=; Max-Age=0; path=/';
+        }
     </script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>

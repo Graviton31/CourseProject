@@ -3,8 +3,12 @@ using ElectronicJournalsApi.Data;
 using ElectronicJournalsApi.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Text;
 
 namespace ElectronicJournalApi.Controllers
 {
@@ -13,10 +17,12 @@ namespace ElectronicJournalApi.Controllers
     public class UsersController : ControllerBase
     {
         private readonly ElectronicJournalContext _context;
+        private readonly IConfiguration _configuration;
 
-        public UsersController(ElectronicJournalContext context)
+        public UsersController(ElectronicJournalContext context, IConfiguration configuration)
         {
             _context = context;
+            _configuration = configuration;
         }
 
         // GET: api/Users
@@ -178,15 +184,42 @@ namespace ElectronicJournalApi.Controllers
             if (PasswordHasher.VerifyPassword(userAuthorizationDto.Password, userAuthorizationDto.Login, existingUser.Password))
             {
                 Console.WriteLine(existingUser.Role);
-                // Возвращаем сообщение об успешной авторизации и роль пользователя
+
+                // Генерация JWT токена
+                var token = GenerateJwtToken(existingUser);
+
+                // Возвращаем токен и роль пользователя
                 return Ok(new
                 {
                     message = "Успешная авторизация",
-                    role = existingUser.Role // Предполагается, что у вас есть поле Role в модели User
+                    token = token,
+                    role = existingUser.Role, // Предполагается, что у вас есть поле Role в модели User
+                    login = existingUser.Login
                 });
             }
 
             return Unauthorized(new { message = "Неверный логин или пароль" });
+        }
+
+        private string GenerateJwtToken(User user)
+        {
+            var claims = new[]
+            {
+            new Claim(JwtRegisteredClaimNames.NameId, user.IdUsers.ToString()),
+            new Claim(ClaimTypes.Role, user.Role)
+            };
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+
+            var token = new JwtSecurityToken(
+                issuer: _configuration["Jwt:Issuer"],
+                audience: _configuration["Jwt:Issuer"],
+                claims: claims,
+                expires: DateTime.Now.AddMinutes(30), // Установите время жизни токена
+                signingCredentials: creds);
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
         }
 
 
