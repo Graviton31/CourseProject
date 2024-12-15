@@ -129,6 +129,7 @@ namespace ElectronicJournalApi.Controllers
             // Получаем предметы, связанные с учителем по логину
             var subjectsWithGroups = await _context.Subjects
                 .Include(s => s.Groups)
+                .Where(s => !s.IsDelete) // Фильтрация по IsDelete
                 .Select(s => new SubjectDto
                 {
                     Name = s.Name,
@@ -167,7 +168,7 @@ namespace ElectronicJournalApi.Controllers
             // Получаем предметы, связанные с учителем по логину
             var subjectsWithGroups = await _context.Subjects
                 .Include(s => s.Groups)
-                .Where(s => s.IdUsers.Any(u => u.Login == login))
+                .Where(s => s.IdUsers.Any(u => u.Login == login) && !s.IsDelete) // Фильтрация по IsDelete
                 .Select(s => new SubjectDto
                 {
                     Name = s.Name,
@@ -251,6 +252,25 @@ namespace ElectronicJournalApi.Controllers
                 Console.Error.WriteLine($"An error occurred: {ex.Message}");
                 return StatusCode(500, new { Message = "Произошла непредвиденная ошибка. Пожалуйста, попробуйте еще раз." });
             }
+        }
+
+        // DELETE: api/Subjects/DeleteSubject/{id}
+        [HttpDelete("DeleteSubject/{id}")]
+        public async Task<IActionResult> DeleteSubject([FromRoute] int id)
+        {
+            var subject = await _context.Subjects.FindAsync(id);
+            if (subject == null)
+            {
+                return NotFound();
+            }
+
+            // Устанавливаем IsDelete в true
+            subject.IsDelete = true;
+
+            // Сохраняем изменения в базе данных
+            await _context.SaveChangesAsync();
+
+            return Ok(new { message = "Предмет успешно удален" }); // Возвращаем статус 200 OK с сообщением
         }
 
         // DTO классы

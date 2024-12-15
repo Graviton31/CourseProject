@@ -1,4 +1,14 @@
-﻿function deleteSubject(subjectId) {
+﻿const userRole = getCookie("UserRole");
+console.log("userRole", userRole);
+
+if (userRole === 'руководитель') {
+    document.getElementById('SchedulesEditButton').style.display = 'block';
+} else {
+    document.getElementById('SchedulesEditButton').style.display = 'none';
+}
+
+function deleteSubject(subjectId) {
+    console.log(`Deleting subject with ID: ${subjectId}`); // Для отладки
     fetch(`https://localhost:7022/api/Subjects/DeleteSubject/${subjectId}`, {
         method: 'DELETE'
     })

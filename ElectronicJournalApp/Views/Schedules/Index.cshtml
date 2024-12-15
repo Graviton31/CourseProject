@@ -1,0 +1,98 @@
+﻿@model IEnumerable<ElectronicJournalApp.Models.ScheduleView>
+
+@{
+    ViewData["Title"] = "Расписание";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <style>
+        .day-header {
+            background-color: #F7911D;
+        }
+
+        .class-item {
+            background-color: #EDFCF5;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 10px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .class-details {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        .class-item h5 {
+            color: #1A1D27;
+            margin: 0;
+        }
+
+        .class-item p {
+            color: #1B9AAA;
+            margin: 0;
+        }
+
+        .class-item .time {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="text-center text-3xl font-bold p-5" style="color: #1A1D27;">Расписание</h1>
+    <div class="container mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            @for (int i = 1; i <= 6; i++)
+            {
+                <div class="bg-white shadow-md rounded-lg">
+                    <div class="day-header p-4 rounded-t-lg" style="background-color: #F7911D;">
+                        <h2 class="text-xl font-semibold text-white">@GetDayName(i)</h2>
+                    </div>
+                    <div class="p-4">
+                        @foreach (var schedule in Model.Where(s => s.WeekDay == i).OrderBy(s => s.StartTime))
+                        {
+                            <div class="class-item">
+                                <p class="time">@schedule.StartTime</p>
+                                <div class="class-details">
+                                    <h5 class="text-lg font-semibold">@schedule.SubjectName: @schedule.GroupName</h5>
+                                    <p>@schedule.Classroom</p>
+                                </div>
+                                <p>@schedule.EndTime</p>
+                            </div>
+                        }
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js"></script>
+</body>
+</html>
+
+@functions {
+    private string GetDayName(int dayNumber)
+    {
+        return dayNumber switch
+        {
+            1 => "Понедельник",
+            2 => "Вторник",
+            3 => "Среда",
+            4 => "Четверг",
+            5 => "Пятница",
+            6 => "Суббота",
+            _ => "Неизвестный день"
+        };
+    }
+}

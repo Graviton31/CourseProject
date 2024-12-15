@@ -24,6 +24,11 @@
                     @if (Context.Request.Cookies["UserRole"] != "администратор")
                     {
                         <div class="nav-item">
+                            <a class="btn btn-custom text-white @(ViewData["ActiveMenu"]?.ToString() == "Index" ? "active" : "")" href="@Url.Action("Index", "Schedules")">
+                                Расписание
+                            </a>
+                        </div>
+                        <div class="nav-item">
                             <a class="btn btn-custom text-white @(Context.Request.Path.Value.Contains("AttendanceJournal") ? "active" : "")" href="@Url.Action("Index", "AttendanceJournal")">
                                 Журнал
                             </a>
@@ -36,13 +41,8 @@
                         @if (Context.Request.Cookies["UserRole"] == "руководитель")
                         {
                             <div class="nav-item">
-                                <a class="btn btn-custom text-white @(Context.Request.Path.Value.Contains("Subjects") ? "active" : "")" href="@Url.Action("Index", "Subjects")">
+                                <a class="btn btn-custom text-white @(Context.Request.Path.Value.Contains("Subjects") || ViewData["ActiveMenu"]?.ToString() == "ScheduleEdit" ? "active" : "")" href="@Url.Action("Index", "Subjects")">
                                     Предметы
-                                </a>
-                            </div>
-                            <div class="nav-item">
-                                <a class="btn btn-custom text-white @(Context.Request.Path.Value.Contains("Schedule") ? "active" : "")" href="@Url.Action("Create", "Schedules")">
-                                    Расписание
                                 </a>
                             </div>
                         }
@@ -87,9 +87,6 @@
             document.cookie = "UserLogin=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
             document.cookie = "UserPassword=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
             document.cookie = "UserRole=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
-
-            // Переход на страницу авторизации
-            window.location.href = '@Url.Action("Authorization", "Users")'; // Укажите правильный путь к странице авторизации
         });
     </script>
     @await RenderSectionAsync("Scripts", required: false)

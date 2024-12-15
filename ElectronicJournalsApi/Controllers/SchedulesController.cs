@@ -86,6 +86,35 @@ namespace ElectronicJournalApi.Controllers
             return Ok(new { message = "Запись успешно удалена." }); // Вернуть успешный ответ
         }
 
+        // GET: api/schedules
+        [HttpGet]
+        public async Task<ActionResult<IEnumerable<object>>> GetSchedules()
+        {
+            var schedules = await _context.Schedules
+                .Include(s => s.IdGroupNavigation) // Включаем связанную сущность Group
+                .Include(s => s.IdGroupNavigation.IdSubjectNavigation) // Включаем связанную сущность Subject
+                .Select(s => new
+                {
+                    s.WeekDay,
+                    s.StartTime,
+                    s.EndTime,
+                    s.IdGroup,
+                    GroupName = s.IdGroupNavigation.Name, // Получаем только имя группы
+                    Classroom = s.IdGroupNavigation.Classroom, // Получаем только класс
+                    SubjectName = s.IdGroupNavigation.IdSubjectNavigation.Name // Получаем название предмета
+                })
+                .ToListAsync();
+
+            // Выводим данные для проверки
+            Console.WriteLine("Полученные расписания:");
+            foreach (var schedule in schedules)
+            {
+                Console.WriteLine($"WeekDay: {schedule.WeekDay}, StartTime: {schedule.StartTime}, EndTime: {schedule.EndTime}, IdGroup: {schedule.IdGroup}, GroupName: {schedule.GroupName ?? "Нет данных"}, Classroom: {schedule.Classroom ?? "Нет данных"}, SubjectName: {schedule.SubjectName ?? "Нет данных"}");
+            }
+
+            return Ok(schedules);
+        }
+
         public class ScheduleDto
         {
             public sbyte? WeekDay { get; set; }
