@@ -21,9 +21,9 @@
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            padding: 10px;
+            padding: 8px;
             border-radius: 8px;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
 
         .class-details {
@@ -35,35 +35,38 @@
         .class-item h5 {
             color: #1A1D27;
             margin: 0;
+            font-size: 1rem;
         }
 
         .class-item p {
             color: #1B9AAA;
             margin: 0;
+            font-size: 0.9rem;
         }
 
         .class-item .time {
             font-weight: bold;
+            font-size: 0.9rem;
         }
     </style>
 </head>
 <body>
-    <h1 class="text-center text-3xl font-bold p-5" style="color: #1A1D27;">Расписание</h1>
-    <div class="container mx-auto">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+    <h1 class="text-center text-2xl font-bold p-4" style="color: #1A1D27;">Расписание</h1>
+    <div class="container-fluid px-3">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
             @for (int i = 1; i <= 6; i++)
             {
-                <div class="bg-white shadow-md rounded-lg">
-                    <div class="day-header p-4 rounded-t-lg" style="background-color: #F7911D;">
-                        <h2 class="text-xl font-semibold text-white">@GetDayName(i)</h2>
+                <div class="bg-white shadow-md rounded-lg w-full">
+                    <div class="day-header p-3 rounded-t-lg">
+                        <h2 class="text-lg font-semibold text-white">@GetDayName(i)</h2>
                     </div>
-                    <div class="p-4">
+                    <div class="p-3">
                         @foreach (var schedule in Model.Where(s => s.WeekDay == i).OrderBy(s => s.StartTime))
                         {
                             <div class="class-item">
                                 <p class="time">@schedule.StartTime</p>
                                 <div class="class-details">
-                                    <h5 class="text-lg font-semibold">@schedule.SubjectName: @schedule.GroupName</h5>
+                                    <h5 class="text-md font-semibold">@schedule.SubjectName: @schedule.GroupName</h5>
                                     <p>@schedule.Classroom</p>
                                 </div>
                                 <p>@schedule.EndTime</p>

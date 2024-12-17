@@ -189,45 +189,49 @@ namespace ElectronicJournalApi.Controllers
         }
 
         [HttpGet("group/{id}")]
-		public IActionResult GetStudentsByGroup(int id)
-		{
-			var group = _context.Groups
-				.Include(g => g.IdStudents)
-					.ThenInclude(s => s.Journals)
-						.ThenInclude(j => j.IdUnvisitedStatusNavigation)
-				.FirstOrDefault(g => g.IdGroup == id);
+        public IActionResult GetStudentsByGroup(int id)
+        {
+            var group = _context.Groups
+                .Include(g => g.IdStudents)
+                    .ThenInclude(s => s.Journals)
+                        .ThenInclude(j => j.IdUnvisitedStatusNavigation)
+                .Include(g => g.IdSubjectNavigation) // Добавляем включение для предмета
+                .FirstOrDefault(g => g.IdGroup == id);
 
-			if (group == null)
-			{
-				return NotFound(); // Группа не найдена
-			}
+            if (group == null)
+            {
+                return NotFound(); // Группа не найдена
+            }
 
-			var students = group.IdStudents.Select(s => new
-			{
-				s.IdStudent,
-				s.Name,
-				s.Surname,
-				Journals = s.Journals
-					.Where(j => j.IdGroup == id)
-					.OrderBy(j => j.LessonDate) // Сортировка по возрастанию даты
-					.Select(j => new
-					{
-						j.LessonDate,
-						StatusShortName = j.IdUnvisitedStatusNavigation != null ? j.IdUnvisitedStatusNavigation.ShortName : "+", // Проверяем на null
-						StatusId = j.IdUnvisitedStatus != null ? j.IdUnvisitedStatus : (int?)null // Добавляем ID статуса
-					})
-					.ToList()
-			}).ToList();
+            var students = group.IdStudents.Select(s => new
+            {
+                s.IdStudent,
+                s.Name,
+                s.Surname,
+                Journals = s.Journals
+                    .Where(j => j.IdGroup == id)
+                    .OrderBy(j => j.LessonDate) // Сортировка по возрастанию даты
+                    .Select(j => new
+                    {
+                        j.LessonDate,
+                        StatusShortName = j.IdUnvisitedStatusNavigation != null ? j.IdUnvisitedStatusNavigation.ShortName : "+", // Проверяем на null
+                        StatusId = j.IdUnvisitedStatus != null ? j.IdUnvisitedStatus : (int?)null // Добавляем ID статуса
+                    })
+                    .ToList()
+            }).ToList();
 
-			// Получаем уникальные даты уроков
-			var lessonDates = students.SelectMany(s => s.Journals.Select(j => j.LessonDate)).Distinct().ToList();
+            // Получаем уникальные даты уроков
+            var lessonDates = students.SelectMany(s => s.Journals.Select(j => j.LessonDate)).Distinct().ToList();
 
-			return Ok(new
-			{
-				Students = students,
-				LessonDates = lessonDates,
-			});
-		}
+            // Создаем объект ответа, включая имя группы и имя предмета
+            return Ok(new
+            {
+                GroupName = group.Name, // Имя группы
+                SubjectName = group.IdSubjectNavigation.Name, // Имя предмета
+                Students = students,
+                LessonDates = lessonDates,
+            });
+        }
 
         [HttpPost("PostSubject")]
         public async Task<ActionResult<Subject>> PostSubject([FromBody] Subject subject)

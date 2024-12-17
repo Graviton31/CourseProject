@@ -14,14 +14,9 @@
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
-}
-
 body {
-    background-color: #EDFCF5;
-    color: #1A1D27;
+    background-color: white;
+    color: #1a1d27;
     font-family: 'Roboto', sans-serif;
 }
 
@@ -42,38 +37,12 @@ body {
 .required {
     color: red; /* ќбозначение об€зательности */
 }
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
-}
-
-body {
-    background-color: #EDFCF5;
-    color: #1A1D27;
-    font-family: 'Roboto', sans-serif;
-}
 
 .logo {
     width: 40px; /* Ўирина логотипа */
     height: auto; /* јвтоматическа€ высота */
     margin-right: 10px; /* ќтступ справа от логотипа */
 }
-
-.dropdown-menu-custom {
-    background-color: white;
-    color: #1A1D27;
-    right: 0;
-    left: auto;
-}
-
-    .dropdown-menu-custom a {
-        color: #1A1D27; /* ÷вет текста ссылок */
-        text-decoration: none; /* ”бираем подчеркивание */
-    }
-
-        .dropdown-menu-custom a:hover {
-            background-color: #F7911D; /* ÷вет фона при наведении */
-            color: white; /* ÷вет текста при наведении */
-        }
 
 .nav-container {
     display: flex;
