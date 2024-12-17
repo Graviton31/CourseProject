@@ -25,7 +25,11 @@ namespace ElectronicJournalApi.Controllers
                 .Where(s => s.IdGroup == groupId)
                 .ToListAsync();
 
-            // Вместо NotFound возвращаем пустой список
+            if (schedules == null || schedules.Count == 0)
+            {
+                return NotFound("Расписание не найдено для данной группы.");
+            }
+
             return Ok(schedules);
         }
 

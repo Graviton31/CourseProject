@@ -8,7 +8,7 @@ if (userRole === 'руководитель' || userRole === 'администр�
 }
 
 function deleteSubject(subjectId) {
-    console.log(`Deleting subject with ID: ${subjectId}`);
+    console.log(`Deleting subject with ID: ${subjectId}`); // Для отладки
     fetch(`https://localhost:7022/api/Subjects/DeleteSubject/${subjectId}`, {
         method: 'DELETE'
     })
@@ -16,7 +16,7 @@ function deleteSubject(subjectId) {
             if (response.ok) {
                 const subjectRow = document.getElementById(`subject-row-${subjectId}`);
                 if (subjectRow) {
-                    subjectRow.remove(); 
+                    subjectRow.remove(); // Удаляем строку из DOM
                 }
             } else if (response.status === 404) {
                 alert('Предмет не найден');

@@ -1,5 +1,5 @@
 ﻿// Получаем значение cookie UserLogin
-const userLogin = getCookie("login");
+const userLogin = document.cookie.split('; ').find(row => row.startsWith('login='))?.split('=')[1];
 if (!userLogin) console.error('UserLogin cookie not found'); // Если cookie не найден, выводим ошибку
 
 // Получаем роль пользователя
@@ -78,6 +78,7 @@ fetch(fetchUrl)
                         'Четверг',     // 4
                         'Пятница',     // 5
                         'Суббота',     // 6
+                        'Воскресенье'  // 7
                     ];
                     return days[dayNumber - 1] || 'Неизвестный день'; // Возвращаем название дня или 'Неизвестный день'
                 }
@@ -95,15 +96,8 @@ fetch(fetchUrl)
                         const tbody = document.querySelector('tbody'); // Получаем тело таблицы
 
                         // Очищаем текущее содержимое
-                        tbody.innerHTML = ''; // Очищаем текущее содержимое
-
-                        // Проверяем, есть ли записи в расписании
-                        if (data.length === 0) {
-                            const row = document.createElement('tr');
-                            row.innerHTML = `<td colspan="5" class="py-2 px-4 border-b text-center">Нет записей для этой группы</td>`;
-                            tbody.appendChild(row); // Добавляем строку с сообщением
-                            return; // Если записей нет, выходим
-                        }
+                        tbody.innerHTML = '';
+                        console.log(data); // Проверяем, что возвращает API
 
                         data.forEach((schedule, index) => {
                             const row = document.createElement('tr');

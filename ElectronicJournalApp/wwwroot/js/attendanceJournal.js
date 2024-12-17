@@ -17,7 +17,7 @@ if (userRole === 'руководитель' || userRole === 'администр�
 } else if (userRole === 'учитель') {
     fetchUrl = `https://localhost:7022/api/subjects/teacher/${userLogin}`; // Запрос предметов для учителя
 } else {
-    console.error('Неизвестная роль пользователя');
+    console.error('Неизвестная роль пользователя'); 
 }
 
 console.log('Fetch URL:', fetchUrl); // Проверяем сформированный URL
@@ -63,8 +63,7 @@ fetch(fetchUrl)
                 // Убираем выделение у всех групп и выделяем текущую
                 document.querySelectorAll('.group-name').forEach(el => el.classList.remove('highlight'));
                 this.classList.add('highlight');
-                document.getElementById('addEntry').style.display = 'block'; // Показываем кнопку добавления записи
-                document.getElementById('exportEntries').style.display = 'block'; 
+                document.getElementById('add-entry').style.display = 'block'; // Показываем кнопку добавления записи
                 clearDateColumns(); // Очищаем столбцы с датами
 
                 // Запрашиваем студентов группы с записями из журнала
@@ -80,14 +79,6 @@ fetch(fetchUrl)
 
                         // Очищаем текущее содержимое
                         tbody.innerHTML = '';
-
-                        // Проверяем, есть ли записи в расписании
-                        if (students.length === 0) {
-                            const row = document.createElement('tr');
-                            row.innerHTML = `<td colspan="5" class="py-2 px-4 border-b text-center">Нет записей для этой группы</td>`;
-                            tbody.appendChild(row); // Добавляем строку с сообщением
-                            return; // Если записей нет, выходим
-                        }
 
                         var dateObj;
                         var day;
@@ -139,7 +130,7 @@ fetch(fetchUrl)
             });
         });
     })
-    .catch(console.error); 
+    .catch(console.error); // Обработка ошибок
 
 // Функция для очистки столбцов с датами
 function clearDateColumns() {
@@ -151,7 +142,7 @@ function clearDateColumns() {
 }
 
 // Обработчик для кнопки "Добавить запись"
-document.getElementById('addEntry').addEventListener('click', function () {
+document.getElementById('add-entry').addEventListener('click', function () {
     // Показываем модальное окно для добавления даты
     $('#dateModal').modal('show');;
 });
@@ -225,7 +216,7 @@ document.getElementById('addDateButton').addEventListener('click', function () {
     // Извлекаем день и месяц из даты
     const dateObj = new Date(date);
     const day = dateObj.getDate();
-    const month = dateObj.getMonth() + 1;
+    const month = dateObj.getMonth() + 1; 
 
     if (date) {
         const tableHeader = document.querySelector('thead tr');
@@ -256,96 +247,64 @@ document.getElementById('addDateButton').addEventListener('click', function () {
     }
 });
 
-// Обработчик для сохранения записей
-document.getElementById('saveEntries').addEventListener('click', function () {
-    const journalEntries = []; // Массив для хранения записей журнала
+    // Обработчик для сохранения записей
+    document.getElementById('saveEntries').addEventListener('click', function () {
+        const journalEntries = []; // Массив для хранения записей журнала
 
-    // Проходим по всем строкам таблицы
-    document.querySelectorAll('tbody tr').forEach(row => {
-        const idStudent = row.querySelector('.student-name').dataset.studentId; // Получаем ID студента
+        // Проходим по всем строкам таблицы
+        document.querySelectorAll('tbody tr').forEach(row => {
+            const idStudent = row.querySelector('.student-name').dataset.studentId; // Получаем ID студента
 
-        // Проходим по всем ячейкам в строке, кроме первых двух
-        row.querySelectorAll('td:not(:nth-child(1)):not(:nth-child(2))').forEach((cell, index) => {
-            // Получаем idUnvisitedStatus из атрибута data-status-id ячейки
-            const idUnvisitedStatus = cell.getAttribute('data-status-id'); // Получаем значение id из атрибута
-            const lessonDate = document.querySelector(`thead tr th:nth-child(${index + 3})`).value; // Получаем дату из заголовка
+            // Проходим по всем ячейкам в строке, кроме первых двух
+            row.querySelectorAll('td:not(:nth-child(1)):not(:nth-child(2))').forEach((cell, index) => {
+                // Получаем idUnvisitedStatus из атрибута data-status-id ячейки
+                const idUnvisitedStatus = cell.getAttribute('data-status-id'); // Получаем значение id из атрибута
+                const lessonDate = document.querySelector(`thead tr th:nth-child(${index + 3})`).value; // Получаем дату из заголовка
 
-            // Проверяем, заполнены ли все необходимые поля
-            if (idStudent) {
-                journalEntries.push({
-                    LessonDate: lessonDate, // Дата урока
-                    IdGroup: document.querySelector('.group-name.highlight').dataset.groupId, // Получаем ID группы
-                    IdStudent: idStudent, // ID студента
-                    IdUnvisitedStatus: idUnvisitedStatus ? parseInt(idUnvisitedStatus) : null // Преобразуем в число или null
-                });
-            }
+                // Проверяем, заполнены ли все необходимые поля
+                if (idStudent) {
+                    journalEntries.push({
+                        LessonDate: lessonDate, // Дата урока
+                        IdGroup: document.querySelector('.group-name.highlight').dataset.groupId, // Получаем ID группы
+                        IdStudent: idStudent, // ID студента
+                        IdUnvisitedStatus: idUnvisitedStatus ? parseInt(idUnvisitedStatus) : null // Преобразуем в число или null
+                    });
+                }
+            });
         });
+
+        // Проверяем, есть ли записи для сохранения
+        if (journalEntries.length === 0) {
+            alert('Нет данных для сохранения.'); // Предупреждение, если нет данных
+            return;
+        }
+
+        console.log(journalEntries);
+        // Отправка данных на сервер
+        fetch('https://localhost:7022/api/Journals/CreateJournal', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(journalEntries)
+        })
+            .then(response => {
+                if (!response.ok) {
+                    return response.json().then(errData => {
+                        throw new Error(`Сетевая ошибка: ${response.status} ${response.statusText} - ${JSON.stringify(errData)}`);
+                    });
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Записи успешно сохранены:', data);
+                alert('Записи успешно сохранены!');
+                document.querySelector('.group-name.highlight').click();
+            })
+            .catch(error => {
+                console.error('Ошибка при сохранении записей:', error);
+                alert('Ошибка при сохранении записей.');
+            });
     });
 
-    // Проверяем, есть ли записи для сохранения
-    if (journalEntries.length === 0) {
-        alert('Нет данных для сохранения.'); // Предупреждение, если нет данных
-        return;
-    }
 
-    console.log(journalEntries);
-    // Отправка данных на сервер
-    fetch('https://localhost:7022/api/Journals/CreateJournal', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(journalEntries)
-    })
-        .then(response => {
-            if (!response.ok) {
-                return response.json().then(errData => {
-                    throw new Error(`Сетевая ошибка: ${response.status} ${response.statusText} - ${JSON.stringify(errData)}`);
-                });
-            }
-            return response.json();
-        })
-        .then(data => {
-            console.log('Записи успешно сохранены:', data);
-            alert('Записи успешно сохранены!');
-            document.querySelector('.group-name.highlight').click();
-        })
-        .catch(error => {
-            console.error('Ошибка при сохранении записей:', error);
-            alert('Ошибка при сохранении записей.');
-        });
-});
-
-// Обработчик для кнопки "Экспорт"
-document.getElementById('exportEntries').addEventListener('click', function () {
-    const groupId = document.querySelector('.group-name.highlight').dataset.groupId; // Получаем ID текущей группы
-    if (!groupId) {
-        console.error('Group ID is undefined'); // Проверяем наличие ID
-        return;
-    }
-
-    // Формируем URL для запроса Excel-файла
-    const exportUrl = `https://localhost:7022/api/export/journalsExport/${groupId}`;
-
-    // Выполняем запрос на сервер
-    fetch(exportUrl)
-        .then(response => {
-            if (!response.ok) throw new Error('Network response was not ok'); // Проверяем успешность ответа
-            return response.blob(); // Преобразуем ответ в Blob
-        })
-        .then(blob => {
-            // Создаем URL для Blob и скачиваем файл
-            const url = window.URL.createObjectURL(blob);
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'attendance_data.xlsx'; // Имя файла для скачивания
-            document.body.appendChild(a);
-            a.click(); // Имитируем клик для скачивания
-            a.remove(); // Удаляем элемент после скачивания
-            window.URL.revokeObjectURL(url); // Освобождаем память
-        })
-        .catch(error => {
-            console.error('Ошибка при экспорте данных:', error); // Обработка ошибок
-            alert('Ошибка при экспорте данных.');
-        });
-});
