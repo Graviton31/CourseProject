@@ -1,5 +1,7 @@
-html {
-  font-size: 14px;
+    html {
+    font-size: 14px;
+    position: relative;
+    min-height: 100%;
 }
 
 @media (min-width: 768px) {
@@ -12,12 +14,60 @@ html {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+body {
+    background-color: white;
+    color: #1a1d27;
+    font-family: 'Roboto', sans-serif;
 }
 
-body {
-    background-color: #EDFCF5;
+.btn-custom {
+    background-color: #4D8BBD;
+    color: white;
+}
+
+    .btn-custom:hover {
+        background-color: #F7911D;
+        color: white;
+    }
+
+    .btn-custom.active {
+        background-color: #F7911D;
+        color: white;
+    }
+
+.div-custom {
+    background-color: #F3F6F8;
+}
+
+.required {
+    color: red; /* Обозначение обязательности */
+}
+
+.logo {
+    width: 60px; /* Ширина логотипа */
+    height: auto; /* Автоматическая высота */
+    margin-right: 10px; /* Отступ справа от логотипа */
+}
+
+.dropdown-menu-custom {
+    background-color: white;
     color: #1A1D27;
+    right: 0;
+    left: auto;
+}
+
+    .dropdown-menu-custom a {
+        color: #1A1D27; 
+        text-decoration: none; 
+    }
+
+        .dropdown-menu-custom a:hover {
+            background-color: #2B6A9F;
+            color: white;
+        }
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* Сдвигаем контейнер вправо */
 }

@@ -53,7 +53,8 @@ namespace ElectronicJournalApi.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     duration = table.Column<sbyte>(type: "tinyint", nullable: false),
                     lesson_lenght = table.Column<sbyte>(type: "tinyint", nullable: false),
-                    lessons_count = table.Column<sbyte>(type: "tinyint", nullable: false)
+                    lessons_count = table.Column<sbyte>(type: "tinyint", nullable: false),
+                    is_delete = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -99,7 +100,8 @@ namespace ElectronicJournalApi.Migrations
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     birth_date = table.Column<DateOnly>(type: "date", nullable: true),
                     role = table.Column<string>(type: "enum('администратор','руководитель','учитель')", nullable: false, collation: "utf8mb4_0900_ai_ci")
-                        .Annotation("MySql:CharSet", "utf8mb4")
+                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    is_delete = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -170,9 +172,10 @@ namespace ElectronicJournalApi.Migrations
                 {
                     id_journal = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
+                    lesson_date = table.Column<DateOnly>(type: "date", nullable: true),
                     id_group = table.Column<int>(type: "int", nullable: false),
                     id_student = table.Column<int>(type: "int", nullable: false),
-                    id_unvisited_status = table.Column<int>(type: "int", nullable: false)
+                    id_unvisited_status = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -226,8 +229,7 @@ namespace ElectronicJournalApi.Migrations
                 {
                     id_schedule = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    week_day = table.Column<string>(type: "enum('Пн','Вт','Ср','Чт','Пт','Сб')", nullable: false, collation: "utf8mb4_0900_ai_ci")
-                        .Annotation("MySql:CharSet", "utf8mb4"),
+                    week_day = table.Column<sbyte>(type: "tinyint", nullable: true),
                     start_time = table.Column<TimeOnly>(type: "time", nullable: false),
                     end_time = table.Column<TimeOnly>(type: "time", nullable: false),
                     id_group = table.Column<int>(type: "int", nullable: false)

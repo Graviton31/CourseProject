@@ -1,0 +1,61 @@
+﻿.highlight {
+    background-color: #F7911D; /* Цвет выделения */
+}
+
+.group-list {
+    display: none; /* Скрываем группы по умолчанию */
+}
+
+    .group-list.active {
+        display: block; /* Показываем группы, когда они активны */
+    }
+
+.btn-save {
+    background-color: #2B6A9F;
+    color: white;
+}
+
+    .btn-save:hover {
+        background-color: #F7911D;
+        color: white;
+    }
+
+ Стили для модального окна 
+.modal {
+    z-index: 50;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+    padding-top: 60px;
+}
+
+.modal-content {
+    background-color: #fefefe;
+}
+
+/*.table {
+    table-layout: fixed;*/ /* Устанавливаем фиксированное расположение таблицы */
+    /*width: 100%;*/ /* Ширина таблицы 100% */
+/*}*/
+
+    .table th, .table td {
+        overflow: hidden; /* Скрываем переполнение */
+        white-space: nowrap; /* Запрещаем перенос текста */
+        text-align: center;
+    }
+
+.number-column {
+    max-width: 30px; /* Фиксированная ширина для первого столбца (номер строки) */
+}
+
+.student-column {
+    max-width: 150px; /* Фиксированная ширина для второго столбца (имя студента) */
+}
+
+.dynamic-column {
+    max-width: 50px; /* Фиксированная ширина для новых столбцов (статусы) */
+}
+

@@ -1,7 +1,10 @@
 using ElectronicJournalApi.Classes;
 using ElectronicJournalsApi.Data;
 using ElectronicJournalsApi.Models;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -23,12 +26,31 @@ builder.Services.AddCors(options =>
         });
 });
 
+// Добавление аутентификации JWT
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+.AddJwtBearer(options =>
+{
+    options.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = true,
+        ValidateIssuerSigningKey = true,
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidAudience = builder.Configuration["Jwt:Issuer"],
+        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
+    };
+});
+
 builder.Services.AddDbContext<ElectronicJournalContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"), ServerVersion.Parse("8.0.19-mysql")));
 
 var app = builder.Build();
 
-// Примените миграции и создайте стандартного пользователя
 using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
@@ -37,23 +59,8 @@ using (var scope = app.Services.CreateScope())
         var context = services.GetRequiredService<ElectronicJournalContext>();
         context.Database.Migrate(); // Применение миграций
 
-        var defaultUserConfig = builder.Configuration.GetSection("DefaultUser");
-        string login = defaultUserConfig["Login"];
-        string password = defaultUserConfig["Password"];
-
-        // Создание стандартного пользователя
-        if (!context.Users.Any(u => u.Login == login)) // Проверка на существование
-        {
-            var defaultUser = new User
-            {
-                Login = login,
-                Password = PasswordHasher.HashPassword(password, login), 
-                Role = "администратор"
-            };
-
-            context.Users.Add(defaultUser);
-            context.SaveChanges();
-        }
+        // Вызов метода для создания пользователей
+        UserSeeder.CreateDefaultUsers(context, builder.Configuration);
     }
     catch (Exception ex)
     {
@@ -79,3 +86,4 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.Run();
+

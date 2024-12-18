@@ -7,11 +7,13 @@ public partial class Journal
 {
     public int IdJournal { get; set; }
 
+    public DateOnly? LessonDate { get; set; }
+
     public int IdGroup { get; set; }
 
     public int IdStudent { get; set; }
 
-    public int IdUnvisitedStatus { get; set; }
+    public int? IdUnvisitedStatus { get; set; }
 
     public virtual Group IdGroupNavigation { get; set; } = null!;
 

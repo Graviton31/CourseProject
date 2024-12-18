@@ -5,16 +5,16 @@ namespace ElectronicJournalApi.Classes
 {
     public class PasswordHasher
     {
-        public static string GenerateSaltedPassword(string password, string username)
+        public static string GenerateSaltedPassword(string password, string login)
         {
             var saltedPassword = new StringBuilder();
-            int maxLength = Math.Max(password.Length, username.Length);
+            int maxLength = Math.Max(password.Length, login.Length);
 
             for (int i = 0; i < maxLength; i++)
             {
-                if (i < username.Length)
+                if (i < login.Length)
                 {
-                    saltedPassword.Append(username[i]);
+                    saltedPassword.Append(login[i]);
                 }
                 if (i < password.Length)
                 {
@@ -25,10 +25,10 @@ namespace ElectronicJournalApi.Classes
             return saltedPassword.ToString();
         }
 
-        public static byte[] HashPassword(string password, string username)
+        public static byte[] HashPassword(string password, string login)
         {
             // Генерируем соль
-            string saltedPassword = GenerateSaltedPassword(password, username);
+            string saltedPassword = GenerateSaltedPassword(password, login);
 
             // Хешируем с помощью SHA256
             using (SHA256 sha256 = SHA256.Create())
@@ -37,10 +37,10 @@ namespace ElectronicJournalApi.Classes
             }
         }
 
-        public static bool VerifyPassword(string enteredPassword, string username, byte[] storedHash)
+        public static bool VerifyPassword(string enteredPassword, string login, byte[] storedHash)
         {
             // Хешируем введенный пароль с использованием того же логина
-            byte[] hashedEnteredPassword = HashPassword(enteredPassword, username);
+            byte[] hashedEnteredPassword = HashPassword(enteredPassword, login);
 
             // Сравниваем хеши
             return hashedEnteredPassword.SequenceEqual(storedHash);
