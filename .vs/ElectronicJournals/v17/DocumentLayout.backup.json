@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\views\\users\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\views\\users\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
@@ -25,10 +29,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\views\\attendancejournal\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\views\\attendancejournal\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|solutionrelative:electronicjournalapp\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{44B97E17-A28D-403B-BC8C-CF7F8B84B5A1}|ElectronicJournalApp\\ElectronicJournalApp.csproj|d:\\files\\filesars\\\u043A\u043F\\test\\courseproject\\electronicjournalapp\\views\\shared\\_layout.cshtml.css||{A5401142-F49D-43DB-90B1-F57BA349E55C}",
@@ -146,15 +146,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 221,
-          "SelectedChildIndex": 11,
+          "SelectedChildIndex": 7,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
@@ -197,7 +193,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Views\\Subjects\\Index.cshtml",
               "RelativeDocumentMoniker": "ElectronicJournalApp\\Views\\Subjects\\Index.cshtml",
@@ -236,20 +232,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "ElectronicJournalApp\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "ElectronicJournalApp\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAADAAAAAgAAAAAAAAAA==",
+              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Views\\Shared\\_Layout.cshtml*",
+              "RelativeToolTip": "ElectronicJournalApp\\Views\\Shared\\_Layout.cshtml*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-12-17T17:53:16.506Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "index.css",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\wwwroot\\css\\index.css",
               "RelativeDocumentMoniker": "ElectronicJournalApp\\wwwroot\\css\\index.css",
@@ -262,7 +258,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "userIndex.js",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\wwwroot\\js\\userIndex.js",
               "RelativeDocumentMoniker": "ElectronicJournalApp\\wwwroot\\js\\userIndex.js",
@@ -275,20 +271,24 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Views\\Users\\Index.cshtml",
               "RelativeDocumentMoniker": "ElectronicJournalApp\\Views\\Users\\Index.cshtml",
-              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Views\\Users\\Index.cshtml*",
-              "RelativeToolTip": "ElectronicJournalApp\\Views\\Users\\Index.cshtml*",
+              "ToolTip": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Views\\Users\\Index.cshtml",
+              "RelativeToolTip": "ElectronicJournalApp\\Views\\Users\\Index.cshtml",
               "ViewState": "AgIAACAAAAAAAAAAAAAkwD4AAAAdAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-12-17T19:12:00.751Z",
               "EditorCaption": ""
             },
             {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "subjectIndex.js",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\wwwroot\\js\\subjectIndex.js",
               "RelativeDocumentMoniker": "ElectronicJournalApp\\wwwroot\\js\\subjectIndex.js",
@@ -301,7 +301,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Index.cshtml",
               "DocumentMoniker": "D:\\Files\\FilesARS\\\u041A\u041F\\test\\CourseProject\\ElectronicJournalApp\\Views\\AttendanceJournal\\Index.cshtml",
               "RelativeDocumentMoniker": "ElectronicJournalApp\\Views\\AttendanceJournal\\Index.cshtml",
