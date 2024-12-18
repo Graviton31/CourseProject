@@ -23,54 +23,11 @@
     <div class="container mx-auto p-4">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h1 class="h2">Список пользователей</h1>
-            <button onclick="window.location.href='/Users/Create'" class="btn btn-custom text-white px-4 py-2 rounded">
+            <button id="CreateButton" onclick="window.location.href='/Users/Create'" class="btn btn-custom text-white px-4 py-2 rounded" style="display: none;">
                 <i class="fas fa-user-plus"></i> Добавить пользователя
             </button>
         </div>
-        @* <div class="d-flex flex-column flex-lg-row"> *@
-            @* <div class="bg-white p-4 rounded shadow-md mb-4 mb-lg-0 me-lg-4" style="flex: 0 0 25%;">
-                <h5 class="h5 mb-4">Фильтры</h5>
-                <div class="mb-2">
-                    <span class="text-dropdown" onclick="toggleCollapse('filterRole')">
-                        Роль <i id="filterRoleIcon" class="fas fa-chevron-down"></i>
-                    </span>
-                    <div id="filterRole" class="collapse mt-2">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="roleAdmin">
-                            <label class="form-check-label" for="roleAdmin">Администратор</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="roleUser">
-                            <label class="form-check-label" for="roleUser">Руководитель</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="roleUser">
-                            <label class="form-check-label" for="roleUser">Учитель</label>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <span class="text-dropdown" onclick="toggleCollapse('sortOptions')">
-                        Сортировка <i id="sortOptionsIcon" class="fas fa-chevron-down"></i>
-                    </span>
-                    <div id="sortOptions" class="collapse mt-2">
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="sortOptions" id="sortName" value="name">
-                            <label class="form-check-label" for="sortName">По фамилии</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="sortOptions" id="sortName" value="name">
-                            <label class="form-check-label" for="sortName">По логину</label>
-                        </div>
-                        <div class="form-check">
-                            <input class="form-check-input" type="radio" name="sortOptions" id="sortRole" value="role">
-                            <label class="form-check-label" for="sortRole">По роли</label>
-                        </div>
-                    </div>
-                </div>
-            </div> *@
-            @* <div class="bg-white p-4 rounded shadow-md" style="flex: 0 0 75%;"> *@
-            <div class="bg-white p-4 rounded shadow-md">
+            <div class="div-custom p-4 rounded shadow-md">
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <thead class="thead-light">
@@ -95,15 +52,11 @@
                                         <td class="text-center">@Html.DisplayFor(modelItem => item.BirthDate)</td>
                                         <td class="text-center">@Html.DisplayFor(modelItem => item.Role)</td>
                                         <td class="text-center">
-                                            <button title="Информация" class="btn btn-info btn-sm mx-1 btn-icon">
-                                                <i class="fas fa-info-circle"></i>
-                                            </button> 
-                                            <button title="Редактировать" class="btn btn-edit btn-sm mx-1 btn-icon">
-                                                <i class="fas fa-edit"></i>
-                                            </button>
-                                            <button title="Удалить" class="btn btn-danger btn-sm mx-1 btn-icon" onclick="deleteUser(@item.IdUsers); return confirm('Вы уверены, что хотите удалить этого пользователя?');">
-                                                <i class="fas fa-trash-alt"></i>
-                                            </button>
+                                            <div class="d-flex justify-content-center">
+                                                <button title="Удалить" class="deleteButton btn btn-danger btn-sm mx-1 btn-icon" onclick="deleteUser(@item.IdUsers); return confirm('Вы уверены, что хотите удалить этого пользователя?');">
+                                                    <i class="fas fa-trash-alt"> Удалить</i>
+                                                </button>
+                                            </div>
                                         </td>
                                     </tr>
                                 }
@@ -118,9 +71,8 @@
                     </table>
                 </div>
             </div>
-        @* </div> *@
     </div>
-
+    <script src="~/js/site.js"></script>
     <script src="~/js/userIndex.js"></script>
 </body>
 

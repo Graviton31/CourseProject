@@ -28,7 +28,7 @@
                 </button>
             </div>
         </div>
-        <div class="bg-white p-4 rounded shadow-md">
+        <div class="div-custom p-4 rounded shadow-md">
             <div class="table-responsive">
                 <table class="table table-bordered">
                     <thead class="thead-light">
@@ -53,15 +53,17 @@
                                     <td class="text-center">@Html.DisplayFor(modelItem => item.LessonLenght)</td>
                                     <td class="text-center">@Html.DisplayFor(modelItem => item.LessonsCount)</td>
                                     <td class="text-center">
-                                        <button title="Информация" class="btn btn-info btn-sm mx-1 btn-icon" onclick="window.location.href='/Subjects/Details/@item.IdSubject'">
-                                            <i class="fas fa-info-circle"></i>
-                                        </button>
-                                        <button title="Редактировать" class="btn btn-edit btn-sm mx-1 btn-icon" onclick="window.location.href='/Subjects/Edit/@item.IdSubject'">
-                                            <i class="fas fa-edit"></i>
-                                        </button>
-                                        <button title="Удалить" class="btn btn-danger btn-sm mx-1 btn-icon" onclick="deleteSubject(@item.IdSubject); return confirm('Вы уверены, что хотите удалить этот предмет?');">
-                                            <i class="fas fa-trash-alt"></i>
-                                        </button>
+                                        <div class="d-flex justify-content-center">
+                                            <button title="Информация" class="btn btn-info btn-sm mx-1 btn-icon" onclick="window.location.href='/Subjects/Details/@item.IdSubject'">
+                                                <i class="fas fa-info-circle"></i>
+                                            </button>
+                                            <button class="editButton btn btn-edit btn-sm mx-1 btn-icon" title="Редактировать" style="display: none;" onclick="window.location.href='/Subjects/Edit/@item.IdSubject'">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="deleteButton btn btn-danger btn-sm mx-1 btn-icon" title="Удалить" style="display: none;" onclick="deleteSubject(@item.IdSubject); return confirm('Вы уверены, что хотите удалить этот предмет?');">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </div>
                                     </td>
                                 </tr>
                             }

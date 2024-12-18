@@ -1,4 +1,17 @@
-﻿function toggleCollapse(id) {
+﻿const userRole = getCookie("role");
+console.log("userRole", userRole);
+
+const deleteButtons = document.querySelectorAll('.deleteButton');
+
+if (userRole === 'администратор') {
+    document.getElementById('CreateButton').style.display = 'block';
+    deleteButtons.forEach(button => button.style.display = 'block');
+} else {
+    document.getElementById('CreateButton').style.display = 'none';
+    deleteButtons.forEach(button => button.style.display = 'none');
+}
+
+function toggleCollapse(id) {
     var element = document.getElementById(id);
     var icon = document.getElementById(id + 'Icon');
     if (element.classList.contains('collapse')) {

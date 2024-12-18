@@ -10,22 +10,14 @@
         display: block; /* Показываем группы, когда они активны */
     }
 
-.btn-cancel {
-    background-color: #1A1D27;
-    color: white;
-}
-
-    .btn-cancel:hover {
-        background-color: #1B9AAA;
-    }
-
 .btn-save {
-    background-color: #F7911D;
+    background-color: #2B6A9F;
     color: white;
 }
 
     .btn-save:hover {
-        background-color: #1B9AAA;
+        background-color: #F7911D;
+        color: white;
     }
 
  Стили для модального окна 

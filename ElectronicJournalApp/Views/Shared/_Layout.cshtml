@@ -14,7 +14,7 @@
     <header>
         <nav class="navbar d-flex justify-content-between align-items-center">
             <div class="d-flex align-items-center">
-                <img src="path/to/logo.png" alt="Логотип" class="logo"> <!-- Добавить путь к логотипу -->
+                <img src="~/images/logo.png" alt="Логотип" class="logo"> <!-- Добавить путь к логотипу -->
                 <a class="navbar-brand" href="#">
                     Электронный журнал
                 </a>
@@ -36,22 +36,16 @@
                             Ученики
                         </a>
                     </div>
-                    @if (Context.Request.Cookies["role"] != "учитель")
-                    {
-                        <div class="nav-item">
-                            <a class="btn btn-custom text-white @(Context.Request.Path.Value.Contains("Subjects") || ViewData["ActiveMenu"]?.ToString() == "ScheduleEdit" ? "active" : "")" href="@Url.Action("Index", "Subjects")">
-                                Предметы
-                            </a>
-                        </div>
-                    }
-                    @if (Context.Request.Cookies["role"] == "администратор")
-                    {
-                        <div class="nav-item">
-                            <a class="btn btn-custom text-white @(Context.Request.Path.Value.Contains("Users") ? "active" : "")" href="@Url.Action("Index", "Users")">
-                                Пользователи
-                            </a>
-                        </div>
-                    }
+                    <div class="nav-item">
+                        <a class="btn btn-custom text-white @(Context.Request.Path.Value.Contains("Subjects") || ViewData["ActiveMenu"]?.ToString() == "ScheduleEdit" ? "active" : "")" href="@Url.Action("Index", "Subjects")">
+                            Предметы
+                        </a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="btn btn-custom text-white @(Context.Request.Path.Value.Contains("Users") ? "active" : "")" href="@Url.Action("Index", "Users")">
+                            Пользователи
+                        </a>
+                    </div>
                 </div>
             </div>
             <div class="align-item-center justify-item-center">
