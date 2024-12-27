@@ -5,10 +5,12 @@ const editButtons = document.querySelectorAll('.editButton');
 const deleteButtons = document.querySelectorAll('.deleteButton');
 
 if (userRole === 'руководитель' || userRole === 'администратор') {
+    document.getElementById('SubjectAddButton').style.display = 'block';
     document.getElementById('SchedulesEditButton').style.display = 'block';
     editButtons.forEach(button => button.style.display = 'block');
     deleteButtons.forEach(button => button.style.display = 'block');
 } else {
+    document.getElementById('SubjectAddButton').style.display = 'none';
     document.getElementById('SchedulesEditButton').style.display = 'none';
     editButtons.forEach(button => button.style.display = 'none');
     deleteButtons.forEach(button => button.style.display = 'none');

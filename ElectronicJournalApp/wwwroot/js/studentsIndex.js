@@ -16,7 +16,7 @@ console.log('User Login:', userLogin);
 // Запрашиваем данные предметов в зависимости от роли пользователя
 let fetchUrl;
 if (userRole === 'руководитель' || userRole === 'администратор') {
-    fetchUrl = `https://localhost:7022/api/subjects/subjectsGrops`; // Запрос всех предметов
+    fetchUrl = `https://localhost:7022/api/subjects/subjectsGroups`; // Запрос всех предметов
 } else if (userRole === 'учитель') {
     fetchUrl = `https://localhost:7022/api/subjects/teacher/${userLogin}`; // Запрос предметов для учителя
 } else {
@@ -80,22 +80,25 @@ fetch(fetchUrl)
                 // Запрашиваем студентов по ID группы
                 fetch(`https://localhost:7022/api/students/group/${groupId}`)
                     .then(response => {
+                        // Проверяем, успешен ли ответ от сервера
                         if (!response.ok) throw new Error('Network response was not ok');
+
+                        // Преобразуем ответ в формат JSON
                         return response.json();
                     })
                     .then(students => {
                         const studentsList = document.getElementById('students-list');
                         studentsList.innerHTML = ''; // Очищаем список студентов
 
-                        // Проверяем, есть ли записи в расписании
+                        // Проверяем, есть ли записи
                         if (students.length === 0) {
                             const row = document.createElement('tr');
                             row.innerHTML = `<td colspan="6" class="py-2 px-4 border-b text-center">Нет записей для этой группы</td>`;
                             studentsList.appendChild(row); // Добавляем строку с сообщением
-                            return; // Если записей нет, выходим
+                            return; // Выходим, если записей нет
                         }
 
-                        console.log(students);
+                        // Перебираем студентов и создаем строки таблицы
                         students.forEach((student, index) => {
                             const studentRow = document.createElement('tr');
                             studentRow.innerHTML = `
@@ -106,10 +109,11 @@ fetch(fetchUrl)
                                 <td>${student.phone}</td>
                                 <td>${student.parentPhone}</td>
                             `;
-                            studentsList.appendChild(studentRow);
+                            studentsList.appendChild(studentRow); // Добавляем строку студента в список
                         });
                     })
                     .catch(error => {
+                        // Обрабатываем ошибки при выполнении запроса
                         console.error('Ошибка при получении студентов:', error);
                     });
             });

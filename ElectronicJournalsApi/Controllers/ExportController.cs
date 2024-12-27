@@ -99,17 +99,6 @@ namespace ElectronicJournalApi.Controllers
                         worksheet.Cell(row, 3 + i).Value = status;
                     }
 
-                    // Определяем последний столбец с датами
-                    string lastDateColumn = XLHelper.GetColumnLetterFromNumber(3 + uniqueDates.Count - 1); // Получаем букву последнего столбца с датами
-                                        // Формулы для новых столбцов
-                    worksheet.Cell(row, startColumnForNewData+1).FormulaA1 = $"COUNTIF(C{row}:{lastDateColumn}{row}, \"н\")"; // Прогулы
-                    worksheet.Cell(row, startColumnForNewData+1).Style.Fill.BackgroundColor = XLColor.RedPigment;
-                    worksheet.Cell(row, startColumnForNewData + 2).FormulaA1 = $"COUNTIF(C{row}:{lastDateColumn}{row}, \"у/п\") + COUNTIF(C{row}:{lastDateColumn}{row}, \"к\") + COUNTIF(C{row}:{lastDateColumn}{row}, \"б\")"; // Прогулы по уважительной причине
-                    worksheet.Cell(row, startColumnForNewData + 2).Style.Fill.BackgroundColor = XLColor.LightGreen;
-                    worksheet.Cell(row, startColumnForNewData + 3).FormulaA1 = $"(COUNTIF(C{row}:{lastDateColumn}{row}, \"н\") / COUNTA(C{row}:{lastDateColumn}{row}))"; // Процент прогулов
-                    worksheet.Cell(row, startColumnForNewData + 3).Style.Fill.BackgroundColor = XLColor.Orange;
-                    worksheet.Cell(row, startColumnForNewData + 3).Style.NumberFormat.Format = "0.0%";
-
                     // Выделение ячейки с номером строки
                     worksheet.Cell(row, 1).Style.Fill.BackgroundColor = XLColor.LightYellow1; // Цвет для ячеек с номерами
                     row++;

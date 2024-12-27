@@ -123,30 +123,30 @@ namespace ElectronicJournalApi.Controllers
         }
 
         // GET: api/Subjects/subjectsGrops
-        [HttpGet("subjectsGrops")]
-        public async Task<ActionResult<IEnumerable<Subject>>> GetSubjectsGrops()
+        [HttpGet("subjectsGroups")]
+        public async Task<ActionResult<IEnumerable<SubjectDto>>> GetSubjectsGroups()
         {
-            // Получаем предметы, связанные с учителем по логину
+            // Получаем предметы с группами, фильтруя удаленные предметы
             var subjectsWithGroups = await _context.Subjects
-                .Include(s => s.Groups)
-                .Where(s => !s.IsDelete) // Фильтрация по IsDelete
+                .Where(s => !s.IsDelete) // Фильтрация предметов, которые не помечены как удаленные
                 .Select(s => new SubjectDto
                 {
-                    Name = s.Name,
+                    Name = s.Name, // Получаем имя предмета
                     Groups = s.Groups.Select(g => new GroupDto
                     {
-                        Name = g.Name,
-                        IdGroup = g.IdGroup
-                    }).ToList()
+                        Name = g.Name, // Получаем имя группы
+                        IdGroup = g.IdGroup // Получаем идентификатор группы
+                    }).ToList() // Преобразуем группы в список DTO
                 })
-                .ToListAsync();
+                .ToListAsync(); // Асинхронно выполняем запрос и получаем список предметов
 
+            // Проверяем, найдены ли предметы
             if (!subjectsWithGroups.Any())
             {
-                return NotFound(); // Если предметы не найдены
+                return NotFound(); // Возвращаем 404, если предметы не найдены
             }
 
-            return Ok(subjectsWithGroups);
+            return Ok(subjectsWithGroups); // Возвращаем 200 и список найденных предметов
         }
 
         [HttpGet("{id}")]
