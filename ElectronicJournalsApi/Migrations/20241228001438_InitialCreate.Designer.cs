@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ElectronicJournalApi.Migrations
 {
     [DbContext(typeof(ElectronicJournalContext))]
-    [Migration("20241218043025_InitialCreate")]
+    [Migration("20241228001438_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -249,9 +249,9 @@ namespace ElectronicJournalApi.Migrations
                         .HasColumnType("tinyint(1)")
                         .HasColumnName("is_delete");
 
-                    b.Property<sbyte>("LessonLenght")
+                    b.Property<sbyte>("LessonLength")
                         .HasColumnType("tinyint")
-                        .HasColumnName("lesson_lenght");
+                        .HasColumnName("lesson_length");
 
                     b.Property<sbyte>("LessonsCount")
                         .HasColumnType("tinyint")
@@ -279,13 +279,13 @@ namespace ElectronicJournalApi.Migrations
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("IdUnvisitedStatus"));
 
                     b.Property<string>("Name")
-                        .HasMaxLength(5)
-                        .HasColumnType("varchar(5)")
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
                         .HasColumnName("name");
 
                     b.Property<string>("ShortName")
-                        .HasMaxLength(15)
-                        .HasColumnType("varchar(15)")
+                        .HasMaxLength(5)
+                        .HasColumnType("varchar(5)")
                         .HasColumnName("short_name");
 
                     b.HasKey("IdUnvisitedStatus")

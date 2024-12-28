@@ -219,7 +219,7 @@ public partial class ElectronicJournalContext : DbContext
             entity.Property(e => e.FullName)
                 .HasMaxLength(40)
                 .HasColumnName("full_name");
-            entity.Property(e => e.LessonLenght).HasColumnName("lesson_lenght");
+            entity.Property(e => e.LessonLength).HasColumnName("lesson_length");
             entity.Property(e => e.LessonsCount).HasColumnName("lessons_count");
             entity.Property(e => e.Name)
                 .HasMaxLength(20)
@@ -257,10 +257,10 @@ public partial class ElectronicJournalContext : DbContext
 
             entity.Property(e => e.IdUnvisitedStatus).HasColumnName("id_unvisited_status");
             entity.Property(e => e.Name)
-                .HasMaxLength(5)
+                .HasMaxLength(20)
                 .HasColumnName("name");
             entity.Property(e => e.ShortName)
-                .HasMaxLength(15)
+                .HasMaxLength(5)
                 .HasColumnName("short_name");
         });
 

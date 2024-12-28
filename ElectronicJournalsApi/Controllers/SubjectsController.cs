@@ -63,7 +63,7 @@ namespace ElectronicJournalApi.Controllers
                 subject.FullName = subjectUpdateDto.FullName;
                 subject.Description = subjectUpdateDto.Description;
                 subject.Duration = subjectUpdateDto.Duration;
-                subject.LessonLenght = subjectUpdateDto.LessonLenght;
+                subject.LessonLength = subjectUpdateDto.LessonLength;
                 subject.LessonsCount = subjectUpdateDto.LessonsCount;
 
                 // Обновляем группы
@@ -298,7 +298,7 @@ namespace ElectronicJournalApi.Controllers
             public string FullName { get; set; }
             public string? Description { get; set; }
             public sbyte Duration { get; set; }
-            public sbyte LessonLenght { get; set; }
+            public sbyte LessonLength { get; set; }
             public sbyte LessonsCount { get; set; }
             public List<GroupUpdateDto>? Groups { get; set; } = new List<GroupUpdateDto>();
         }

@@ -19,7 +19,7 @@ public partial class Subject
     public sbyte Duration { get; set; }
 
     [Display(Name = "Академических часов")]
-    public sbyte LessonLenght { get; set; }
+    public sbyte LessonLength { get; set; }
 
     [Display(Name = "Количество уроков")]
     public sbyte LessonsCount { get; set; }

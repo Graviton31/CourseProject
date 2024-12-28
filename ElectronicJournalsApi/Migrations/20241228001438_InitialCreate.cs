@@ -52,7 +52,7 @@ namespace ElectronicJournalApi.Migrations
                     description = table.Column<string>(type: "varchar(200)", maxLength: 200, nullable: true, collation: "utf8mb4_0900_ai_ci")
                         .Annotation("MySql:CharSet", "utf8mb4"),
                     duration = table.Column<sbyte>(type: "tinyint", nullable: false),
-                    lesson_lenght = table.Column<sbyte>(type: "tinyint", nullable: false),
+                    lesson_length = table.Column<sbyte>(type: "tinyint", nullable: false),
                     lessons_count = table.Column<sbyte>(type: "tinyint", nullable: false),
                     is_delete = table.Column<bool>(type: "tinyint(1)", nullable: false)
                 },
@@ -69,9 +69,9 @@ namespace ElectronicJournalApi.Migrations
                 {
                     id_unvisited_status = table.Column<int>(type: "int", nullable: false)
                         .Annotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn),
-                    name = table.Column<string>(type: "varchar(5)", maxLength: 5, nullable: true, collation: "utf8mb4_0900_ai_ci")
+                    name = table.Column<string>(type: "varchar(20)", maxLength: 20, nullable: true, collation: "utf8mb4_0900_ai_ci")
                         .Annotation("MySql:CharSet", "utf8mb4"),
-                    short_name = table.Column<string>(type: "varchar(15)", maxLength: 15, nullable: true, collation: "utf8mb4_0900_ai_ci")
+                    short_name = table.Column<string>(type: "varchar(5)", maxLength: 5, nullable: true, collation: "utf8mb4_0900_ai_ci")
                         .Annotation("MySql:CharSet", "utf8mb4")
                 },
                 constraints: table =>
