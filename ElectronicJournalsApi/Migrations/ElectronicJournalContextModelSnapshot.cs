@@ -84,7 +84,7 @@ namespace ElectronicJournalApi.Migrations
                         .HasColumnType("int")
                         .HasColumnName("id_student");
 
-                    b.Property<int>("IdUnvisitedStatus")
+                    b.Property<int?>("IdUnvisitedStatus")
                         .HasColumnType("int")
                         .HasColumnName("id_unvisited_status");
 
@@ -125,9 +125,8 @@ namespace ElectronicJournalApi.Migrations
                         .HasColumnType("time")
                         .HasColumnName("start_time");
 
-                    b.Property<string>("WeekDay")
-                        .IsRequired()
-                        .HasColumnType("enum('Пн','Вт','Ср','Чт','Пт','Сб')")
+                    b.Property<sbyte?>("WeekDay")
+                        .HasColumnType("tinyint")
                         .HasColumnName("week_day");
 
                     b.HasKey("IdSchedule")
@@ -243,9 +242,13 @@ namespace ElectronicJournalApi.Migrations
                         .HasColumnType("varchar(40)")
                         .HasColumnName("full_name");
 
-                    b.Property<sbyte>("LessonLenght")
+                    b.Property<bool>("IsDelete")
+                        .HasColumnType("tinyint(1)")
+                        .HasColumnName("is_delete");
+
+                    b.Property<sbyte>("LessonLength")
                         .HasColumnType("tinyint")
-                        .HasColumnName("lesson_lenght");
+                        .HasColumnName("lesson_length");
 
                     b.Property<sbyte>("LessonsCount")
                         .HasColumnType("tinyint")
@@ -273,13 +276,13 @@ namespace ElectronicJournalApi.Migrations
                     MySqlPropertyBuilderExtensions.UseMySqlIdentityColumn(b.Property<int>("IdUnvisitedStatus"));
 
                     b.Property<string>("Name")
-                        .HasMaxLength(5)
-                        .HasColumnType("varchar(5)")
+                        .HasMaxLength(20)
+                        .HasColumnType("varchar(20)")
                         .HasColumnName("name");
 
                     b.Property<string>("ShortName")
-                        .HasMaxLength(15)
-                        .HasColumnType("varchar(15)")
+                        .HasMaxLength(5)
+                        .HasColumnType("varchar(5)")
                         .HasColumnName("short_name");
 
                     b.HasKey("IdUnvisitedStatus")
@@ -426,7 +429,6 @@ namespace ElectronicJournalApi.Migrations
                     b.HasOne("ElectronicJournalsApi.Models.UnvisitedStatus", "IdUnvisitedStatusNavigation")
                         .WithMany("Journals")
                         .HasForeignKey("IdUnvisitedStatus")
-                        .IsRequired()
                         .HasConstraintName("fk_journals_unvisited_statuses1");
 
                     b.Navigation("IdGroupNavigation");

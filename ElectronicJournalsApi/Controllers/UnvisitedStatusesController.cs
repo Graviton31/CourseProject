@@ -8,11 +8,11 @@ namespace ElectronicJournalApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class UnvisitedStatusController : ControllerBase
+    public class UnvisitedStatusesController : ControllerBase
     {
         private readonly ElectronicJournalContext _context;
 
-        public UnvisitedStatusController(ElectronicJournalContext context)
+        public UnvisitedStatusesController(ElectronicJournalContext context)
         {
             _context = context;
         }

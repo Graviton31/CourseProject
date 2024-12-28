@@ -1,12 +1,4 @@
-﻿.btn-add-user {
-    background-color: #1B9AAA;
-}
-
-    .btn-add-user:hover {
-        background-color: #F7911D;
-    }
-
-.btn-edit {
+﻿.btn-edit {
     background-color: #FFA500;
 }
 
@@ -16,5 +8,9 @@
     }
 
 .btn-icon {
+    color: white;
+}
+
+.btn-info:hover {
     color: white;
 }

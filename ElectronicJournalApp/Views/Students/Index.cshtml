@@ -1,0 +1,53 @@
+﻿@{
+    ViewData["Title"] = "Ученики";
+}
+@{
+    Layout = "_Layout";
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/attendanceJournal.css" asp-append-version="true" />
+</head>
+<body>
+    <div class="flex flex-col md:flex-row min-h-screen">
+        <!-- Sidebar -->
+        <div class="w-full md:w-1/4 bg-[#1A1D27] text-white p-4" id="subjects-sidebar">
+            <h2 class="text-2xl font-bold mb-4">Предметы</h2>
+            <ul id="subjects-list">
+                <!-- Динамически заполняем список предметов -->
+            </ul>
+        </div>
+        <div class="w-full md:w-3/4 p-4 ">
+            <h2 class="text-4xl font-bold mb-4">Список учеников</h2>
+            <div class="overflow-x-auto">
+                <table class="bg-white mb-4 table table-bordered">
+                    <thead class="thead-light div-custom">
+                        <tr>
+                            <th class="border-b">#</th>
+                            <th class="border-b">Фамилия</th>
+                            <th class="border-b">Имя</th>
+                            <th class="border-b">Отчество</th>
+                            <th class="border-b">Телефон</th>
+                            <th class="border-b">Телефон родителя</th>
+                        </tr>
+                    </thead>
+                    <tbody id="students-list">
+                        <!-- Список учеников будет динамически заполняться здесь -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js"></script>
+    <script src="~/js/studentsIndex.js"></script>
+</body>
+</html>

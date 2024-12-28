@@ -7,7 +7,7 @@ public partial class Schedule
 {
     public int IdSchedule { get; set; }
 
-    public string WeekDay { get; set; } = null!;
+    public sbyte? WeekDay { get; set; } = null!;
 
     public TimeOnly StartTime { get; set; }
 

@@ -13,11 +13,11 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/autorizationPage.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/ElectronicJournalApp.styles.css" asp-append-version="true" />
+   @*  <link rel="stylesheet" href="~/ElectronicJournalApp.styles.css" asp-append-version="true" /> *@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/site.js"></script>
 </head>
-<body class="authorization-body">
+<body class="authorization-body div-custom">
     <div class="authorization-container">
         <h2 class="text-center">Авторизация</h2>
         <form id="Authorization">
@@ -30,7 +30,7 @@
                 <label asp-for="Password" class="form-label">Пароль</label><span class="required">*</span>
                 <div class="input-group">
                     <input asp-for="Password" class="form-control" id="Password" placeholder="Введите ваш пароль" type="password" required />
-                    <button type="button" class="btn btn-outline-secondary" id="togglePassword">
+                    <button type="button" class="btn btn-outline-secondary" id="togglePassword" data-toggle="show">
                         Показать
                     </button>
                 </div>
@@ -46,33 +46,22 @@
     </div>
     <script>
         $(document).ready(function () {
-            // Проверка, если пользователь уже авторизован
-            if (document.cookie.includes("UserPassword")) {
-                console.log(getCookie("UserRole"))
-                // Переход в зависимости от роли
-                const role = getCookie("UserRole");
-                if (role === "администратор") {
-                    window.location.href = '/Users/Index';
-                } else if (role === "руководитель") {
-                    window.location.href = 'Home/Index';
-                } else {
-                    window.location.href = 'AttendanceJournal/Index';
+            // Проверка наличия токена в localStorage
+            if (localStorage.getItem('token')) {
+                window.location.href = '/Schedules/Index'; // Перенаправляем на главную страницу, если токен существует
+            }
+
+            // Проверка наличия токена в куках
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.startsWith('token=')) {
+                    window.location.href = '/Schedules/Index'; // Перенаправляем на главную страницу, если токен существует
+                    break;
                 }
             }
 
-            $('#togglePassword').click(function () {
-                const passwordField = $('#Password');
-                const passwordFieldType = passwordField.attr('type');
-
-                if (passwordFieldType === 'password') {
-                    passwordField.attr('type', 'text');
-                    $(this).text('Скрыть');
-                } else {
-                    passwordField.attr('type', 'password');
-                    $(this).text('Показать');
-                }
-            });
-
+            // Обработка отправки формы
             $('#Authorization').submit(function (event) {
                 event.preventDefault(); // Предотвращаем стандартное поведение формы
 
@@ -81,48 +70,57 @@
                     Password: $('#Password').val()
                 };
 
-                // Проверка, если пользователь уже авторизован
-                if (document.cookie.includes("UserPassword")) {
-                    alert("Вы уже авторизованы.");
-                    return; // Прекращаем выполнение, если пользователь уже авторизован
-
-                }
-
                 $.ajax({
                     url: 'https://localhost:7022/api/Users/Authorization', // URL вашего API
                     type: 'POST',
                     contentType: 'application/json',
                     data: JSON.stringify(user),
                     success: function (response) {
+                        // Сохранение JWT в localStorage
+                        var token = response.token;
+                        localStorage.setItem('token', token);
 
-                        // Переход в зависимости от роли
-                        if (response.role === "администратор") {
-                            window.location.href = '/Users/Index'; // Переход для администраторов
-                        } else if (response.role === "руководитель") {
-                            window.location.href = 'Home/Index'; // Переход для обычных пользователей
-                        } else {
-                            window.location.href = 'AttendanceJournal/Index'; // Переход по умолчанию
-                        }
+                        // Сохранение логина и роли в куки
+                        var login = response.login; // Предполагается, что сервер возвращает логин
+                        var role = response.role; // Предполагается, что сервер возвращает роль
 
-                        // Создание cookie, если пользователь выбрал "Запомнить меня"
+                        // Проверка состояния чекбокса "Запомни меня"
+                        var expirationDate = new Date();
                         if ($('#rememberMe').is(':checked')) {
-                            // Устанавливаем Cookie на 7 дней
-                                    // Кодирование значений cookie
-                        document.cookie = "UserLogin=" + encodeURIComponent(user.Login) + "; path=/; max-age=" + (7 * 24 * 60 * 60) + "; HttpOnly; Secure"; // 7 дней
-                        document.cookie = "UserPassword=" + encodeURIComponent(user.Password) + "; path=/; max-age=" + (7 * 24 * 60 * 60) + "; HttpOnly; Secure";
-                        document.cookie = "UserRole=" + encodeURIComponent(response.role) + "; path=/; max-age=" + (7 * 24 * 60 * 60) + "; HttpOnly; Secure";
-
+                            // Устанавливаем токен, логин и роль на 7 дней
+                            expirationDate.setDate(expirationDate.getDate() + 7);
                         } else {
-                            // Устанавливаем сессионные Cookie (удаляются при закрытии браузера)
-                            document.cookie = "UserLogin=" + encodeURIComponent(user.Login) + "; path=/"; // Сессионный Cookie
-                            document.cookie = "UserRole=" + encodeURIComponent(response.role) + "; path=/"; // Сессионный Cookie
+                            // Устанавливаем токен, логин и роль на 30 минут
+                            expirationDate.setMinutes(expirationDate.getMinutes() + 30);
                         }
+
+                        // Установка куков для токена, логина и роли
+                        document.cookie = "token=" + token + "; expires=" + expirationDate.toUTCString() + "; path=/";
+                        document.cookie = "login=" + login + "; expires=" + expirationDate.toUTCString() + "; path=/";
+                        document.cookie = "role=" + encodeURIComponent(role) + "; expires=" + expirationDate.toUTCString() + "; path=/";
+
+                        // Перенаправление на главную страницу
+                        window.location.href = '/Schedules/Index';
                     },
                     error: function (xhr) {
                         var message = xhr.responseJSON ? xhr.responseJSON.message : "Произошла ошибка на сервере";
                         alert(message); // Показываем сообщение об ошибке
                     }
                 });
+            });
+
+            // Обработка нажатия на кнопку "Показать"
+            $('#togglePassword').click(function () {
+                var passwordField = $('#Password');
+                var passwordFieldType = passwordField.attr('type');
+
+                if (passwordFieldType === 'password') {
+                    passwordField.attr('type', 'text'); // Показываем пароль
+                    $(this).text('Скрыть'); // Меняем текст кнопки на "Скрыть"
+                } else {
+                    passwordField.attr('type', 'password'); // Скрываем пароль
+                    $(this).text('Показать'); // Меняем текст кнопки на "Показать"
+                }
             });
         });
     </script>

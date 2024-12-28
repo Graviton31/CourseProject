@@ -1,0 +1,87 @@
+﻿@model IEnumerable<ElectronicJournalsApi.Models.Subject>
+
+@{
+    ViewData["Title"] = "Список предметов";
+}
+@{
+    Layout = "_Layout";
+}
+<head>
+    <title>@ViewData["Title"]</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/index.css" asp-append-version="true" />
+</head>
+
+<body>
+    <div class="container mx-auto p-4">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1 class="text-4xl font-bold mb-4">Список предметов</h1>
+            <div class="d-flex">
+                <button id="SchedulesEditButton" onclick="window.location.href='/Schedules/ScheduleEdit'" class="btn btn-custom text-white px-4 py-2 rounded me-2" style="display: none;">
+                    <i class="fas fa-calendar-alt"></i> Редактировать расписание
+                </button>
+                <button id="SubjectAddButton"  onclick="window.location.href='/Subjects/Create'" class="btn btn-custom text-white px-4 py-2 rounded" style="display: none;">
+                    <i class="fas fa-plus"></i> Добавить предмет
+                </button>
+            </div>
+        </div>
+        <div class="div-custom p-4 rounded shadow-md">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <thead class="thead-light">
+                        <tr>
+                            <th class="text-center">@Html.DisplayName("Название")</th>
+                            <th class="text-center">@Html.DisplayName("Полное название")</th>
+                            <th class="text-center">@Html.DisplayName("Продолжительность")</th>
+                            <th class="text-center">@Html.DisplayName("Длительность урока")</th>
+                            <th class="text-center">@Html.DisplayName("Количество уроков")</th>
+                            <th class="text-center">Действия</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Any())
+                        {
+                            foreach (var item in Model)
+                            {
+                                <tr id="subject-row-@item.IdSubject">
+                                    <td class="text-center">@Html.DisplayFor(modelItem => item.Name)</td>
+                                    <td class="text-center">@Html.DisplayFor(modelItem => item.FullName)</td>
+                                    <td class="text-center">@Html.DisplayFor(modelItem => item.Duration)</td>
+                                    <td class="text-center">@Html.DisplayFor(modelItem => item.LessonLength)</td>
+                                    <td class="text-center">@Html.DisplayFor(modelItem => item.LessonsCount)</td>
+                                    <td class="text-center">
+                                        <div class="d-flex justify-content-center">
+                                            <button title="Информация" class="btn btn-info btn-sm mx-1 btn-icon" onclick="window.location.href='/Subjects/Details/@item.IdSubject'">
+                                                <i class="fas fa-info-circle"></i>
+                                            </button>
+                                            <button class="editButton btn btn-edit btn-sm mx-1 btn-icon" title="Редактировать" style="display: none;" onclick="window.location.href='/Subjects/Edit/@item.IdSubject'">
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                            <button class="deleteButton btn btn-danger btn-sm mx-1 btn-icon" title="Удалить" style="display: none;" onclick="deleteSubject(@item.IdSubject); return confirm('Вы уверены, что хотите удалить этот предмет?');">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
+                                        </div>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <tr>
+                                <td colspan="7" class="text-center">Нет предметов для отображения</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js"></script>
+    <script src="~/js/subjectIndex.js"></script>
+</body>
+</html>
