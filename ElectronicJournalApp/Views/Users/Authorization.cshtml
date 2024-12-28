@@ -4,34 +4,33 @@
     ViewData["Title"] = "Авторизация";
     Layout = null;
 }
+
 <html>
 <head>
-    <title>Електронный журнал</title>
+    <title>Электронный журнал</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/autorizationPage.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/ElectronicJournalApp.styles.css" asp-append-version="true" />
+   @*  <link rel="stylesheet" href="~/ElectronicJournalApp.styles.css" asp-append-version="true" /> *@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <style>
-
-    </style>
+    <script src="~/js/site.js"></script>
 </head>
-<body class="authorization-body">
+<body class="authorization-body div-custom">
     <div class="authorization-container">
         <h2 class="text-center">Авторизация</h2>
         <form id="Authorization">
             <div class="mb-3">
-                <label asp-for="Login" class="form-label"></label>
-                <input asp-for="Login" class="form-control" id="Login" placeholder="Введите ваш логин" />
+                <label asp-for="Login" class="form-label">Логин</label><span class="required">*</span>
+                <input asp-for="Login" class="form-control" id="Login" placeholder="Введите ваш логин" required />
                 <span asp-validation-for="Login" class="text-danger"></span>
             </div>
             <div class="mb-3">
-                <label asp-for="Password" class="form-label"></label>
+                <label asp-for="Password" class="form-label">Пароль</label><span class="required">*</span>
                 <div class="input-group">
-                    <input asp-for="Password" class="form-control" id="Password" placeholder="Введите ваш пароль" type="password" />
-                    <button type="button" class="btn btn-outline-secondary" id="togglePassword">
+                    <input asp-for="Password" class="form-control" id="Password" placeholder="Введите ваш пароль" type="password" required />
+                    <button type="button" class="btn btn-outline-secondary" id="togglePassword" data-toggle="show">
                         Показать
                     </button>
                 </div>
@@ -45,23 +44,24 @@
             <button type="submit" class="btn btn-custom w-100">Войти</button>
         </form>
     </div>
-
     <script>
         $(document).ready(function () {
+            // Проверка наличия токена в localStorage
+            if (localStorage.getItem('token')) {
+                window.location.href = '/Schedules/Index'; // Перенаправляем на главную страницу, если токен существует
+            }
 
-            $('#togglePassword').click(function () {
-                const passwordField = $('#Password');
-                const passwordFieldType = passwordField.attr('type');
-
-                if (passwordFieldType === 'password') {
-                    passwordField.attr('type', 'text');
-                    $(this).text('Скрыть');
-                } else {
-                    passwordField.attr('type', 'password');
-                    $(this).text('Показать');
+            // Проверка наличия токена в куках
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = cookies[i].trim();
+                if (cookie.startsWith('token=')) {
+                    window.location.href = '/Schedules/Index'; // Перенаправляем на главную страницу, если токен существует
+                    break;
                 }
-            });
+            }
 
+            // Обработка отправки формы
             $('#Authorization').submit(function (event) {
                 event.preventDefault(); // Предотвращаем стандартное поведение формы
 
@@ -76,17 +76,31 @@
                     contentType: 'application/json',
                     data: JSON.stringify(user),
                     success: function (response) {
-                        alert(response.message); // Показываем сообщение об успешной авторизации
+                        // Сохранение JWT в localStorage
+                        var token = response.token;
+                        localStorage.setItem('token', token);
 
-                        // Создание cookie, если пользователь выбрал "Запомнить меня"
+                        // Сохранение логина и роли в куки
+                        var login = response.login; // Предполагается, что сервер возвращает логин
+                        var role = response.role; // Предполагается, что сервер возвращает роль
+
+                        // Проверка состояния чекбокса "Запомни меня"
+                        var expirationDate = new Date();
                         if ($('#rememberMe').is(':checked')) {
-                            document.cookie = "UserLogin=" + encodeURIComponent(user.Login) + "; path=/; max-age=" + (30 * 24 * 60 * 60); // 30 дней
+                            // Устанавливаем токен, логин и роль на 7 дней
+                            expirationDate.setDate(expirationDate.getDate() + 7);
                         } else {
-                            document.cookie = "UserLogin=" + encodeURIComponent(user.Login) + "; path=/"; // Временная кука
+                            // Устанавливаем токен, логин и роль на 30 минут
+                            expirationDate.setMinutes(expirationDate.getMinutes() + 30);
                         }
 
-                        // Переход на страницу после успешной авторизации
-                        window.location.href = '/Home/Index';
+                        // Установка куков для токена, логина и роли
+                        document.cookie = "token=" + token + "; expires=" + expirationDate.toUTCString() + "; path=/";
+                        document.cookie = "login=" + login + "; expires=" + expirationDate.toUTCString() + "; path=/";
+                        document.cookie = "role=" + encodeURIComponent(role) + "; expires=" + expirationDate.toUTCString() + "; path=/";
+
+                        // Перенаправление на главную страницу
+                        window.location.href = '/Schedules/Index';
                     },
                     error: function (xhr) {
                         var message = xhr.responseJSON ? xhr.responseJSON.message : "Произошла ошибка на сервере";
@@ -94,7 +108,22 @@
                     }
                 });
             });
+
+            // Обработка нажатия на кнопку "Показать"
+            $('#togglePassword').click(function () {
+                var passwordField = $('#Password');
+                var passwordFieldType = passwordField.attr('type');
+
+                if (passwordFieldType === 'password') {
+                    passwordField.attr('type', 'text'); // Показываем пароль
+                    $(this).text('Скрыть'); // Меняем текст кнопки на "Скрыть"
+                } else {
+                    passwordField.attr('type', 'password'); // Скрываем пароль
+                    $(this).text('Показать'); // Меняем текст кнопки на "Показать"
+                }
+            });
         });
     </script>
 </body>
 </html>
+

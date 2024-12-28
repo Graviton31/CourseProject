@@ -88,6 +88,7 @@ public partial class ElectronicJournalContext : DbContext
             entity.HasIndex(e => e.IdUnvisitedStatus, "fk_journals_unvisited_statuses1_idx");
 
             entity.Property(e => e.IdJournal).HasColumnName("id_journal");
+            entity.Property(e => e.LessonDate).HasColumnName("lesson_date");
             entity.Property(e => e.IdGroup).HasColumnName("id_group");
             entity.Property(e => e.IdStudent).HasColumnName("id_student");
             entity.Property(e => e.IdUnvisitedStatus).HasColumnName("id_unvisited_status");
@@ -124,9 +125,7 @@ public partial class ElectronicJournalContext : DbContext
             entity.Property(e => e.StartTime)
                 .HasColumnType("time")
                 .HasColumnName("start_time");
-            entity.Property(e => e.WeekDay)
-                .HasColumnType("enum('Пн','Вт','Ср','Чт','Пт','Сб')")
-                .HasColumnName("week_day");
+            entity.Property(e => e.WeekDay).HasColumnName("week_day");
 
             entity.HasOne(d => d.IdGroupNavigation).WithMany(p => p.Schedules)
                 .HasForeignKey(d => d.IdGroup)
@@ -220,12 +219,12 @@ public partial class ElectronicJournalContext : DbContext
             entity.Property(e => e.FullName)
                 .HasMaxLength(40)
                 .HasColumnName("full_name");
-            entity.Property(e => e.LessonLenght).HasColumnName("lesson_lenght");
+            entity.Property(e => e.LessonLength).HasColumnName("lesson_length");
             entity.Property(e => e.LessonsCount).HasColumnName("lessons_count");
             entity.Property(e => e.Name)
                 .HasMaxLength(20)
                 .HasColumnName("name");
-
+            entity.Property(e => e.IsDelete).HasColumnName("is_delete");
             entity.HasMany(d => d.IdUsers).WithMany(p => p.IdSubjects)
                 .UsingEntity<Dictionary<string, object>>(
                     "SubjectsHasUser",
@@ -258,10 +257,10 @@ public partial class ElectronicJournalContext : DbContext
 
             entity.Property(e => e.IdUnvisitedStatus).HasColumnName("id_unvisited_status");
             entity.Property(e => e.Name)
-                .HasMaxLength(5)
+                .HasMaxLength(20)
                 .HasColumnName("name");
             entity.Property(e => e.ShortName)
-                .HasMaxLength(15)
+                .HasMaxLength(5)
                 .HasColumnName("short_name");
         });
 
@@ -294,6 +293,7 @@ public partial class ElectronicJournalContext : DbContext
             entity.Property(e => e.Surname)
                 .HasMaxLength(20)
                 .HasColumnName("surname");
+            entity.Property(e => e.IsDelete).HasColumnName("is_delete");
         });
 
         OnModelCreatingPartial(modelBuilder);

@@ -1,68 +1,73 @@
 ﻿@model ElectronicJournalsApi.Models.User
 
 @{
-    ViewData["Title"] = "Create";
+    ViewData["Title"] = "Создать";
 }
-
-<h1>Create</h1>
-
-<h4>User</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Create">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="Surname" class="control-label"></label>
-                <input asp-for="Surname" class="form-control" />
-                <span asp-validation-for="Surname" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Patronymic" class="control-label"></label>
-                <input asp-for="Patronymic" class="form-control" />
-                <span asp-validation-for="Patronymic" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Login" class="control-label"></label>
-                <input asp-for="Login" class="form-control" />
-                <span asp-validation-for="Login" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
-                <span asp-validation-for="Password" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Phone" class="control-label"></label>
-                <input asp-for="Phone" class="form-control" />
-                <span asp-validation-for="Phone" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="BirthDate" class="control-label"></label>
-                <input asp-for="BirthDate" class="form-control" />
-                <span asp-validation-for="BirthDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Role" class="control-label"></label>
-                <input asp-for="Role" class="form-control" />
-                <span asp-validation-for="Role" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
-            </div>
-        </form>
+@{
+    Layout = "_Layout";
+}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create New User</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/Create.css" asp-append-version="true" />
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+</head>
+<body>
+    <div class="container mx-auto p-8 ">
+        <div class="bg-white p-8 rounded-lg shadow-lg max-w-lg mx-auto">
+            <h2 class="text-3xl font-bold mb-6 text-center text-secondary">Создание нового пользователя</h2>
+            <form id="createUserForm">
+                <div class="mb-2">
+                    <label for="surname" class="block text-secondary font-semibold mb-1">Фамилия </label>
+                    <input type="text" id="surname" name="surname" class="appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none">
+                </div>
+                <div class="mb-2">
+                    <label for="name" class="block text-secondary font-semibold mb-1">Имя </label>
+                    <input type="text" id="name" name="name" class="appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none">
+                </div>
+                <div class="mb-2">
+                    <label for="patronymic" class="block text-secondary font-semibold mb-1">Отчество</label>
+                    <input type="text" id="patronymic" name="patronymic" class="appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none">
+                </div>
+                <div class="mb-2">
+                    <label for="login" class="block text-secondary font-semibold mb-1">Логин <span class="required">*</span></label>
+                    <input type="text" id="login" name="login" class="appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none" required>
+                </div>
+                <div class="mb-2">
+                    <label for="password" class="block text-secondary font-semibold mb-1">Пароль <span class="required">*</span></label>
+                    <input type="password" id="password" name="password" class="appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none" required>
+                </div>
+                <div class="mb-2">
+                    <label for="phone" class="block text-secondary font-semibold mb-1">Телефон</label>
+                                        <input type="text" id="phone" name="phone" class="appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none">
+                </div>
+                <div class="mb-2">
+                    <label for="birthdate" class="block text-secondary font-semibold mb-1">Дата рождения</label>
+                    <input type="date" id="birthdate" name="birthdate" class="appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none ">
+                </div>
+                <div class="mb-4">
+                    <label for="role" class="block text-secondary font-semibold mb-1">Роль <span class="required">*</span></label>
+                    <select id="role" name="role" class="appearance-none border rounded w-full py-2 px-3 text-secondary leading-tight focus:outline-none" required>
+                        <option value="">Выберите роль</option>
+                        <!-- Роли будут загружены сюда -->
+                    </select>
+                </div>
+                <div id="alert" class="alert mt-4"></div> 
+                <div class="flex items-center justify-between">
+                    <button type="submit" class="tn btn-custom text-white px-4 py-2 rounded">
+                        Добавить
+                    </button>
+                    <a href="/Users/Index" class="inline-block align-baseline font-bold text-sm text-accent hover:text-primary">
+                        Вернуться к списку
+                    </a>
+                </div>
+            </form>
+        </div>
     </div>
-</div>
 
-<div>
-    <a asp-action="Index">Back to List</a>
-</div>
+    <script src="~/js/userCreate.js"></script>
+</body>
 
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}

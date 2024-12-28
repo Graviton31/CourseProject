@@ -7,35 +7,11 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.btn-custom {
-    background-color: #1B9AAA;
-    color: #fff;
-}
-
-    .btn-custom:hover {
-        background-color: #F7911D;
-    }
-
 .form-check-input:checked {
     background-color: #1B9AAA;
     border-color: #1B9AAA;
 }
 
-.modal-bg {
-    background-color: rgba(0, 0, 0, 0.5);
-}
-
-.modal-content {
-    background-color: #EDFCF5;
-    color: #1A1D27;
-}
-
-.modal-header, .modal-body, .modal-footer {
-    background-color: #EDFCF5;
-    color: #1A1D27;
-}
-
-.btn-custom {
-    background-color: #1A1D27;
-    color: #EDFCF5;
+.btn-outline-secondary {
+    min-width: 100px; 
 }

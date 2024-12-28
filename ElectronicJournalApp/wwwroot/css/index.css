@@ -1,0 +1,16 @@
+﻿.btn-edit {
+    background-color: #FFA500;
+}
+
+    .btn-edit:hover {
+        color: white;
+        background-color: #FF8C00;
+    }
+
+.btn-icon {
+    color: white;
+}
+
+.btn-info:hover {
+    color: white;
+}
